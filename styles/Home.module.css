@@ -1,129 +1,122 @@
-.container {
-  padding: 0 2rem;
-}
-
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
+.homeContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
-.footer {
+.headBox {
   display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  position: relative;
+  top: 40px;
+  padding: 0px 40px 0px 40px;
 }
 
-.footer a {
+.loginBox {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
+  position: absolute;
+  right: 47px;
 }
 
 .title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+  color: #242957;
+  font-size: 48px;
+  margin-top: 125px;
 }
 
-.title,
-.description {
-  text-align: center;
+.buttons {
+  width: fit-content;
+  height: 44px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  font-size: 20px;
+
 }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
+.buttons:hover {
+  cursor: pointer;
+}
+.loginButton {
+  border: 1px solid #384084;
+  color: #000;
+  margin-right: 20px;
+  background-color: #fff;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+.signupButton {
+  background-color: #384084;
+  border: 1px solid #fff;
+  color: white;
 }
 
-.grid {
+.voteBox {
+  margin-top: 82px;
   display: flex;
-  align-items: center;
+  width: 948px;
+  justify-content: space-between;
+}
+
+.voteButton {
+  width: 394px;
+  height: 406px;
+  display: flex;
+  border-radius: 20px;
+  border: 3px solid #384084;
+  background: #fff;
   justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
+  align-items: center;
+  font-size: 48px;
+  color: #242957;
+  font-weight: 600;
+  line-height: 166%;
+  margin-bottom: 32px;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+.voteButton:hover {
+  background-color: #384084;
+  color: #fff;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.resultButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 291px;
+  height: 82px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgba(56, 64, 132, 0.5);
+
+  color: #fffdfd;
+  font-size: 30px;
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+.resultButton:hover {
+  background-color: #384084;
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.partBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+.teamBox {
+  margin-top: 143px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-}
+.voteButton2 {
+  width: 291px;
+  height: 82px;
+  border-radius: 20px;
+  border: 3px solid #384084;
+  background: #384084;
+  margin-bottom: 42px;
 
-@media (prefers-color-scheme: dark) {
-  .card,
-  .footer {
-    border-color: #222;
-  }
-  .code {
-    background: #111;
-  }
-  .logo img {
-    filter: invert(1);
-  }
+  color: #fffdfd;
+  font-size: 30px;
 }
