@@ -15,7 +15,8 @@
     "next": "12.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-query": "^3.39.3"
+    "react-query": "^3.39.3",
+    "tailwindcss": "^3.4.3"
   },
   "devDependencies": {
     "@types/node": "20.14.2",

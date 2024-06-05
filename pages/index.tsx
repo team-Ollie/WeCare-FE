@@ -3,7 +3,7 @@ import HeadFunction from "@/components/HeadFunction";
 
 export default function Home() {
   return (
-    <div className={styles.homeContainer}>
+    <div>
       <HeadFunction title="Home" />
     </div>
   );
