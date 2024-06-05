@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import RootLayout from "../components/RootLayout";
+import RootLayout from "@/components/RootLayout";
 import {
   QueryClient,
   QueryClientProvider,

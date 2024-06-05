@@ -1,5 +1,5 @@
-import styles from "../styles/Home.module.css";
-import HeadFunction from "../components/HeadFunction";
+import styles from "@/styles/Home.module.css";
+import HeadFunction from "@/components/HeadFunction";
 
 export default function Home() {
   return (

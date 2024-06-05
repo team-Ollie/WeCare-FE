@@ -1,5 +1,6 @@
 import Head from "next/head";
-//Head Title 바꾸는 컴포넌트
+
+//Head Title
 export default function HeadFunction({ title }) {
   return (
     <Head>
