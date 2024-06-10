@@ -1,7 +1,7 @@
 "use client";
 
 import HomeIcon from "@/public/svgs/HomeIcon.svg";
-import CalenderIcon from "@/public/svgs/CalenderIcon.svg";
+import CalenderIcon from "@/public/svgs/CalendarIcon.svg";
 import MypageIcon from "@/public/svgs/MypageIcon.svg";
 
 import NavBarItem from "./Navbaritem";
@@ -29,9 +29,9 @@ const NavBar = () => {
         <HomeIcon />
       </NavBarItem>
       <NavBarItem
-        isActive={pathname === "/calender"}
+        isActive={pathname === "/calendar"}
         text="캘린더"
-        onClick={() => handleNavigate("/calender")}
+        onClick={() => handleNavigate("/calendar")}
         iconType="calendar"
       >
         <CalenderIcon />
