@@ -1,11 +1,8 @@
-"use client";
-
 import HomeIcon from "@/public/svgs/HomeIcon.svg";
 import CalenderIcon from "@/public/svgs/CalendarIcon.svg";
 import MypageIcon from "@/public/svgs/MypageIcon.svg";
-
-import NavBarItem from "./Navbaritem";
 import { useRouter } from "next/router";
+import NavBarItem from "./NavBarItem";
 
 const NavBar = () => {
   const router = useRouter();
