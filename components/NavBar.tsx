@@ -1,9 +1,11 @@
 "use client";
 
-// import { HomeIcon, CalendarIcon, MypageIcon } from "@/public/svgs/bottomTab";
+import HomeIcon from "@/public/svgs/HomeIcon.svg";
+import CalenderIcon from "@/public/svgs/CalenderIcon.svg";
+import MypageIcon from "@/public/svgs/MypageIcon.svg";
+
 import NavBarItem from "./Navbaritem";
 import { useRouter } from "next/router";
-import Image from "next/image";
 
 const NavBar = () => {
   const router = useRouter();
@@ -24,15 +26,15 @@ const NavBar = () => {
         onClick={() => handleNavigate("/")}
         iconType="home"
       >
-        {/* <HomeIcon /> */}
+        <HomeIcon />
       </NavBarItem>
       <NavBarItem
-        isActive={pathname === "/calendar"}
+        isActive={pathname === "/calender"}
         text="캘린더"
-        onClick={() => handleNavigate("/calendar")}
+        onClick={() => handleNavigate("/calender")}
         iconType="calendar"
       >
-        {/* <CalendarIcon /> */}
+        <CalenderIcon />
       </NavBarItem>
       <NavBarItem
         isActive={pathname === "/mypage"}
@@ -40,7 +42,7 @@ const NavBar = () => {
         onClick={() => handleNavigate("/mypage")}
         iconType="mypage"
       >
-        {/* <MypageIcon /> */}
+        <MypageIcon />
       </NavBarItem>
     </div>
   );
