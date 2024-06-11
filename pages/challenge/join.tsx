@@ -12,7 +12,7 @@ const JoinChallenge: NextPage = () => {
     <div className="w-full">
       <HeadFunction title={"챌린지 참여하기"} />
       <SearchBar value={keyword} setValue={setKeyword} />
-      <div className="h-0 border-2 w-full bg-gray-100" />
+      <Divider height={2} />
       <div className="w-full px-4">
         <SearchResult />
         <SearchResult />
