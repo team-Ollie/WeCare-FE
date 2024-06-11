@@ -1,16 +1,25 @@
 import HeadFunction from "@/components/HeadFunction";
 import { NextPage } from "next";
 import NavBar from "@/components/NavBar";
+import FlexBox from "@/components/Flexbox";
+
+import { Challenge } from "@/components/home/challenge";
+import { HomeCarousel } from "@/components/home/carousel";
+import { HomeChallenge } from "@/components/home/challengeBox";
+import { HomeHeader } from "@/components/home/header";
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <HeadFunction title="홈" />
-      <h1 className="text-main-color flex-grow">home</h1>
-      <div className="fixed inset-x-0 bottom-0">
+    <FlexBox direction="col" className="w-full h-full justify-between">
+      <div className="w-full px-4">
+        <HomeHeader />
+        <HomeChallenge />
+      </div>
+      <div>
+        <HomeCarousel />
         <NavBar />
       </div>
-    </div>
+    </FlexBox>
   );
 };
 
