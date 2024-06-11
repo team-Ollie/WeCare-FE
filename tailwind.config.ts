@@ -15,6 +15,9 @@ const config: Config = {
       spacing: {},
       colors: {
         "main-color": "#F06459",
+        main: {
+          100: "#FFE9E7",
+        },
         white: "#FFFFFF",
         grey: {
           100: "#F2F2F7",

@@ -1,15 +1,31 @@
-import Head from "next/head";
+import { useRouter } from "next/router";
+import FlexBox from "./Flexbox";
+import Image from "next/image";
 
-//Head Title
-export default function HeadFunction({ title }) {
+interface Props {
+  type?: "back" | "cancel";
+  title?: string;
+  onClickIcon?: () => void;
+}
+
+export default function HeadFunction({
+  type = "back",
+  title,
+  onClickIcon,
+}: Props) {
+  const router = useRouter();
   return (
-    <>
-      <Head>
-        <title>{title} | wecare</title>
-      </Head>
-      <div className="h-[4rem] w-full flex items-center justify-center">
-        <span className="text-xl">{title}</span>
+    <FlexBox className="w-full h-[60px] px-4">
+      <div
+        className="w-5 h-5 shrink-0 items-center align-center"
+        onClick={router.back}
+      >
+        <Image src="/svgs/LeftArrow.svg" width={20} height={20} />
       </div>
-    </>
+      <FlexBox className="w-full h-full justify-center">
+        <div className="h2">{title}</div>
+      </FlexBox>
+      <div className="w-5 shrink-0" />
+    </FlexBox>
   );
 }
