@@ -8,7 +8,7 @@ export const HomeCarousel: NextPage = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
   return (
-    <div className="w-full embla overflow-hidden" ref={emblaRef}>
+    <div className="w-full embla overflow-hidden rounded-lg " ref={emblaRef}>
       <FlexBox className="embla__container">
         <PopularChallenge />
         <PopularChallenge />
