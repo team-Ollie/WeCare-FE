@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#__next {
+  width: 100%;
+}
+.h0 {
+  font-family: "Pretendard";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+}
+.h1 {
+  font-family: "Pretendard";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+}
+.h2 {
+  font-family: "Pretendard";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+}
+.h3 {
+  font-family: "Pretendard";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+}
+.h4 {
+  font-family: "Pretendard";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+}
+.h5 {
+  font-family: "Pretendard";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+}

@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "public/fonts/font.css";
 import RootLayout from "@/components/Layout";
 import {
   QueryClient,
