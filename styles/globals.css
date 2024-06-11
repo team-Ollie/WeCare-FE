@@ -31,11 +31,17 @@
 }
 .h4 {
   font-family: "Pretendard";
-  font-size: 13px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 400;
 }
 .h5 {
+  font-family: "Pretendard";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+}
+.h6 {
   font-family: "Pretendard";
   font-size: 10px;
   font-style: normal;
