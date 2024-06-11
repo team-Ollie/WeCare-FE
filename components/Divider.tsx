@@ -3,5 +3,5 @@ interface DividerProps {
 }
 
 export default function Divider({ height }: DividerProps) {
-  return <div className={`w-full h-0 border-${height} bg-gray-100`} />;
+  return <div className={`w-full h-2 border-${8} bg-gray-100`} />;
 }

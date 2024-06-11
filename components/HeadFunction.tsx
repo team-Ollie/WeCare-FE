@@ -3,13 +3,13 @@ import FlexBox from "./Flexbox";
 import Image from "next/image";
 
 interface Props {
-  type?: "back" | "cancel";
+  leftIcon?: boolean;
   title?: string;
   onClickIcon?: () => void;
 }
 
 export default function HeadFunction({
-  type = "back",
+  leftIcon = true,
   title,
   onClickIcon,
 }: Props) {
@@ -20,7 +20,7 @@ export default function HeadFunction({
         className="w-5 h-5 shrink-0 items-center align-center"
         onClick={router.back}
       >
-        <Image src="/svgs/LeftArrow.svg" width={20} height={20} />
+        {leftIcon && <Image src="/svgs/LeftArrow.svg" width={20} height={20} />}
       </div>
       <FlexBox className="w-full h-full justify-center">
         <div className="h2">{title}</div>
