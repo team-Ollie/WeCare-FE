@@ -18,10 +18,6 @@
   justify-content: flex-start;
 }
 
-.react-calendar__navigation button:disabled {
-  background-color: #f06459;
-}
-
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
   background-color: white;

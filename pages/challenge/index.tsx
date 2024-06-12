@@ -8,9 +8,9 @@ const Challenge: NextPage = () => {
   return (
     <div className="flex flex-col w-full h-screen">
       <HeadFunction title="챌린지" />
-      <div className="flex-grow flex flex-col px-[2rem] py-[0.5rem] items-center overflow-auto">
+      <div className="flex-grow flex flex-col px-[1rem] py-[0.5rem] items-center overflow-auto mt-[1rem]">
         <div className="h-fit w-full flex flex-row justify-between items-end px-[1rem]">
-          <span className="h-[1.5rem] font-medium text-black text-[1.75rem] tracking-[-0.32px] leading-[21px]">
+          <span className="h-[1.5rem] font-medium text-black text-[1.5rem] tracking-[-0.32px] leading-[21px]">
             아크릴 유화 기초
           </span>
           <div className="text-black text-[15px] tracking-[0.38px] leading-[20.0px]">
@@ -20,7 +20,7 @@ const Challenge: NextPage = () => {
 
         <ChallengeCalendar />
 
-        <div className="w-full flex flex-col justify-center">
+        <div className="w-full flex flex-col justify-center px-[1rem]">
           <div className="w-[212px] font-medium text-[#3a3a3c] text-xl tracking-[0] leading-[normal] mt-[1rem]">
             챌린지 달성률
           </div>
