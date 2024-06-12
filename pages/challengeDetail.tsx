@@ -4,7 +4,7 @@ import NavBar from "@/components/NavBar";
 import BackIcon from "@/public/svgs/Back.svg";
 import { NextPage } from "next";
 
-const Challenge: NextPage = () => {
+const ChallengeDetail: NextPage = () => {
   return (
     <div className="flex flex-col w-full h-screen">
       <HeadFunction title="챌린지" />
@@ -52,4 +52,4 @@ const Challenge: NextPage = () => {
   );
 };
 
-export default Challenge;
+export default ChallengeDetail;
