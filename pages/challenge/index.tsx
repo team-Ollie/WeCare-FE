@@ -1,4 +1,4 @@
-import ChallengeCalendar from "@/components/ChallengeCalendar";
+import ChallengeCalendar from "@/components/challenge/ChallengeCalendar";
 import HeadFunction from "@/components/HeadFunction";
 import NavBar from "@/components/NavBar";
 import BackIcon from "@/public/svgs/Back.svg";

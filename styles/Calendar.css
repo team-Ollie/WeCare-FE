@@ -14,7 +14,7 @@
   font-size: 1.25rem;
   font-weight: 400;
   color: #f06459;
-  padding: 0 7rem;
+  padding: 0 4rem;
   justify-content: flex-start;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .react-calendar__navigation__label {
-  width: 3rem;
+  width: 4rem;
 }
 
 /* 월 달력 (내비게이션 제외) */
