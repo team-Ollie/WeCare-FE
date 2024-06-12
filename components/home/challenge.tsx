@@ -1,12 +1,17 @@
 import { NextPage } from "next";
 import FlexBox from "../Flexbox";
+import { useRouter } from "next/router";
 
 export const Challenge: NextPage = () => {
+  const router = useRouter();
+
   return (
     <FlexBox direction="col" className="p-4 w-full rounded-lg border gap-4">
       <FlexBox direction="col" className="w-full gap-1">
         <FlexBox className="w-full justify-between items-start">
-          <div className="h2">풍물패 두드림</div>
+          <div className="h2" onClick={() => router.push("/challenge")}>
+            풍물패 두드림
+          </div>
           <div className="h4 text-gray-500">12명 참여 중</div>
         </FlexBox>
         <div className="h4 self-start">서울시립도서관 4층 | 월 16시</div>
