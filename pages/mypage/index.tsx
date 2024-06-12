@@ -35,7 +35,7 @@ const MyPage: NextPage = () => {
     <div className="w-full">
       <HeadFunction title="마이페이지" leftIcon={false} />
       <Profile />
-      <Divider height={2} />
+      <Divider height={16} />
       <FlexBox direction="col" className="w-full gap-2">
         {infoList.map((info) => (
           <div
