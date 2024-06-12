@@ -3,6 +3,7 @@ import CalenderIcon from "@/public/svgs/CalendarIcon.svg";
 import MypageIcon from "@/public/svgs/MypageIcon.svg";
 import { useRouter } from "next/router";
 import NavBarItem from "./NavBarItem";
+import { useEffect } from "react";
 
 const NavBar = () => {
   const router = useRouter();
@@ -12,35 +13,41 @@ const NavBar = () => {
     router.push(path);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div
-      className="flex flex-basis h-[4rem] w-full flex-row justify-between items-center"
-      style={{ borderTop: "0.5px solid rgba(112, 115, 124, 0.16)" }}
-    >
-      <NavBarItem
-        isActive={pathname === "/"}
-        text="홈"
-        onClick={() => handleNavigate("/")}
-        iconType="home"
+    <div className="h-[4.5rem]">
+      <div
+        className="flex flex-basis h-[4rem] w-full flex-row justify-between items-center absolute inset-x-0 bottom-0 "
+        style={{ borderTop: "0.5px solid rgba(112, 115, 124, 0.16)" }}
       >
-        <HomeIcon />
-      </NavBarItem>
-      <NavBarItem
-        isActive={pathname === "/calendar"}
-        text="캘린더"
-        onClick={() => handleNavigate("/calendar")}
-        iconType="calendar"
-      >
-        <CalenderIcon />
-      </NavBarItem>
-      <NavBarItem
-        isActive={pathname === "/mypage"}
-        text="마이페이지"
-        onClick={() => handleNavigate("/mypage")}
-        iconType="mypage"
-      >
-        <MypageIcon />
-      </NavBarItem>
+        <NavBarItem
+          isActive={pathname === "/"}
+          text="홈"
+          onClick={() => handleNavigate("/")}
+          iconType="home"
+        >
+          <HomeIcon />
+        </NavBarItem>
+        <NavBarItem
+          isActive={pathname === "/calendar"}
+          text="캘린더"
+          onClick={() => handleNavigate("/calendar")}
+          iconType="calendar"
+        >
+          <CalenderIcon />
+        </NavBarItem>
+        <NavBarItem
+          isActive={pathname === "/mypage"}
+          text="마이페이지"
+          onClick={() => handleNavigate("/mypage")}
+          iconType="mypage"
+        >
+          <MypageIcon />
+        </NavBarItem>
+      </div>
     </div>
   );
 };

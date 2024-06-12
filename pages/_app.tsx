@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "@/styles/Calendar.css";
 import RootLayout from "@/components/Layout";
 import {
   QueryClient,

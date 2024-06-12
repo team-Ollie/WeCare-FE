@@ -4,10 +4,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      <body className="flex items-center justify-center w-full h-full">
-        {children}
-      </body>
+    <div className="flex items-center justify-center w-full h-full">
+      {children}
     </div>
   );
 }
