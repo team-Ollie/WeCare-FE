@@ -17,7 +17,6 @@ const CalendarPage: NextPage = () => {
         </div>
 
         <div className="flex mt-[3rem]">
-          {" "}
           <InfoCalendar />
         </div>
       </div>
