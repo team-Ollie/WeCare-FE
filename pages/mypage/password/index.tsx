@@ -4,7 +4,7 @@ import TextInput from "@/components/Input";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
 
-interface InputError {
+export interface InputError {
   status: boolean;
   text: string;
 }
