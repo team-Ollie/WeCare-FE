@@ -17,6 +17,7 @@ const config: Config = {
         "main-color": "#F06459",
         main: {
           100: "#FFE9E7",
+          300: "#FFC4BF",
         },
         white: "#FFFFFF",
         grey: {
