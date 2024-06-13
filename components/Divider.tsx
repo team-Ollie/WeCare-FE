@@ -3,5 +3,10 @@ interface DividerProps {
 }
 
 export default function Divider({ height }: DividerProps) {
-  return <div className={`w-full h-0 border-${height} bg-gray-100`} />;
+  return (
+    <div
+      className="border-t border-gray-100 bg-gray-100 w-full"
+      style={{ height: `${height}px` }}
+    />
+  );
 }
