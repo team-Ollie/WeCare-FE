@@ -18,7 +18,9 @@ const Challenge: NextPage = () => {
           </div>
         </div>
 
-        <ChallengeCalendar />
+        <div className="flex mt-[3rem]">
+          <ChallengeCalendar />
+        </div>
 
         <div className="w-full flex flex-col justify-center px-[1rem]">
           <div className="w-[212px] font-medium text-[#3a3a3c] text-xl tracking-[0] leading-[normal] mt-[1rem]">
