@@ -8,7 +8,7 @@ const Challenge: NextPage = () => {
   return (
     <div className="flex flex-col w-full h-screen">
       <HeadFunction title="챌린지" />
-      <div className="flex-grow flex flex-col px-[1rem] py-[0.5rem] items-center overflow-auto mt-[1rem]">
+      <div className="flex-grow flex flex-col px-[1rem] py-[0.5rem] items-center overflow-auto mt-[1rem] scrollbar-hide">
         <div className="h-fit w-full flex flex-row justify-between items-end px-[1rem]">
           <span className="h-[1.5rem] font-medium text-black text-[1.5rem] tracking-[-0.32px] leading-[21px]">
             아크릴 유화 기초

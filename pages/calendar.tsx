@@ -10,13 +10,13 @@ const CalendarPage: NextPage = () => {
   return (
     <div className="flex flex-col w-full h-screen">
       <HeadFunction title="캘린더" />
-      <div className="flex-grow flex flex-col py-[0.5rem] items-center overflow-auto">
+      <div className="flex-grow flex flex-col py-[1.5rem] items-center overflow-auto scrollbar-hide">
         <div className="h-fit w-full flex flex-row justify-start items-end px-[2rem] gap-3">
           <FilterBox filterName="카테고리" />
           <FilterBox filterName="지역" />
         </div>
 
-        <div className="flex mt-[3rem]">
+        <div className="flex mt-[0rem]">
           <InfoCalendar />
         </div>
       </div>

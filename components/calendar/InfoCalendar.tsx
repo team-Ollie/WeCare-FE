@@ -36,6 +36,7 @@ const StyledCalendarWrapper = styled.div`
     width: 100%;
     height: 100%;
     flex-grow: 1;
+    margin-top: 1.5rem;
   }
 
   /* 년도, 월 */
@@ -44,7 +45,7 @@ const StyledCalendarWrapper = styled.div`
     height: fit-content;
     font-size: 1.25rem;
     font-weight: 400;
-    color: black;
+    color: #f06459;
     padding: 0 4rem;
     justify-content: flex-start;
   }
@@ -70,6 +71,10 @@ const StyledCalendarWrapper = styled.div`
     font-size: 1.25rem;
   }
 
+  .react-calendar__month-view__days {
+    border: 0.5px rgba(244, 138, 130, 0.16) solid;
+  }
+
   .react-calendar__month-view__days__day--neighboringMonth,
   .react-calendar__month-view__days__day--weekend {
     color: #f06459;
@@ -80,6 +85,13 @@ const StyledCalendarWrapper = styled.div`
   abbr[title] {
     text-decoration: none;
     text-align: center;
+    width: 100%;
+    color: #8e8e93;
+    font-size: 0.8125rem;
+  }
+
+  abbr[area-label] {
+    text-align: start;
     width: 100%;
   }
 
@@ -101,12 +113,14 @@ const StyledCalendarWrapper = styled.div`
   .react-calendar__tile {
     text-align: center;
     width: 2.5rem;
-    height: 3.5rem;
+    height: 5.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.25rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 0.75rem;
+    border: 0.5px rgba(244, 138, 130, 0.16) solid;
+    padding: 0.25rem 0.5rem;
   }
   /*hover, focus, 선택됐을 시 */
   .react-calendar__tile:enabled:hover,
