@@ -48,6 +48,7 @@ const StyledCalendarWrapper = styled.div`
     justify-content: flex-start;
     width: 13.5rem;
     margin-left: 1.25rem;
+    font-family: "Pretendard";
   }
 
   .react-calendar__navigation button:enabled:hover,
@@ -68,6 +69,7 @@ const StyledCalendarWrapper = styled.div`
   .react-calendar__month-view {
     color: #f06459;
     font-size: 1rem;
+    font-family: "Pretendard";
   }
 
   .react-calendar__month-view__days__day--neighboringMonth {
@@ -77,12 +79,14 @@ const StyledCalendarWrapper = styled.div`
   .react-calendar__month-view__days__day--weekend {
     color: #f06459;
     font-size: 1rem;
+    font-family: "Pretendard";
   }
 
   /* weekend면서 neighboring일때는 #fac6c2 */
   .react-calendar__month-view__days__day--neighboringMonth.react-calendar__month-view__days__day--weekend {
     color: #fac6c2 !important;
     font-size: 1rem;
+    font-family: "Pretendard";
   }
 
   /* 요일 */
@@ -105,7 +109,7 @@ const StyledCalendarWrapper = styled.div`
     font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
-    padding: 1rem 0rem;
+    padding: 0.5rem 0rem;
     display: none;
   }
 
@@ -113,7 +117,7 @@ const StyledCalendarWrapper = styled.div`
   .react-calendar__tile {
     text-align: center;
     width: 2.5rem;
-    height: 3.5rem;
+    height: 3.75rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -134,6 +138,7 @@ const StyledCalendarWrapper = styled.div`
   .react-calendar__tile--now {
     background: #fff2f1;
     color: #f06459;
+    font-family: "Pretendard";
   }
 
   /*hover, focus 시 */
@@ -141,5 +146,9 @@ const StyledCalendarWrapper = styled.div`
   .react-calendar__tile--now:enabled:focus {
     background: #f06459;
     border-radius: 14px;
+  }
+
+  .react-calendar__year-view__months__month {
+    color: #ee7970;
   }
 `;

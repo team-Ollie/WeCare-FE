@@ -18,7 +18,7 @@ export default function InfoCalendar() {
         <Calendar
           onChange={onChangeToday}
           value={clickedDate}
-          locale="en"
+          locale="ko"
           next2Label={null}
           prev2Label={null}
           minDate={new Date(2024, 4, 1)}
