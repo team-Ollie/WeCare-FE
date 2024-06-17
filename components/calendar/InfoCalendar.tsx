@@ -76,8 +76,8 @@ const StyledCalendarWrapper = styled.div`
     border: 0.5px rgba(244, 138, 130, 0.16) solid;
   }
 
-  .react-calendar__month-view__days__day--neighboringMonth,
-  .react-calendar__month-view__days__day--weekend {
+  .react-calendar__month-view__days__day--neighboringMonth
+    .react-calendar__month-view__days__day--weekend {
     color: #f06459;
     font-size: 1.25rem;
   }
@@ -103,7 +103,6 @@ const StyledCalendarWrapper = styled.div`
   }
 
   .react-calendar__month-view__weekdays {
-    color: #f06459;
     font-size: 16px;
     font-weight: 500;
     text-decoration: none;
@@ -123,6 +122,7 @@ const StyledCalendarWrapper = styled.div`
     border: 0.5px rgba(244, 138, 130, 0.16) solid;
     padding: 0.25rem 0.5rem;
   }
+
   /*hover, focus, 선택됐을 시 */
   .react-calendar__tile:enabled:hover,
   .react-calendar__tile:enabled:focus,
