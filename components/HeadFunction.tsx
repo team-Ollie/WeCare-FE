@@ -4,13 +4,13 @@ import Image from "next/image";
 import Head from "next/head";
 
 interface Props {
-  type?: "back" | "cancel";
+  leftIcon?: boolean;
   title?: string;
   onClickIcon?: () => void;
 }
 
 export default function HeadFunction({
-  type = "back",
+  leftIcon = true,
   title,
   onClickIcon,
 }: Props) {
