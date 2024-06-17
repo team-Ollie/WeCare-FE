@@ -36,7 +36,8 @@ const StyledCalendarWrapper = styled.div`
     width: 100%;
     height: 100%;
     flex-grow: 1;
-    margin-top: 1.5rem;
+    margin: 1.5rem 0 0rem 0;
+    padding: 0;
   }
 
   /* 년도, 월 */
@@ -66,7 +67,7 @@ const StyledCalendarWrapper = styled.div`
 
   /* 월 달력 (내비게이션 제외) */
   .react-calendar__month-view {
-    padding: 1rem;
+    padding: 0rem;
     color: #f06459;
     font-size: 1.25rem;
   }
@@ -113,7 +114,7 @@ const StyledCalendarWrapper = styled.div`
   .react-calendar__tile {
     text-align: center;
     width: 2.5rem;
-    height: 5.5rem;
+    height: 6.6rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -128,7 +129,6 @@ const StyledCalendarWrapper = styled.div`
   .react-calendar__tile--active {
     background: #f06459;
     color: white;
-    border-radius: 14px;
   }
 
   /* 현재 날짜 */
@@ -141,6 +141,5 @@ const StyledCalendarWrapper = styled.div`
   .react-calendar__tile--now:enabled:hover,
   .react-calendar__tile--now:enabled:focus {
     background: #f06459;
-    border-radius: 14px;
   }
 `;
