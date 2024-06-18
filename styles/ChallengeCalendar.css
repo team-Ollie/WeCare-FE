@@ -3,7 +3,7 @@
   flex-direction: column;
   border: none;
   width: 100%;
-  height: 23rem;
+  height: 100%;
   margin: 3rem 0;
 }
 
@@ -16,10 +16,6 @@
   color: #f06459;
   padding: 0 4rem;
   justify-content: flex-start;
-}
-
-.react-calendar__navigation button:disabled {
-  background-color: #f06459;
 }
 
 .react-calendar__navigation button:enabled:hover,

@@ -1,7 +1,8 @@
 import "@/styles/globals.css";
 import "@/utils/toast.css";
 import "public/fonts/font.css";
-import "@/styles/Calendar.css";
+import "@/styles/ChallengeCalendar.css";
+// import "@/styles/Calendar.css";
 import RootLayout from "@/components/Layout";
 import {
   QueryClient,
