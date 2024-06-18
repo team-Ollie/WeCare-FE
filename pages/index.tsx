@@ -11,8 +11,8 @@ import Image from "next/image";
 import "react-toastify/dist/ReactToastify.css";
 
 const Home: NextPage = () => {
-  const notify = () => {
-    toast.success("챌린지가 성공적으로 인증되었습니다.", {
+  const notify = (msg: string) => {
+    toast.success(msg, {
       position: "bottom-center",
       icon: ({ theme, type }) => (
         <Image src="/svgs/Check.svg" width={24} height={24} />
@@ -22,7 +22,7 @@ const Home: NextPage = () => {
 
   return (
     <FlexBox direction="col" className="w-full h-full justify-between">
-      <HomeChallenge onSuccess={notify} />
+      <HomeChallenge onNotify={notify} />
       <NavBar />
       <ToastContainer
         hideProgressBar={true}

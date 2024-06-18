@@ -29,7 +29,7 @@ export default function SearchBar({ value, setValue }: SearchBarProps) {
           placeholder="프로그램 이름을 검색해보세요!"
         />
         <div onClick={onPressResetBtn}>
-          <Image src={"/svgs/Close.svg"} width={16} height={16} />
+          <Image src={"/svgs/Close_Circle.svg"} width={16} height={16} />
         </div>
       </FlexBox>
     </div>

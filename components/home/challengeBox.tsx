@@ -11,18 +11,13 @@ import ReactModal from "react-modal";
 import Image from "next/image";
 
 interface HomeChallengeProps {
-  onSuccess: () => void;
+  onNotify: (msg: string) => void;
 }
 
-const HomeChallenge: NextPage<HomeChallengeProps> = ({ onSuccess }) => {
+const HomeChallenge: NextPage<HomeChallengeProps> = ({ onNotify }) => {
   const router = useRouter();
   const [isAdmin] = useAtom(isAdminAtom);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const onClickCertifyBtn = () => {
-    setIsOpen(false);
-    onSuccess();
-  };
 
   return (
     <FlexBox direction="col" className="w-full items-start gap-2 p-4">
@@ -38,8 +33,12 @@ const HomeChallenge: NextPage<HomeChallengeProps> = ({ onSuccess }) => {
       >
         {isAdmin ? "새 프로그램 등록" : "참여 프로그램 추가"}
       </div>
-      <ReactModal isOpen={isOpen} style={modalStyle}>
-        <CertifyModal onClick={onClickCertifyBtn} />
+      <ReactModal
+        isOpen={isOpen}
+        style={modalStyle}
+        shouldCloseOnOverlayClick={true}
+      >
+        <CertifyModal setIsModalVisible={setIsOpen} notify={onNotify} />
       </ReactModal>
     </FlexBox>
   );
