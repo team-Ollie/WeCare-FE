@@ -20,7 +20,7 @@ const NavBar = () => {
   return (
     <div className="h-[4.5rem]">
       <div
-        className="flex flex-basis h-[4rem] w-full flex-row justify-between items-center absolute inset-x-0 bottom-0 "
+        className="flex flex-basis h-[4rem] w-full flex-row justify-between items-center fixed inset-x-0 bottom-0 bg-white"
         style={{ borderTop: "0.5px solid rgba(112, 115, 124, 0.16)" }}
       >
         <NavBarItem
