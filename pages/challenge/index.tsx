@@ -1,3 +1,4 @@
+import AwardBox from "@/components/challenge/AwardBox";
 import ChallengeCalendar from "@/components/challenge/ChallengeCalendar";
 import HeadFunction from "@/components/HeadFunction";
 import NavBar from "@/components/NavBar";
@@ -27,25 +28,8 @@ const Challenge: NextPage = () => {
             챌린지 달성률
           </div>
           <div className="flex flex-row justify-between w-[75%]">
-            <p className="font-normal text-transparent text-base tracking-[-0.32px] leading-10">
-              <span className="h2 text-main-color tracking-[-0.05px]">
-                전체 달성률
-                <br />
-              </span>
-              <span className="font-bold text-black text-[28px] tracking-[-0.09px]">
-                50%
-              </span>
-            </p>
-
-            <p className="font-normal text-transparent text-base tracking-[-0.32px] leading-10">
-              <span className="h2 text-main-color tracking-[-0.05px]">
-                개인 달성률
-                <br />
-              </span>
-              <span className="font-bold text-black text-[28px] tracking-[-0.09px]">
-                50%
-              </span>
-            </p>
+            <AwardBox text="전체 달성률" percent="50%" />
+            <AwardBox text="개인 달성률" percent="50%" />
           </div>
         </div>
       </div>
