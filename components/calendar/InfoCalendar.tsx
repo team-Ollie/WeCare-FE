@@ -1,6 +1,7 @@
 import Calendar from "react-calendar";
 import { useState } from "react";
 import styled from "styled-components";
+import moment from "moment";
 
 export default function InfoCalendar() {
   type DatePiece = Date | null;
@@ -22,6 +23,7 @@ export default function InfoCalendar() {
           next2Label={null}
           prev2Label={null}
           minDate={new Date(2024, 4, 1)}
+          formatDay={(locale, date) => moment(date).format("DD")}
         />
       </StyledCalendarWrapper>
     </div>

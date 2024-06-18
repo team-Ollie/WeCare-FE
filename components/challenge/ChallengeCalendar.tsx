@@ -1,6 +1,7 @@
 import Calendar from "react-calendar";
 import { useState } from "react";
 import styled from "styled-components";
+import LogoMark from "@/public/svgs/LogoMark.svg";
 
 export default function ChallengeCalendar() {
   type DatePiece = Date | null;
@@ -10,6 +11,22 @@ export default function ChallengeCalendar() {
 
   const onChangeToday = () => {
     setClickedDate(clickedDate);
+  };
+
+  const customTileContent = ({ date, view }) => {
+    // if (view === 'month' && DatesList.some(d => d.getTime() === date.getTime())) {
+
+    const customDate = new Date(2024, 5, 19);
+    if (view === "month" && date.getTime() === customDate.getTime()) {
+      return (
+        <div className="custom-tile-content">
+          <div className="custom-image">
+            <LogoMark width="2.75rem" height="2.75rem" alt="logo" />
+          </div>
+        </div>
+      );
+    }
+    return null;
   };
 
   return (
@@ -22,6 +39,7 @@ export default function ChallengeCalendar() {
           next2Label={null}
           prev2Label={null}
           minDate={new Date(2024, 4, 1)}
+          tileContent={customTileContent}
         />
       </StyledCalendarWrapper>
     </div>
@@ -36,6 +54,26 @@ const StyledCalendarWrapper = styled.div`
     width: 100%;
     height: 90%;
     margin: 0rem 0 3rem 0;
+  }
+
+  .custom-tile-content {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .custom-image {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
   }
 
   /* 년도, 월 */
@@ -70,6 +108,10 @@ const StyledCalendarWrapper = styled.div`
     color: #f06459;
     font-size: 1rem;
     font-family: "Pretendard";
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
   }
 
   .react-calendar__month-view__days__day--neighboringMonth {
