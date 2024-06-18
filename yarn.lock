@@ -2032,7 +2032,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:*, @types/react@npm:18.3.3":
+"@types/react@npm:*, @types/react@npm:18.3.3":
   version: 18.3.3
   resolution: "@types/react@npm:18.3.3"
   dependencies:
@@ -6759,6 +6759,8 @@ __metadata:
     "@tanstack/react-query": "npm:^5.40.1"
     "@types/node": "npm:20.14.2"
     "@types/react": "npm:18.3.3"
+    "@types/react-modal": "npm:^3"
+    "@types/styled-components": "npm:^5.1.34"
     autoprefixer: "npm:^10.4.19"
     axios: "npm:^1.6.2"
     embla-carousel-autoplay: "npm:^8.1.3"

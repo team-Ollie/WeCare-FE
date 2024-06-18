@@ -10,13 +10,18 @@ import { useState } from "react";
 import ReactModal from "react-modal";
 import Image from "next/image";
 
-export const HomeChallenge: NextPage = () => {
+interface HomeChallengeProps {
+  onSuccess: () => void;
+}
+
+const HomeChallenge: NextPage<HomeChallengeProps> = ({ onSuccess }) => {
   const router = useRouter();
   const [isAdmin] = useAtom(isAdminAtom);
   const [isOpen, setIsOpen] = useState<boolean>(true);
 
   const onClickCertifyBtn = () => {
     setIsOpen(false);
+    onSuccess();
   };
 
   return (
@@ -40,9 +45,11 @@ export const HomeChallenge: NextPage = () => {
   );
 };
 
+export default HomeChallenge;
+
 const modalStyle: ReactModal.Styles = {
   overlay: {
-    backgroundColor: " rgba(0, 0, 0, 0.4)",
+    backgroundColor: "rgba(0, 0, 0, 0.4)",
     width: "100%",
     height: "100vh",
     zIndex: 10,
