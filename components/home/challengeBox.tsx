@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import FlexBox from "../Flexbox";
-import { Challenge } from "./challenge";
+import Challenge from "./challenge";
 import { HomeCarousel } from "./carousel";
 import { useRouter } from "next/router";
 import { isAdminAtom } from "@/utils/atom";
@@ -17,7 +17,7 @@ interface HomeChallengeProps {
 const HomeChallenge: NextPage<HomeChallengeProps> = ({ onSuccess }) => {
   const router = useRouter();
   const [isAdmin] = useAtom(isAdminAtom);
-  const [isOpen, setIsOpen] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const onClickCertifyBtn = () => {
     setIsOpen(false);
@@ -30,8 +30,8 @@ const HomeChallenge: NextPage<HomeChallengeProps> = ({ onSuccess }) => {
         {isAdmin ? "우리 센터에서 진행 중인 챌린지" : "참여 중인 챌린지"}
       </div>
       <HomeCarousel />
-      <Challenge />
-      <Challenge />
+      <Challenge setIsModalVisible={setIsOpen} />
+      <Challenge setIsModalVisible={setIsOpen} />
       <div
         className="w-full text-center bg-main-100 rounded-lg py-2 h2 text-gray-700"
         onClick={() => router.push("/challenge/join")}
