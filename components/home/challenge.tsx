@@ -13,12 +13,12 @@ const Challenge: NextPage<ChallengeProps> = ({ setIsModalVisible }) => {
   const [isAdmin] = useAtom(isAdminAtom);
 
   return (
-    <FlexBox
-      direction="col"
-      className="p-4 w-full rounded-lg border gap-4"
-      onClick={isAdmin ? null : () => router.push("/challenge")}
-    >
-      <FlexBox direction="col" className="w-full gap-1">
+    <FlexBox direction="col" className="p-4 w-full rounded-lg border gap-4">
+      <FlexBox
+        direction="col"
+        className="w-full gap-1"
+        onClick={isAdmin ? null : () => router.push("/challenge")}
+      >
         <FlexBox className="w-full justify-between items-start">
           <div className="h2">풍물패 두드림</div>
           <div className="h4 text-gray-500">12명 참여 중</div>
@@ -26,7 +26,10 @@ const Challenge: NextPage<ChallengeProps> = ({ setIsModalVisible }) => {
         <div className="h4 self-start">서울시립도서관 4층 | 월 16시</div>
       </FlexBox>
       <FlexBox direction="col" className="w-full gap-1">
-        <FlexBox className="w-full items-start justify-between">
+        <FlexBox
+          className="w-full items-start justify-between"
+          onClick={isAdmin ? null : () => router.push("/challenge")}
+        >
           {!isAdmin && (
             <FlexBox className="gap-1">
               <div className="h5 text-gray-500">개인달성률</div>
