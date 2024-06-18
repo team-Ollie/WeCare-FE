@@ -6,18 +6,16 @@ export interface TextInputProps {
   isError: boolean;
   errorText?: string;
   placeholder?: string;
-  type?: HTMLInputTypeAttribute;
 }
 
-export default function TextInput({
+export default function TextArea({
   value,
   setValue,
   isError,
   placeholder = "",
   errorText,
-  type = "text",
 }: TextInputProps) {
-  const onChangeText = (e: ChangeEvent<HTMLInputElement>) => {
+  const onChangeText = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setValue(e.target.value);
   };
 
@@ -28,12 +26,12 @@ export default function TextInput({
           isError ? "border-red-500" : "border-transparent"
         } bg-gray-100 rounded-lg p-2`}
       >
-        <input
-          type={type}
+        <textarea
           className="w-full outline-none border-none bg-gray-100 h4"
           value={value}
           onChange={(event) => onChangeText(event)}
           placeholder={placeholder}
+          style={{ resize: "none" }}
         />
       </div>
       {isError && (
