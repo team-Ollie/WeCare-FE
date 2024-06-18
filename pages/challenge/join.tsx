@@ -13,7 +13,7 @@ const JoinChallenge: NextPage = () => {
   const [keyword, setKeyword] = useState<string>("");
 
   const notify = () => {
-    toast.success("(챌린지이름) 챌린지에 성공적으로 참여하셨습니다.", {
+    toast.success("(챌린지이름)에 성공적으로 참여하셨습니다.", {
       position: "bottom-center",
       icon: ({ theme, type }) => (
         <Image src="/svgs/Check.svg" width={24} height={24} />

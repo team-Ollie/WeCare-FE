@@ -1,4 +1,3 @@
-// export const isLogin = atom({
-//   key: "isLogin",
-//   default: false,
-// });
+import { atom } from "jotai";
+
+export const isAdminAtom = atom<boolean>(false);
