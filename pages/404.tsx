@@ -19,15 +19,15 @@ const ErrorPage: NextPage = () => {
     });
   });
   return (
-    <FlexBox direction="col" className="w-full pt-[30%]">
+    <FlexBox direction="col" className="w-full h-full justify-center">
       <div className="w-1/5 aspect-square" ref={lottieRef} />
-      <div className="h4 text-center mb-[20%]">
+      <div className="h4 text-center mb-12">
         오류가 발생했습니다. 다시 시도해주세요.
       </div>
       <div className="w-full px-6">
         <Button
           text="홈으로"
-          style="bg-main-300 text-gray-900"
+          style="bg-main-100 text-gray-900"
           onClick={() => router.push("/")}
         />
       </div>
