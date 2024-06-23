@@ -2,6 +2,7 @@
   "name": "wecare-fe",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://team-ollie.github.io/WeCare-FE/home",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
