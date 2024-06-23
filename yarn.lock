@@ -1619,6 +1619,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@netlify/plugin-nextjs@npm:^5.3.3":
+  version: 5.3.3
+  resolution: "@netlify/plugin-nextjs@npm:5.3.3"
+  checksum: 10c0/f2da9ab636289c6db172bb0cbc1adbd9ee982f6b5e8927b0c019deec7b7896a0c0248a07bc3041d13c0f780850c8705404dc96ebd33c5090e0293d865fa29d01
+  languageName: node
+  linkType: hard
+
 "@next/env@npm:12.3.4":
   version: 12.3.4
   resolution: "@next/env@npm:12.3.4"
@@ -6754,6 +6761,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wecare-fe@workspace:."
   dependencies:
+    "@netlify/plugin-nextjs": "npm:^5.3.3"
     "@svgr/webpack": "npm:^8.1.0"
     "@tanstack/eslint-plugin-query": "npm:^5.35.6"
     "@tanstack/react-query": "npm:^5.40.1"
