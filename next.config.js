@@ -1,10 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-const prefix =
-  process.env.NODE_ENV === "production"
-    ? "https://team-ollie.github.io/WeCare-FE"
-    : "";
-
 const nextConfig = {
   images: {
     domains: ["image.tmdb.org"],
@@ -22,8 +17,9 @@ const nextConfig = {
   },
   output: "export",
   distDir: "dist",
-  basePath: prefix,
-  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
 };
 
 module.exports = nextConfig;
