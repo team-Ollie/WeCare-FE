@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   images: {
-    domains: ["image.tmdb.org"],
+    unoptimized: true,
   },
   webpack: (config) => {
     config.module.rules.push({
@@ -14,12 +15,7 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  output: "export",
 };
 
 module.exports = nextConfig;
