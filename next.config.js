@@ -2,7 +2,10 @@
 
 const nextConfig = {
   images: {
-    domains: ["image.tmdb.org"],
+    domains: ["https://team-ollie.github.io/WeCare-FE/"],
+    loader: "default",
+    path: "/",
+    unoptimized: true,
   },
   webpack: (config) => {
     config.module.rules.push({
@@ -16,9 +19,6 @@ const nextConfig = {
     styledComponents: true,
   },
   output: "export",
-  images: {
-    unoptimized: true,
-  },
 };
 
 module.exports = nextConfig;
