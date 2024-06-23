@@ -14,12 +14,8 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  output: "export",
+  distDir: "dist",
 };
 
 module.exports = nextConfig;
