@@ -16,7 +16,6 @@ const nextConfig = {
     styledComponents: true,
   },
   output: "export",
-  distDir: "dist",
   images: {
     unoptimized: true,
   },
