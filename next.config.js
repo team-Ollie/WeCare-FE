@@ -2,9 +2,6 @@
 
 const nextConfig = {
   images: {
-    domains: ["https://team-ollie.github.io/WeCare-FE/"],
-    loader: "default",
-    path: "/public/",
     unoptimized: true,
   },
   webpack: (config) => {
