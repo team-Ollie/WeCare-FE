@@ -1,5 +1,5 @@
 import { useQuery, useMutation } from "@tanstack/react-query";
-import { getMyInfo, patchLogout } from "../mypage";
+import { getMyInfo, patchLogout, patchPasswordChange } from "../mypage";
 import { useRouter } from "next/router";
 
 function useGetMyInfo() {
@@ -22,4 +22,17 @@ function usePatchLogout() {
   return { mutate };
 }
 
-export { useGetMyInfo, usePatchLogout };
+function usePatchPasswordChange() {
+  const router = useRouter();
+  const { mutate } = useMutation({
+    mutationKey: ["patchPasswordChange"],
+    mutationFn: (body: { password: string; newPassword: string }) =>
+      patchPasswordChange(body),
+    onSuccess: () => router.push("/mypage/password/success"),
+    onError: () => router.push("/404"),
+  });
+
+  return { mutate };
+}
+
+export { useGetMyInfo, usePatchLogout, usePatchPasswordChange };

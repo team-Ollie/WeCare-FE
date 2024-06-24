@@ -9,7 +9,7 @@ interface GetMyInfoResponse extends ResponseBody {
   };
 }
 
-interface PatchLogoutResponse {
+interface PatchResponse {
   isSuccess: boolean;
   message: string;
 }
@@ -19,9 +19,17 @@ async function getMyInfo(): Promise<GetMyInfoResponse> {
   return data;
 }
 
-async function patchLogout(): Promise<PatchLogoutResponse> {
+async function patchLogout(): Promise<PatchResponse> {
   const { data } = await client.patch(`/users/logout`);
   return data;
 }
 
-export { getMyInfo, patchLogout };
+async function patchPasswordChange(body: {
+  password: string;
+  newPassword: string;
+}): Promise<PatchResponse> {
+  const { data } = await client.patch(`/users/editPassword`, body);
+  return data;
+}
+
+export { getMyInfo, patchLogout, patchPasswordChange };
