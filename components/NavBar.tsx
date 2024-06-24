@@ -18,11 +18,14 @@ const NavBar = () => {
   }, []);
 
   return (
-    <div className="h-[4.5rem]">
-      <div
-        className="flex flex-basis h-[4rem] w-full flex-row justify-between items-center fixed inset-x-0 bottom-0 bg-white"
-        style={{ borderTop: "0.5px solid rgba(112, 115, 124, 0.16)" }}
-      >
+    <div
+      className="flex flex-basis h-[4rem] w-full absolute inset-x-0 bottom-0 "
+      style={{
+        borderTop: "0.5px solid rgba(112, 115, 124, 0.16)",
+        backgroundColor: "#ffffff",
+      }}
+    >
+      <div className="flex flex-basis h-full w-full flex-row justify-between items-center ">
         <NavBarItem
           isActive={pathname === "/"}
           text="홈"
