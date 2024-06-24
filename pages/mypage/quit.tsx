@@ -1,7 +1,7 @@
 import HeadFunction from "@/components/HeadFunction";
 import TextInput from "@/components/Input";
 import { NextPage } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { InputError } from "./password";
 import Button from "@/components/Button";
 import FlexBox from "@/components/Flexbox";
@@ -11,7 +11,7 @@ const QuitAccount: NextPage = () => {
   const [password, setPassword] = useState<string>("");
   const [pwError, setPwError] = useState<InputError>({
     status: false,
-    text: "비밀번호가 일치하지 않습니다.",
+    text: "",
   });
 
   const { mutate } = usePatchQuitAccount(setPwError);
@@ -19,6 +19,14 @@ const QuitAccount: NextPage = () => {
   const onClickQuitBtn = () => {
     mutate(password);
   };
+
+  useEffect(() => {
+    password.length === 0 &&
+      setPwError({
+        status: false,
+        text: "",
+      });
+  }, [password]);
 
   return (
     <div>
