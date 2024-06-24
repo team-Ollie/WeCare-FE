@@ -47,7 +47,7 @@ const SignUp: NextPage = () => {
 
   return (
     <div className="flex flex-col w-full h-screen items-center">
-      <HeadFunction title="로그인" />
+      <HeadFunction title="회원가입" />
       <form
         onSubmit={onSubmit}
         className="h-screen justify-center flex flex-col gap-9"

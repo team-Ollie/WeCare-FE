@@ -9,8 +9,8 @@ import { ResponseBody, setTokenFromLocalStorage } from "@/apis/client";
 import { Signin } from "@/apis/auth";
 
 interface userProps {
-  loginId: String;
-  password: String;
+  loginId: string;
+  password: string;
 }
 
 const Login: NextPage = () => {
@@ -35,17 +35,10 @@ const Login: NextPage = () => {
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
-      //입력한 값이 없을 때 alert 추가
-      if (userInfo.loginId.trim() == "") {
-        alert("아이디를 입력해주세요.");
-      } else if (userInfo.password.trim() == "") {
-        alert("비밀번호를 입력해주세요.");
-      } else {
-        signInMutation.mutate({
-          loginId: userInfo.loginId,
-          password: userInfo.password,
-        });
-      }
+      signInMutation.mutate({
+        loginId: userInfo.loginId,
+        password: userInfo.password,
+      });
     },
     [userInfo],
   );
@@ -81,6 +74,7 @@ const Login: NextPage = () => {
             ref={idInputRef}
             value={userInfo.loginId}
             onChange={onChange}
+            required
             className="h-[3rem] w-[19.5rem] rounded-xl border border-solid border-semantic-grey-2 pl-[1rem]"
           />
 
@@ -90,6 +84,7 @@ const Login: NextPage = () => {
             ref={pwInputRef}
             value={userInfo.password}
             onChange={onChange}
+            required
             className="h-[3rem] w-[19.5rem] rounded-xl border border-solid border-semantic-grey-2 pl-[1rem]"
           />
         </div>
