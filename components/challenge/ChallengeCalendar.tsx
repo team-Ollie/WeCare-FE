@@ -21,7 +21,7 @@ export default function ChallengeCalendar() {
       return (
         <div className="custom-tile-content">
           <div className="custom-image">
-            <LogoMark width="2.75rem" height="2.75rem" alt="logo" />
+            <LogoMark width="2.75rem" height="2.75rem" />
           </div>
         </div>
       );

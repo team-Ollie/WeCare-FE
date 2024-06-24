@@ -32,7 +32,6 @@ const Login: NextPage = () => {
       if (idValue.trim() == "") {
         alert("아이디를 입력해주세요.");
       } else if (pwValue.trim() == "") {
-        // createChatting(inputValue);
         alert("비밀번호를 입력해주세요.");
       } else {
         //api
