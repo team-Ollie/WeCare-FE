@@ -9,6 +9,7 @@ import CertifyModal from "./certifyModal";
 import { useState } from "react";
 import ReactModal from "react-modal";
 import Image from "next/image";
+import { useGetMyChallengeList } from "@/apis/hooks/challenge";
 
 interface HomeChallengeProps {
   onNotify: (msg: string) => void;
@@ -18,6 +19,8 @@ const HomeChallenge: NextPage<HomeChallengeProps> = ({ onNotify }) => {
   const router = useRouter();
   const [isAdmin] = useAtom(isAdminAtom);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const { data: challengeInfo } = useGetMyChallengeList();
 
   return (
     <FlexBox direction="col" className="w-full items-start gap-2 p-4">
@@ -31,8 +34,9 @@ const HomeChallenge: NextPage<HomeChallengeProps> = ({ onNotify }) => {
       >
         {isAdmin ? "새 프로그램 등록" : "참여 프로그램 추가"}
       </div>
-      <Challenge setIsModalVisible={setIsOpen} />
-      <Challenge setIsModalVisible={setIsOpen} />
+      {challengeInfo.result.map((info) => (
+        <Challenge setIsModalVisible={setIsOpen} challengeInfo={info} />
+      ))}
       <ReactModal
         isOpen={isOpen}
         style={modalStyle}
