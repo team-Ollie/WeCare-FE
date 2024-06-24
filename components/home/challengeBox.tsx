@@ -25,14 +25,14 @@ const HomeChallenge: NextPage<HomeChallengeProps> = ({ onNotify }) => {
         {isAdmin ? "우리 센터에서 진행 중인 챌린지" : "참여 중인 챌린지"}
       </div>
       <HomeCarousel />
-      <Challenge setIsModalVisible={setIsOpen} />
-      <Challenge setIsModalVisible={setIsOpen} />
       <div
         className="w-full text-center bg-main-100 rounded-lg py-2 h2 text-gray-700"
         onClick={() => router.push("/challenge/join")}
       >
         {isAdmin ? "새 프로그램 등록" : "참여 프로그램 추가"}
       </div>
+      <Challenge setIsModalVisible={setIsOpen} />
+      <Challenge setIsModalVisible={setIsOpen} />
       <ReactModal
         isOpen={isOpen}
         style={modalStyle}
