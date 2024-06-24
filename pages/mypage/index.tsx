@@ -1,4 +1,4 @@
-import { useGetMyInfo } from "@/apis/hooks/mypage";
+import { useGetMyInfo, usePatchLogout } from "@/apis/hooks/mypage";
 import Divider from "@/components/Divider";
 import FlexBox from "@/components/Flexbox";
 import HeadFunction from "@/components/HeadFunction";
@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 const MyPage: NextPage = () => {
   const router = useRouter();
   const { data } = useGetMyInfo();
+  const { mutate } = usePatchLogout();
 
   const notify = () => {
     toast.info("이미 관리자 인증을 완료하셨습니다.", {
@@ -22,6 +23,12 @@ const MyPage: NextPage = () => {
   const certifyAdmin = () => {
     if (data.result.isAdmin) notify();
     else router.push("/mypage/admin");
+  };
+
+  const logout = () => {
+    mutate();
+    localStorage.removeItem("access_token");
+    router.push("/main");
   };
 
   return (
@@ -51,7 +58,9 @@ const MyPage: NextPage = () => {
         >
           서비스 이용약관
         </div>
-        <div className="w-full py-4 px-6">로그아웃</div>
+        <div className="w-full py-4 px-6" onClick={logout}>
+          로그아웃
+        </div>
       </FlexBox>
       <NavBar />
       <ToastContainer

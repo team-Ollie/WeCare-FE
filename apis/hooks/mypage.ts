@@ -1,5 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
-import { getMyInfo } from "../mypage";
+import { useQuery, useMutation } from "@tanstack/react-query";
+import { getMyInfo, patchLogout } from "../mypage";
+import { useRouter } from "next/router";
 
 function useGetMyInfo() {
   const { data } = useQuery({
@@ -10,4 +11,15 @@ function useGetMyInfo() {
   return { data };
 }
 
-export { useGetMyInfo };
+function usePatchLogout() {
+  const router = useRouter();
+  const { mutate } = useMutation({
+    mutationKey: ["patchLogout"],
+    mutationFn: patchLogout,
+    onSuccess: () => router.push("/main"),
+  });
+
+  return { mutate };
+}
+
+export { useGetMyInfo, usePatchLogout };

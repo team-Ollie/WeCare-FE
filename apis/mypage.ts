@@ -9,9 +9,19 @@ interface GetMyInfoResponse extends ResponseBody {
   };
 }
 
+interface PatchLogoutResponse {
+  isSuccess: boolean;
+  message: string;
+}
+
 async function getMyInfo(): Promise<GetMyInfoResponse> {
   const { data } = await client.get(`/users/myPage`);
   return data;
 }
 
-export { getMyInfo };
+async function patchLogout(): Promise<PatchLogoutResponse> {
+  const { data } = await client.patch(`/users/logout`);
+  return data;
+}
+
+export { getMyInfo, patchLogout };
