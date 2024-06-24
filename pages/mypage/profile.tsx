@@ -1,3 +1,4 @@
+import { useGetMyInfo } from "@/apis/hooks/mypage";
 import Divider from "@/components/Divider";
 import FlexBox from "@/components/Flexbox";
 import HeadFunction from "@/components/HeadFunction";
@@ -6,6 +7,8 @@ import { useRouter } from "next/router";
 
 const Profile: NextPage = () => {
   const router = useRouter();
+  const { data } = useGetMyInfo();
+
   const navigateToPasswordChange = () => {
     router.push("/mypage/password");
   };
@@ -18,11 +21,11 @@ const Profile: NextPage = () => {
       </FlexBox>
       <FlexBox className="w-full px-6 py-4 justify-between">
         <div className="h4">닉네임</div>
-        <div className="h4 text-gray-700">위케어 매니저</div>
+        <div className="h4 text-gray-700">{data?.result.nickname}</div>
       </FlexBox>
       <FlexBox className="w-full px-6 py-4 justify-between">
-        <div className="h4">이메일 주소</div>
-        <div className="h4 text-gray-700">email@wecare.com</div>
+        <div className="h4">아이디</div>
+        <div className="h4 text-gray-700">{data?.result.loginId}</div>
       </FlexBox>
       <Divider height={8} />
       <FlexBox direction="col" className="w-full items-end gap-2 px-6">
@@ -30,9 +33,8 @@ const Profile: NextPage = () => {
           className="underline h5 text-gray-500 pt-4 pb-2"
           onClick={navigateToPasswordChange}
         >
-          로그아웃
+          비밀번호 수정
         </div>
-        <div className="underline h5 text-gray-500 py-2">비밀번호 수정</div>
         <div className="underline h5 text-gray-500 py-2">회원 탈퇴하기</div>
       </FlexBox>
     </FlexBox>
