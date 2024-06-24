@@ -1,6 +1,6 @@
 import client from "./client";
 
-export const Signin = async (userData: {
+export const SignIn = async (userData: {
   loginId: string;
   password: string;
 }) => {
@@ -14,7 +14,6 @@ export const Signin = async (userData: {
       {
         headers: {
           "Content-Type": "application/json",
-          "no-auth": "true",
         },
       },
     );

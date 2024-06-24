@@ -6,7 +6,7 @@ import Button from "@/components/Button";
 import LogoLetterIcon from "@/public/svgs/LogoLetter.svg";
 import { useMutation } from "@tanstack/react-query";
 import { ResponseBody, setTokenFromLocalStorage } from "@/apis/client";
-import { Signin } from "@/apis/auth";
+import { SignIn } from "@/apis/auth";
 
 interface userProps {
   loginId: string;
@@ -44,13 +44,13 @@ const Login: NextPage = () => {
   );
 
   const signInMutation = useMutation({
-    mutationFn: Signin,
+    mutationFn: SignIn,
     onSuccess: async (data) => {
       console.log(data);
       const accessToken = data.result.accessToken;
       const refreshToken = data.result.refreshToken;
       console.log("accessToken:", accessToken);
-      setTokenFromLocalStorage(accessToken);
+      // setTokenFromLocalStorage(accessToken);
       router.push("/");
       alert("로그인에 성공하였습니다");
     },
