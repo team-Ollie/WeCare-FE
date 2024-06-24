@@ -14,6 +14,14 @@ interface PatchResponse {
   message: string;
 }
 
+interface QuitAccountResponseBody {
+  timestamp: string;
+  status: number;
+  error: string;
+  code: string;
+  message: string;
+}
+
 async function getMyInfo(): Promise<GetMyInfoResponse> {
   const { data } = await client.get(`/users/myPage`);
   return data;
@@ -21,6 +29,13 @@ async function getMyInfo(): Promise<GetMyInfoResponse> {
 
 async function patchLogout(): Promise<PatchResponse> {
   const { data } = await client.patch(`/users/logout`);
+  return data;
+}
+
+async function patchQuitAccount(
+  password: string,
+): Promise<QuitAccountResponseBody> {
+  const { data } = await client.patch(`/users/signout`, { password });
   return data;
 }
 
@@ -32,4 +47,4 @@ async function patchPasswordChange(body: {
   return data;
 }
 
-export { getMyInfo, patchLogout, patchPasswordChange };
+export { getMyInfo, patchLogout, patchQuitAccount, patchPasswordChange };

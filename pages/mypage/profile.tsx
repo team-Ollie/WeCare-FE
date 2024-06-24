@@ -9,10 +9,6 @@ const Profile: NextPage = () => {
   const router = useRouter();
   const { data } = useGetMyInfo();
 
-  const navigateToPasswordChange = () => {
-    router.push("/mypage/password");
-  };
-
   return (
     <FlexBox direction="col">
       <HeadFunction title="계정 정보" />
@@ -31,11 +27,16 @@ const Profile: NextPage = () => {
       <FlexBox direction="col" className="w-full items-end gap-2 px-6">
         <div
           className="underline h5 text-gray-500 pt-4 pb-2"
-          onClick={navigateToPasswordChange}
+          onClick={() => router.push("/mypage/password")}
         >
-          비밀번호 수정
+          비밀번호 변경
         </div>
-        <div className="underline h5 text-gray-500 py-2">회원 탈퇴하기</div>
+        <div
+          className="underline h5 text-gray-500 py-2"
+          onClick={() => router.push("/mypage/quit")}
+        >
+          회원 탈퇴하기
+        </div>
       </FlexBox>
     </FlexBox>
   );
