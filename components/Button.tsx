@@ -2,15 +2,22 @@ interface ButtonProps {
   style?: string;
   text: string;
   onClick: () => void;
+  disabled?: boolean;
 }
 
-export default function Button({ style, text, onClick }: ButtonProps) {
+export default function Button({
+  style,
+  text,
+  onClick,
+  disabled,
+}: ButtonProps) {
   return (
-    <div
+    <button
       className={`${style} w-full rounded-lg text-center p-2 h4`}
       onClick={onClick}
+      disabled={disabled}
     >
       {text}
-    </div>
+    </button>
   );
 }

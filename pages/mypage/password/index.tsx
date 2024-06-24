@@ -2,14 +2,17 @@ import FlexBox from "@/components/Flexbox";
 import HeadFunction from "@/components/HeadFunction";
 import TextInput from "@/components/Input";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-interface InputError {
+export interface InputError {
   status: boolean;
   text: string;
 }
 
 const Password: NextPage = () => {
+  const router = useRouter();
+
   const [password, setPassword] = useState<string>("");
   const [newPw, setNewPw] = useState<string>("");
   const [newPw2, setNewPw2] = useState<string>("");
@@ -117,7 +120,8 @@ const Password: NextPage = () => {
             isBtnDisabled
               ? "bg-gray-300 text-gray-500"
               : "bg-main-color text-white"
-          } h4 text-center py-2`}
+          } h3 text-center py-2`}
+          onClick={() => router.push("/mypage/password/success")}
         >
           새 비밀번호 저장
         </button>
