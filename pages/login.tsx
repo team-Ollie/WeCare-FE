@@ -50,7 +50,7 @@ const Login: NextPage = () => {
       const accessToken = data.result.accessToken;
       const refreshToken = data.result.refreshToken;
       console.log("accessToken:", accessToken);
-      // setTokenFromLocalStorage(accessToken);
+      setTokenFromLocalStorage(accessToken);
       router.push("/");
       alert("로그인에 성공하였습니다");
     },
