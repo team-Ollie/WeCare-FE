@@ -6,7 +6,7 @@ interface ResponseBody {
   message: string;
 }
 
-const setTokenFromLocalStorage = (access_token: string) => {
+export const setTokenFromLocalStorage = (access_token: string) => {
   localStorage.setItem("access_token", access_token);
 };
 
