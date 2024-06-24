@@ -27,8 +27,6 @@ const MyPage: NextPage = () => {
 
   const logout = () => {
     mutate();
-    localStorage.removeItem("access_token");
-    router.push("/main");
   };
 
   return (

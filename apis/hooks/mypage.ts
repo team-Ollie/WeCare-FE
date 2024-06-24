@@ -16,6 +16,15 @@ function usePatchLogout() {
   const { mutate } = useMutation({
     mutationKey: ["patchLogout"],
     mutationFn: patchLogout,
+    onSuccess: () => {
+      localStorage.removeItem("access_token");
+      router.push("/main");
+    },
+    onError: () => router.push("/404"),
+  });
+
+  return { mutate };
+}
     onSuccess: () => router.push("/main"),
   });
 
