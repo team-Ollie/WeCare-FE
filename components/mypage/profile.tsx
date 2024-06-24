@@ -1,6 +1,7 @@
 import Image from "next/image";
 import FlexBox from "../Flexbox";
 import { useRouter } from "next/router";
+import RightArrowIcon from "@/public/svgs/RightArrow.svg";
 
 interface ProfileProps {
   nickname: string;
@@ -19,7 +20,7 @@ export default function Profile({ nickname, level }: ProfileProps) {
         <div className="h2">{nickname}</div>
         <Image src={"/svgs/badges/3.svg"} width={24} height={24} />
       </FlexBox>
-      <Image src={"/svgs/RightArrow.svg"} width={20} height={20} />
+      <RightArrowIcon width={20} height={20} />
     </FlexBox>
   );
 }
