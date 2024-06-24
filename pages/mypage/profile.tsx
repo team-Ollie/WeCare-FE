@@ -30,8 +30,9 @@ const Profile: NextPage = () => {
           className="underline h5 text-gray-500 pt-4 pb-2"
           onClick={navigateToPasswordChange}
         >
-          비밀번호 수정
+          로그아웃
         </div>
+        <div className="underline h5 text-gray-500 py-2">비밀번호 수정</div>
         <div className="underline h5 text-gray-500 py-2">회원 탈퇴하기</div>
       </FlexBox>
     </FlexBox>
