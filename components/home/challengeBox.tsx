@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import FlexBox from "../Flexbox";
 import Challenge from "./challenge";
-import { HomeCarousel } from "./carousel";
+import HomeCarousel from "./carousel";
 import { useRouter } from "next/router";
 import { isAdminAtom } from "@/utils/atom";
 import { useAtom } from "jotai";
@@ -34,8 +34,12 @@ const HomeChallenge: NextPage<HomeChallengeProps> = ({ onNotify }) => {
       >
         {isAdmin ? "새 프로그램 등록" : "참여 프로그램 추가"}
       </div>
-      {challengeInfo.result.map((info) => (
-        <Challenge setIsModalVisible={setIsOpen} challengeInfo={info} />
+      {challengeInfo?.result.map((info) => (
+        <Challenge
+          setIsModalVisible={setIsOpen}
+          challengeInfo={info}
+          key={info.challengeIdx}
+        />
       ))}
       <ReactModal
         isOpen={isOpen}
