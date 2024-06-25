@@ -13,9 +13,22 @@ export interface Challenge {
   attendanceRate: number;
   totalAttendanceRate: number;
 }
+interface GetChallengeAdsResponse extends ResponseBody2 {
+  result: {
+    mostParticipatedChallenge: Challenge;
+    mostAttendancedChallenge: Challenge;
+    mostRecentlyStartedChallenge: Challenge;
+  };
+}
+
 async function getMyChallengeList(): Promise<GetMyChallengeListResponse> {
   const { data } = await client.get(`/challenges`);
   return data;
 }
 
-export { getMyChallengeList };
+async function getChallengeAds(): Promise<GetChallengeAdsResponse> {
+  const { data } = await client.get(`/challenges/ads`);
+  return data;
+}
+
+export { getMyChallengeList, getChallengeAds };

@@ -1,4 +1,4 @@
-import { getMyChallengeList } from "../challenge";
+import { getChallengeAds, getMyChallengeList } from "../challenge";
 import { useQuery } from "@tanstack/react-query";
 
 function useGetMyChallengeList() {
@@ -10,4 +10,13 @@ function useGetMyChallengeList() {
   return { data };
 }
 
-export { useGetMyChallengeList };
+function useGetChallengeAds() {
+  const { data } = useQuery({
+    queryKey: ["getChallengeAds"],
+    queryFn: getChallengeAds,
+  });
+
+  return { data };
+}
+
+export { useGetMyChallengeList, useGetChallengeAds };
