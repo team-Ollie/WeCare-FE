@@ -1,5 +1,10 @@
-import { getChallengeAds, getMyChallengeList } from "../challenge";
-import { useQuery } from "@tanstack/react-query";
+import {
+  getChallengeAds,
+  getChallengeSearch,
+  getMyChallengeList,
+  postNewChallenge,
+} from "../challenge";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 function useGetMyChallengeList() {
   const { data } = useQuery({
@@ -19,4 +24,33 @@ function useGetChallengeAds() {
   return { data };
 }
 
-export { useGetMyChallengeList, useGetChallengeAds };
+function useGetChallengeSearch(keyword: string) {
+  const { data } = useQuery({
+    queryKey: ["getChallengeSearch", keyword],
+    queryFn: () => getChallengeSearch(keyword),
+    enabled: keyword.trim().length !== 0,
+  });
+
+  return { data };
+}
+
+function usePostNewChallenge(
+  challengeIdx: number,
+  challengeName: string,
+  notify: (title: string) => void,
+) {
+  const { mutate } = useMutation({
+    mutationKey: ["postNewChallenge", challengeIdx],
+    mutationFn: () => postNewChallenge(challengeIdx),
+    onSuccess: () => notify(challengeName),
+  });
+
+  return { mutate };
+}
+
+export {
+  useGetMyChallengeList,
+  useGetChallengeAds,
+  useGetChallengeSearch,
+  usePostNewChallenge,
+};

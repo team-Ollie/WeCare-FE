@@ -1,4 +1,4 @@
-import client, { ResponseBody } from "./client";
+import client, { ResponseBody, ResponseBody2 } from "./client";
 
 interface GetMyChallengeListResponse extends ResponseBody {
   result: Challenge[];
@@ -21,6 +21,10 @@ interface GetChallengeAdsResponse extends ResponseBody2 {
   };
 }
 
+interface getChallengeSearchResponse extends ResponseBody2 {
+  result: Challenge[];
+}
+
 async function getMyChallengeList(): Promise<GetMyChallengeListResponse> {
   const { data } = await client.get(`/challenges`);
   return data;
@@ -31,4 +35,23 @@ async function getChallengeAds(): Promise<GetChallengeAdsResponse> {
   return data;
 }
 
-export { getMyChallengeList, getChallengeAds };
+async function getChallengeSearch(
+  keyword: string,
+): Promise<getChallengeSearchResponse> {
+  const { data } = await client.get(`/challenges/search?searchWord=${keyword}`);
+  return data;
+}
+
+async function postNewChallenge(challengeIdx: number): Promise<ResponseBody> {
+  const { data } = await client.post(`/challenges/participation`, {
+    challengeIdx,
+  });
+  return data;
+}
+
+export {
+  getMyChallengeList,
+  getChallengeAds,
+  getChallengeSearch,
+  postNewChallenge,
+};

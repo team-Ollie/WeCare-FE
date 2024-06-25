@@ -1,3 +1,4 @@
+import { useGetChallengeSearch } from "@/apis/hooks/challenge";
 import Divider from "@/components/Divider";
 import HeadFunction from "@/components/HeadFunction";
 import NavBar from "@/components/NavBar";
@@ -12,8 +13,10 @@ import "react-toastify/dist/ReactToastify.css";
 const JoinChallenge: NextPage = () => {
   const [keyword, setKeyword] = useState<string>("");
 
-  const notify = () => {
-    toast.success("(챌린지이름)에 성공적으로 참여하셨습니다.", {
+  const { data } = useGetChallengeSearch(keyword);
+
+  const notify = (title: string) => {
+    toast.success(`${title}에 성공적으로 참여하셨습니다.`, {
       position: "bottom-center",
       icon: ({ theme, type }) => (
         <Image src="/svgs/Check.svg" width={24} height={24} />
@@ -27,8 +30,9 @@ const JoinChallenge: NextPage = () => {
       <SearchBar value={keyword} setValue={setKeyword} />
       <Divider height={8} />
       <div className="w-full px-4">
-        <SearchResult onClick={notify} />
-        <SearchResult onClick={notify} />
+        {data?.result.map((info) => (
+          <SearchResult notify={notify} challengeInfo={info} />
+        ))}
       </div>
       <NavBar />
       <ToastContainer
