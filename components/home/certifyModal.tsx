@@ -27,7 +27,7 @@ export default function CertifyModal({
   return (
     <>
       <FlexBox className="justify-between items-start">
-        <div className="h3 mb-4">풍물패 두드림 챌린지 인증하기</div>
+        <div className="h3 mb-4">챌린지 인증하기</div>
         <div onClick={() => setIsModalVisible(false)}>
           <Image src={"/svgs/Close.svg"} width={20} height={20} />
         </div>
