@@ -9,6 +9,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { toast, ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CheckIcon from "@/public/svgs/Check.svg";
 
 const JoinChallenge: NextPage = () => {
   const [keyword, setKeyword] = useState<string>("");
@@ -18,9 +19,7 @@ const JoinChallenge: NextPage = () => {
   const notify = (title: string) => {
     toast.success(`${title}에 성공적으로 참여하셨습니다.`, {
       position: "bottom-center",
-      icon: ({ theme, type }) => (
-        <Image src="/svgs/Check.svg" width={24} height={24} />
-      ),
+      icon: ({ theme, type }) => <CheckIcon width={24} height={24} />,
     });
   };
 

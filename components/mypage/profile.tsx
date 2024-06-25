@@ -1,6 +1,7 @@
 import Image from "next/image";
 import FlexBox from "../Flexbox";
 import { useRouter } from "next/router";
+import RightArrowIcon from "@/public/svgs/RightArrow.svg";
 
 export default function Profile() {
   const router = useRouter();
@@ -14,7 +15,7 @@ export default function Profile() {
         <div className="h2">서울복지관 관리자</div>
         <Image src={"/svgs/badges/3.svg"} width={24} height={24} />
       </FlexBox>
-      <Image src={"/svgs/RightArrow.svg"} width={20} height={20} />
+      <RightArrowIcon width={20} height={20} />
     </FlexBox>
   );
 }

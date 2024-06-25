@@ -10,7 +10,7 @@ const HomeCarousel: NextPage = () => {
   const { data } = useGetChallengeAds();
 
   return (
-    <div className="w-full embla overflow-hidden rounded-lg " ref={emblaRef}>
+    <div className="w-full embla overflow-hidden rounded-lg" ref={emblaRef}>
       <FlexBox className="embla__container">
         <PopularChallenge
           challengeInfo={data.result.mostAttendancedChallenge}
