@@ -46,13 +46,13 @@ const MyPage: NextPage = () => {
         </div>
         <div
           className="w-full py-4 px-6"
-          onClick={() => router.push("/mypage/term")}
+          // onClick={() => router.push("/mypage/term")}
         >
           개인정보 처리방침
         </div>
         <div
           className="w-full py-4 px-6"
-          onClick={() => router.push("/mypage/service")}
+          // onClick={() => router.push("/mypage/service")}
         >
           서비스 이용약관
         </div>
