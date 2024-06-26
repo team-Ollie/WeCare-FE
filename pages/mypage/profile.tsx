@@ -29,6 +29,12 @@ const Profile: NextPage = () => {
           className="underline h5 text-gray-500 pt-4 pb-2"
           onClick={() => router.push("/mypage/password")}
         >
+          닉네임 변경
+        </div>
+        <div
+          className="underline h5 text-gray-500 py-2"
+          onClick={() => router.push("/mypage/password")}
+        >
           비밀번호 변경
         </div>
         <div

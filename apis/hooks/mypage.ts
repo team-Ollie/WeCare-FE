@@ -4,6 +4,7 @@ import {
   patchLogout,
   patchPasswordChange,
   patchQuitAccount,
+  postNicknameCheck,
 } from "../mypage";
 import { useRouter } from "next/router";
 import { InputError } from "@/pages/mypage/password";
@@ -60,9 +61,27 @@ function usePatchPasswordChange() {
   return { mutate };
 }
 
+function usePostNicknameCheck(
+  nickname: string,
+  setNameError: React.Dispatch<React.SetStateAction<InputError>>,
+) {
+  const router = useRouter();
+  const { mutate } = useMutation({
+    mutationKey: ["postNicknameCheck", nickname],
+    mutationFn: () => postNicknameCheck(nickname),
+    onSuccess: () => setNameError({ status: false, text: "" }),
+    onError: () => {
+      setNameError({ status: true, text: "이미 사용 중인 닉네임입니다." });
+    },
+  });
+
+  return { mutate };
+}
+
 export {
   useGetMyInfo,
   usePatchLogout,
   usePatchQuitAccount,
   usePatchPasswordChange,
+  usePostNicknameCheck,
 };

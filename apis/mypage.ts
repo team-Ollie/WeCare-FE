@@ -47,4 +47,17 @@ async function patchPasswordChange(body: {
   return data;
 }
 
-export { getMyInfo, patchLogout, patchQuitAccount, patchPasswordChange };
+async function postNicknameCheck(
+  nickname: string,
+): Promise<QuitAccountResponseBody> {
+  const { data } = await client.post(`/users/nickname`, { nickname });
+  return data;
+}
+
+export {
+  getMyInfo,
+  patchLogout,
+  patchQuitAccount,
+  patchPasswordChange,
+  postNicknameCheck,
+};
