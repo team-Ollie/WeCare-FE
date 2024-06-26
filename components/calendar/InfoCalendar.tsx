@@ -2,6 +2,9 @@ import Calendar from "react-calendar";
 import { useState } from "react";
 import styled from "styled-components";
 import moment from "moment";
+import { useGetMonthCalendar } from "@/apis/hooks/calendar";
+import { MonthCalendarProps } from "@/apis/calendar";
+import Dot from "@/public/svgs/Dot.svg";
 
 export default function InfoCalendar() {
   type DatePiece = Date | null;
@@ -9,8 +12,53 @@ export default function InfoCalendar() {
 
   const [clickedDate, setClickedDate] = useState<SelectedDate>(new Date());
 
+  // const [monthCalendarData, setMonthCalendarData] = useState<
+  //   MonthCalendarProps[]
+  // >([]);
+
   const onChangeToday = () => {
     setClickedDate(clickedDate);
+  };
+
+  const { data } = useGetMonthCalendar();
+
+  const customTileContent = ({ date, view }: { date: Date; view: string }) => {
+    let isOpen = true;
+    if (data && view === "month") {
+      const dayData = data.find((dayData: MonthCalendarProps) => {
+        const openDate = new Date(
+          dayData.openDate.year,
+          dayData.openDate.month - 1,
+          dayData.openDate.day,
+        );
+
+        const dueDate = new Date(
+          dayData.dueDate.year,
+          dayData.dueDate.month - 1,
+          dayData.dueDate.day,
+        );
+
+        if (date.getTime() === openDate.getTime()) isOpen = true;
+        else isOpen = false;
+
+        return (
+          date.getTime() === openDate.getTime() ||
+          date.getTime() === dueDate.getTime()
+        );
+      });
+
+      if (dayData) {
+        return (
+          <div className="custom-tile-content">
+            <div className="h6 custom-tile-text text-grey-900 flex flex-row justify-center items-center gap-1">
+              <Dot color={isOpen ? "#F06459" : "#8E8E93"} />
+              {dayData.name}
+            </div>
+          </div>
+        );
+      }
+    }
+    return null;
   };
 
   return (
@@ -24,6 +72,7 @@ export default function InfoCalendar() {
           prev2Label={null}
           minDate={new Date(2024, 4, 1)}
           formatDay={(locale, date) => moment(date).format("DD")}
+          tileContent={customTileContent}
         />
       </StyledCalendarWrapper>
     </div>
@@ -40,6 +89,20 @@ const StyledCalendarWrapper = styled.div`
     flex-grow: 1;
     margin: 1.5rem 0 0rem 0;
     padding: 0;
+  }
+
+  .custom-tile-content {
+    /* position: absolute; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .custom-tile-text {
+    text-align: start;
+    line-height: 130%;
+    flex-wrap: wrap;
   }
 
   /* 년도, 월 */

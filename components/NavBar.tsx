@@ -19,7 +19,7 @@ const NavBar = () => {
 
   return (
     <div
-      className="flex flex-basis h-[4rem] w-full absolute inset-x-0 bottom-0 "
+      className="flex flex-basis h-[4rem] w-full absolute inset-x-0 bottom-0 z-50"
       style={{
         borderTop: "0.5px solid rgba(112, 115, 124, 0.16)",
         backgroundColor: "#ffffff",

@@ -44,12 +44,12 @@ const Login: NextPage = () => {
   );
 
   const signInMutation = useMutation({
+    queryKey: ["SignIn"],
     mutationFn: SignIn,
     onSuccess: async (data) => {
       console.log(data);
       const accessToken = data.result.accessToken;
       const refreshToken = data.result.refreshToken;
-      console.log("accessToken:", accessToken);
       setTokenFromLocalStorage(accessToken);
       router.push("/");
       alert("로그인에 성공하였습니다");

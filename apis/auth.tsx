@@ -20,7 +20,7 @@ export const SignIn = async (userData: {
     return response.data;
   } catch (error) {
     if (error.response) {
-      //200 이 외
+      // 200 이외
       console.error("서버 응답 오류:", error.response.data);
     } else if (error.request) {
       // 요청이 전송되었으나 응답을 받지 못한 경우
