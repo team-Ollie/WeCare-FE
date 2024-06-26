@@ -27,7 +27,7 @@ const Profile: NextPage = () => {
       <FlexBox direction="col" className="w-full items-end gap-2 px-6">
         <div
           className="underline h5 text-gray-500 pt-4 pb-2"
-          onClick={() => router.push("/mypage/password")}
+          onClick={() => router.push("/mypage/nickname")}
         >
           닉네임 변경
         </div>
