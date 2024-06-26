@@ -1,3 +1,5 @@
+import { usePatchPasswordChange } from "@/apis/hooks/mypage";
+import Button from "@/components/Button";
 import FlexBox from "@/components/Flexbox";
 import HeadFunction from "@/components/HeadFunction";
 import TextInput from "@/components/Input";
@@ -12,6 +14,7 @@ export interface InputError {
 
 const Password: NextPage = () => {
   const router = useRouter();
+  const { mutate } = usePatchPasswordChange();
 
   const [password, setPassword] = useState<string>("");
   const [newPw, setNewPw] = useState<string>("");
@@ -89,6 +92,10 @@ const Password: NextPage = () => {
     newPw2Error.status,
   ]);
 
+  const changePassword = () => {
+    mutate({ password, newPassword: newPw });
+  };
+
   return (
     <div>
       <HeadFunction title="비밀번호 수정" />
@@ -114,17 +121,16 @@ const Password: NextPage = () => {
           isError={newPw2Error.status}
           errorText={newPw2Error.text}
         />
-        <button
+        <Button
           disabled={isBtnDisabled}
-          className={`w-full rounded-lg ${
+          style={`${
             isBtnDisabled
               ? "bg-gray-300 text-gray-500"
               : "bg-main-color text-white"
-          } h3 text-center py-2`}
-          onClick={() => router.push("/mypage/password/success")}
-        >
-          새 비밀번호 저장
-        </button>
+          }`}
+          onClick={changePassword}
+          text="새 비밀번호 저장"
+        />
       </FlexBox>
     </div>
   );
