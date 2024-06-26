@@ -47,6 +47,13 @@ async function patchPasswordChange(body: {
   return data;
 }
 
+async function patchNicknameChange(
+  nickname: string,
+): Promise<QuitAccountResponseBody> {
+  const { data } = await client.patch(`/users/editNickname`, { nickname });
+  return data;
+}
+
 async function postNicknameCheck(
   nickname: string,
 ): Promise<QuitAccountResponseBody> {
@@ -59,5 +66,6 @@ export {
   patchLogout,
   patchQuitAccount,
   patchPasswordChange,
+  patchNicknameChange,
   postNicknameCheck,
 };

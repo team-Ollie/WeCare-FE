@@ -2,6 +2,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import {
   getMyInfo,
   patchLogout,
+  patchNicknameChange,
   patchPasswordChange,
   patchQuitAccount,
   postNicknameCheck,
@@ -61,11 +62,22 @@ function usePatchPasswordChange() {
   return { mutate };
 }
 
+function usePatchNicknameChange(nickname: string) {
+  const router = useRouter();
+  const { mutate } = useMutation({
+    mutationKey: ["postNicknameCheck", nickname],
+    mutationFn: () => patchNicknameChange(nickname),
+    onSuccess: () => router.push("/mypage/nickname/success"),
+    onError: () => router.push("/404"),
+  });
+
+  return { mutate };
+}
+
 function usePostNicknameCheck(
   nickname: string,
   setNameError: React.Dispatch<React.SetStateAction<InputError>>,
 ) {
-  const router = useRouter();
   const { mutate } = useMutation({
     mutationKey: ["postNicknameCheck", nickname],
     mutationFn: () => postNicknameCheck(nickname),
@@ -83,5 +95,6 @@ export {
   usePatchLogout,
   usePatchQuitAccount,
   usePatchPasswordChange,
+  usePatchNicknameChange,
   usePostNicknameCheck,
 };

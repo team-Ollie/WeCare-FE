@@ -4,19 +4,26 @@ import TextInput from "@/components/Input";
 import { NextPage } from "next";
 import { useState } from "react";
 import { InputError } from "../password";
-import { usePostNicknameCheck } from "@/apis/hooks/mypage";
+import {
+  usePatchNicknameChange,
+  usePostNicknameCheck,
+} from "@/apis/hooks/mypage";
 import Button from "@/components/Button";
 import NicknameInput from "@/components/mypage/NicknameInput";
 
 const ChangeNickName: NextPage = () => {
   const [newName, setNewname] = useState<string>("");
-  const [tempName, setTempName] = useState<string>(""); // onClickChangeBtn를 가장 마지막 실행했을 때의 닉네임
+  const [tempName, setTempName] = useState<string>(""); // onClickCheckBtn를 가장 마지막 실행했을 때의 닉네임
   const [nameError, setNameError] = useState<InputError>({
     status: false,
     text: "",
   });
 
-  const { mutate } = usePostNicknameCheck(newName, setNameError);
+  const { mutate: nameCheckMutate } = usePostNicknameCheck(
+    newName,
+    setNameError,
+  );
+  const { mutate: nameChangeMutate } = usePatchNicknameChange(newName);
 
   const checkNicknameValidity = () => {
     setTempName(newName);
@@ -40,8 +47,12 @@ const ChangeNickName: NextPage = () => {
     return true;
   };
 
+  const onClickCheckBtn = () => {
+    if (checkNicknameValidity()) nameCheckMutate();
+  };
+
   const onClickChangeBtn = () => {
-    if (checkNicknameValidity()) mutate();
+    nameChangeMutate();
   };
 
   return (
@@ -66,14 +77,14 @@ const ChangeNickName: NextPage = () => {
           />
           <button
             className="shrink-0 p-2 border border-main-color text-main-color rounded-lg h4"
-            onClick={onClickChangeBtn}
+            onClick={onClickCheckBtn}
           >
             중복 확인
           </button>
         </FlexBox>
         <Button
           text="변경하기"
-          onClick={() => console.log(1)}
+          onClick={onClickChangeBtn}
           style="bg-main-color text-white mt-6 disabled:bg-gray-300 disabled:text-gray-500"
           disabled={
             tempName.length === 0 || nameError.status || newName.length === 0
