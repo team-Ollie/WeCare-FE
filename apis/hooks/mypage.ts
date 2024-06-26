@@ -41,7 +41,10 @@ function usePatchQuitAccount(
   const { mutate } = useMutation({
     mutationKey: ["patchQuitAccount"],
     mutationFn: (password: string) => patchQuitAccount(password),
-    onSuccess: () => router.push("/main"),
+    onSuccess: () => {
+      localStorage.removeItem("access_token");
+      router.push("/main");
+    },
     onError: () =>
       setPwError({ status: true, text: "비밀번호가 올바르지 않습니다." }),
   });
