@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import FlexBox from "./Flexbox";
 import Image from "next/image";
 import Head from "next/head";
+import LeftArrowIcon from "@/public/svgs/LeftArrow.svg";
 
 interface Props {
   leftIcon?: boolean;
@@ -26,7 +27,7 @@ export default function HeadFunction({
           className="w-5 h-5 shrink-0 items-center align-center"
           onClick={router.back}
         >
-          <Image src="/svgs/LeftArrow.svg" width={20} height={20} />
+          <LeftArrowIcon width={20} height={20} />
         </div>
         <FlexBox className="w-full h-full justify-center">
           <div className="h2">{title}</div>
