@@ -13,14 +13,14 @@ const useGetMonthCalendar = () => {
 
 export { useGetMonthCalendar };
 
-const useGetProgramDetail = () => {
-  const { data } = useQuery({
-    queryKey: ["getProgramDetail"],
-    queryFn: getProgramDetail,
-  });
-  // console.log("isLoading", isLoading);
-  console.log("Query Data", data);
-  return { data };
-};
+// const useGetProgramDetail = () => {
+//   const { data } = useQuery({
+//     queryKey: ["getProgramDetail"],
+//     queryFn: getProgramDetail,
+//   });
+//   // console.log("isLoading", isLoading);
+//   console.log("Query Data", data);
+//   return { data };
+// };
 
-export { useGetProgramDetail };
+// export { useGetProgramDetail };
