@@ -79,6 +79,11 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Check environment variable
+        run: echo NEXT_PUBLIC_API_URL
+      - name: Create .env file
+        run: |
+          echo NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }} >> .env
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Export with Next.js
@@ -87,8 +92,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
-      - name: Check environment variable
-        run: echo $NEXT_PUBLIC_API_URL
 
 
   # Deployment job
