@@ -87,6 +87,9 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+      - name: Check environment variable
+        run: echo $NEXT_PUBLIC_API_URL
+
 
   # Deployment job
   deploy:
