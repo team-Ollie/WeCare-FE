@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getMonthCalendar } from "../calendar";
+import { getMonthCalendar, getProgramDetail } from "../calendar";
 
 const useGetMonthCalendar = () => {
   const { data } = useQuery({
@@ -12,3 +12,15 @@ const useGetMonthCalendar = () => {
 };
 
 export { useGetMonthCalendar };
+
+// const useGetProgramDetail = () => {
+//   const { data } = useQuery({
+//     queryKey: ["getProgramDetail"],
+//     queryFn: getProgramDetail,
+//   });
+//   // console.log("isLoading", isLoading);
+//   console.log("Query Data", data);
+//   return { data };
+// };
+
+// export { useGetProgramDetail };
