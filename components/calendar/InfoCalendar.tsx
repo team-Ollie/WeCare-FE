@@ -28,7 +28,7 @@ export default function InfoCalendar() {
   };
 
   const customTileContent = ({ date, view }: { date: Date; view: string }) => {
-    if (data && view === "month") {
+    if (Array.isArray(data) && view === "month") {
       const dayData = data.filter((dayData: MonthCalendarProps) => {
         const openDate = new Date(
           dayData.openDate.year,
