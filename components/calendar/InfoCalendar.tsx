@@ -20,12 +20,16 @@ export default function InfoCalendar() {
     setClickedDate(clickedDate);
   };
 
+  // API 관리
   const { data } = useGetMonthCalendar();
 
+  const handleDayDataClick = (programIdx: number) => {
+    console.log("API 호출: ", programIdx);
+  };
+
   const customTileContent = ({ date, view }: { date: Date; view: string }) => {
-    let isOpen = true;
     if (data && view === "month") {
-      const dayData = data.find((dayData: MonthCalendarProps) => {
+      const dayData = data.filter((dayData: MonthCalendarProps) => {
         const openDate = new Date(
           dayData.openDate.year,
           dayData.openDate.month - 1,
@@ -38,24 +42,36 @@ export default function InfoCalendar() {
           dayData.dueDate.day,
         );
 
-        if (date.getTime() === openDate.getTime()) isOpen = true;
-        else isOpen = false;
-
         return (
           date.getTime() === openDate.getTime() ||
           date.getTime() === dueDate.getTime()
         );
       });
 
-      if (dayData) {
+      if (dayData.length > 0) {
         return (
           <div className="custom-tile-content">
-            <div className=" flex flex-row justify-center items-center gap-1 ">
-              <Dot color={isOpen ? "#F06459" : "#8E8E93"} />
-              <div className="h6 custom-tile-text text-grey-900 whitespace-nowrap overflow-hidden text-ellipsis">
-                {dayData.name}
-              </div>
-            </div>
+            {dayData.map((day: MonthCalendarProps, index: number) => {
+              const isOpen =
+                date.getTime() ===
+                new Date(
+                  day.openDate.year,
+                  day.openDate.month - 1,
+                  day.openDate.day,
+                ).getTime();
+              console.log(day);
+              return (
+                <div key={index} className="flex flex-row items-center gap-1">
+                  <Dot color={isOpen ? "#F06459" : "#8E8E93"} />
+                  <div
+                    className="h6 custom-tile-text text-grey-900 whitespace-nowrap overflow-hidden text-ellipsis"
+                    onClick={() => handleDayDataClick(day.programIdx)}
+                  >
+                    {day.name}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         );
       }
@@ -96,9 +112,10 @@ const StyledCalendarWrapper = styled.div`
   .custom-tile-content {
     /* position: absolute; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
     z-index: 1;
+    gap: 1px;
   }
 
   .custom-tile-text {
