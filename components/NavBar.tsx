@@ -4,6 +4,7 @@ import MypageIcon from "@/public/svgs/MypageIcon.svg";
 import { useRouter } from "next/router";
 import NavBarItem from "./NavBarItem";
 import { useEffect } from "react";
+import FlexBox from "./Flexbox";
 
 const NavBar = () => {
   const router = useRouter();
@@ -51,7 +52,7 @@ const NavBar = () => {
           <MypageIcon />
         </NavBarItem>
       </div>
-    </div>
+    </>
   );
 };
 
