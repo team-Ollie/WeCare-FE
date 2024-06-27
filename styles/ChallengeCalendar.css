@@ -83,7 +83,6 @@ abbr[title] {
 .react-calendar__tile--active {
   background: #f06459;
   color: white;
-  border-radius: 14px;
 }
 
 /* 현재 날짜 */
@@ -96,5 +95,4 @@ abbr[title] {
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
   background: #f06459;
-  border-radius: 14px;
 }

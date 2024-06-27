@@ -7,10 +7,12 @@ import InfoCalendar from "@/components/calendar/InfoCalendar";
 import { NextPage } from "next";
 
 const CalendarPage: NextPage = () => {
+  const date = new Date();
+  console.log(date);
   return (
-    <div className="flex flex-col w-full h-screen">
+    <div className="flex flex-col w-full h-screen pb-[4rem]">
       <HeadFunction title="캘린더" />
-      <div className="flex-grow flex flex-col py-[1.5rem] items-center overflow-auto scrollbar-hide">
+      <div className="flex flex-col flex-grow pt-[1.5rem] items-center overflow-auto scrollbar-hide">
         <div className="h-fit w-full flex flex-row justify-start items-end px-[2rem] gap-3">
           <FilterBox filterName="카테고리" />
           <FilterBox filterName="지역" />
