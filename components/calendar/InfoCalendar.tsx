@@ -50,9 +50,11 @@ export default function InfoCalendar() {
       if (dayData) {
         return (
           <div className="custom-tile-content">
-            <div className="h6 custom-tile-text text-grey-900 flex flex-row justify-center items-center gap-1">
+            <div className=" flex flex-row justify-center items-center gap-1 ">
               <Dot color={isOpen ? "#F06459" : "#8E8E93"} />
-              {dayData.name}
+              <div className="h6 custom-tile-text text-grey-900 whitespace-nowrap overflow-hidden text-ellipsis">
+                {dayData.name}
+              </div>
             </div>
           </div>
         );
