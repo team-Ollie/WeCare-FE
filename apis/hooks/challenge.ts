@@ -4,7 +4,7 @@ import {
   getMyChallengeList,
   postNewChallenge,
 } from "../challenge";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 function useGetMyChallengeList() {
   const { data } = useQuery({
@@ -39,10 +39,16 @@ function usePostNewChallenge(
   challengeName: string,
   notify: (title: string) => void,
 ) {
+  const queryClient = useQueryClient();
   const { mutate } = useMutation({
     mutationKey: ["postNewChallenge", challengeIdx],
     mutationFn: () => postNewChallenge(challengeIdx),
-    onSuccess: () => notify(challengeName),
+    onSuccess: () => {
+      notify(challengeName);
+      queryClient.invalidateQueries({
+        queryKey: ["getChallengeSearch"],
+      });
+    },
   });
 
   return { mutate };
