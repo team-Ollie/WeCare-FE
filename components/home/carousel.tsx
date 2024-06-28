@@ -13,15 +13,15 @@ const HomeCarousel: NextPage = () => {
     <div className="w-full embla overflow-hidden rounded-lg" ref={emblaRef}>
       <FlexBox className="embla__container">
         <PopularChallenge
-          challengeInfo={data.result.mostAttendancedChallenge}
+          challengeInfo={data?.result.mostAttendancedChallenge}
           type="mostAttendancedChallenge"
         />
         <PopularChallenge
-          challengeInfo={data.result.mostParticipatedChallenge}
+          challengeInfo={data?.result.mostParticipatedChallenge}
           type="mostParticipatedChallenge"
         />
         <PopularChallenge
-          challengeInfo={data.result.mostRecentlyStartedChallenge}
+          challengeInfo={data?.result.mostRecentlyStartedChallenge}
           type="mostRecentlyStartedChallenge"
         />
       </FlexBox>
