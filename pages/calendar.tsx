@@ -7,6 +7,8 @@ import InfoCalendar from "@/components/calendar/InfoCalendar";
 import { NextPage } from "next";
 
 const CalendarPage: NextPage = () => {
+  const date = new Date();
+  console.log(date);
   return (
     <div className="flex flex-col w-full h-screen pb-[4rem]">
       <HeadFunction title="캘린더" />
