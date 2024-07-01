@@ -45,12 +45,10 @@ const Password: NextPage = () => {
   };
   const checkNewPwError = () => {
     if (newPw.length === 0) {
-      console.log(1);
       setNewPwError({ status: false, text: "" });
       return;
     }
     if (newPw === password) {
-      console.log(2);
       setNewPwError({ status: true, text: "기존 비밀번호와 동일합니다" });
       return;
     }
