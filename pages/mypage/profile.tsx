@@ -11,7 +11,7 @@ const Profile: NextPage = () => {
 
   return (
     <FlexBox direction="col">
-      <HeadFunction title="계정 정보" leftIcon={false} />
+      <HeadFunction title="계정 정보" />
       <FlexBox className="w-full pt-3 pb-8 justify-center">
         <div className="w-[88px] h-[88px] rounded-full bg-grey-100" />
       </FlexBox>
