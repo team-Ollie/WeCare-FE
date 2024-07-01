@@ -23,7 +23,7 @@ export default function SearchResult({
     <FlexBox className="w-full border-b p-2 justify-between">
       <FlexBox direction="col" className="gap-1 items-start">
         <div className="h3">{challengeInfo.name}</div>
-        <div className="h4 text-gray-700">
+        <div className="h4 text-grey-700">
           {challengeInfo.location} | {challengeInfo.schedule}
         </div>
       </FlexBox>

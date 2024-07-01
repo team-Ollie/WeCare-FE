@@ -125,7 +125,7 @@ const Password: NextPage = () => {
           disabled={isBtnDisabled}
           style={`${
             isBtnDisabled
-              ? "bg-gray-300 text-gray-500"
+              ? "bg-grey-300 text-grey-500"
               : "bg-main-color text-white"
           }`}
           onClick={changePassword}

@@ -30,10 +30,10 @@ export default function NicknameInput({
   return (
     <div className="w-full relative">
       <div
-        className={`w-full border ${borderStyle()} bg-gray-100 rounded-lg p-2`}
+        className={`w-full border ${borderStyle()} bg-grey-100 rounded-lg p-2`}
       >
         <input
-          className="w-full outline-none border-none bg-gray-100 h4"
+          className="w-full outline-none border-none bg-grey-100 h4"
           value={value}
           onChange={(event) => onChangeText(event)}
           placeholder={placeholder}

@@ -10,6 +10,7 @@ import { useState } from "react";
 import ReactModal from "react-modal";
 import Image from "next/image";
 import { useGetMyChallengeList } from "@/apis/hooks/challenge";
+import AdminChallenge from "./adminChallenge";
 
 interface HomeChallengeProps {
   onNotify: (msg: string) => void;
@@ -29,18 +30,30 @@ const HomeChallenge: NextPage<HomeChallengeProps> = ({ onNotify }) => {
       </div>
       <HomeCarousel />
       <div
-        className="w-full text-center bg-main-100 rounded-lg py-2 h2 text-gray-700"
-        onClick={() => router.push("/challenge/join")}
+        className="w-full text-center bg-main-100 rounded-lg py-2 h2 text-grey-700"
+        onClick={() =>
+          isAdmin
+            ? router.push("/challenge/add")
+            : router.push("/challenge/join")
+        }
       >
         {isAdmin ? "새 프로그램 등록" : "참여 프로그램 추가"}
       </div>
-      {challengeInfo?.result.map((info) => (
-        <Challenge
-          setIsModalVisible={setIsOpen}
-          challengeInfo={info}
-          key={info.challengeIdx}
-        />
-      ))}
+      {challengeInfo?.result.map((info) =>
+        isAdmin ? (
+          <AdminChallenge
+            setIsModalVisible={setIsOpen}
+            challengeInfo={info}
+            key={info.challengeIdx}
+          />
+        ) : (
+          <Challenge
+            setIsModalVisible={setIsOpen}
+            challengeInfo={info}
+            key={info.challengeIdx}
+          />
+        ),
+      )}
       <ReactModal
         isOpen={isOpen}
         style={modalStyle}

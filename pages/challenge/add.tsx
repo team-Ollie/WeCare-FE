@@ -1,25 +1,57 @@
+import { usePostProgram } from "@/apis/hooks/admin";
 import Button from "@/components/Button";
 import FlexBox from "@/components/Flexbox";
 import HeadFunction from "@/components/HeadFunction";
 import TextInput from "@/components/Input";
 import NavBar from "@/components/NavBar";
 import ChallengeInput from "@/components/challenge/ChallengeInput";
+import dayjs from "dayjs";
 import { NextPage } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import "dayjs/locale/ko";
+dayjs.locale("ko");
 
 const AddChallenge: NextPage = () => {
   const [name, setName] = useState<string>("");
-  const [location, setLocation] = useState<string>("");
-  const [phoneNum, setPhoneNum] = useState<string>("");
-  const [detail, setDetail] = useState<string>("");
   const [startDate, setStartDate] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
+  const [location, setLocation] = useState<string>("");
+  const [category, setCategory] = useState<string>("");
+  const [host, setHost] = useState<string>("");
+  const [phoneNum, setPhoneNum] = useState<string>("");
+  const [detail, setDetail] = useState<string>("");
+
+  const { mutate } = usePostProgram();
+
+  const registerProgram = () => {
+    mutate({
+      name,
+      dueDate: {
+        year: Number(dayjs(endDate).format("YYYY")),
+        month: Number(dayjs(endDate).format("M")),
+        day: Number(dayjs(endDate).format("D")),
+      },
+      openDate: {
+        year: Number(dayjs(startDate).format("YYYY")),
+        month: Number(dayjs(startDate).format("M")),
+        day: Number(dayjs(startDate).format("D")),
+      },
+      location: location,
+      category: category,
+      host: host,
+      schedule: dayjs(endDate).format("ddd"),
+      description:
+        detail.trim().length === 0
+          ? `담당자 전화번호: ${phoneNum}`
+          : detail.concat("\n담당자 전화번호: ${phoneNum}"),
+    });
+  };
 
   return (
     <div className="w-full">
       <HeadFunction title="프로그램 등록" />
       <FlexBox className="w-full px-4 gap-8 pb-8" direction="col">
-        <FlexBox className="w-full gap-8 mt-4" direction="col">
+        <FlexBox className="w-full gap-4 mt-4" direction="col">
           <ChallengeInput
             title="프로그램 이름"
             inputType="text"
@@ -37,12 +69,20 @@ const AddChallenge: NextPage = () => {
             isError={false}
           />
           <ChallengeInput
-            title="위치"
-            inputType="text"
+            title="지역 및 분야"
+            inputType="dropdown"
             value={location}
             setValue={setLocation}
+            value2={category}
+            setValue2={setCategory}
             isError={false}
-            placeholder="기관명 또는 도로명주소"
+          />
+          <ChallengeInput
+            title="주최 기관"
+            inputType="text"
+            value={host}
+            setValue={setHost}
+            isError={false}
           />
           <ChallengeInput
             title="담당자 전화번호"
@@ -64,13 +104,15 @@ const AddChallenge: NextPage = () => {
         </FlexBox>
         <Button
           text="등록하기"
-          onClick={() => console.log(1)}
-          style="bg-main-color text-white h3 disabled:bg-gray-300 disabled:text-gray-500"
+          onClick={registerProgram}
+          style="bg-main-color text-white h3 disabled:bg-grey-300 disabled:text-grey-500"
           disabled={
             name.length === 0 ||
             startDate.length === 0 ||
             endDate.length === 0 ||
             location.length === 0 ||
+            category.length === 0 ||
+            host.length === 0 ||
             phoneNum.length === 0
           }
         />
