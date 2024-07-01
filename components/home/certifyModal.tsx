@@ -3,6 +3,9 @@ import FlexBox from "../Flexbox";
 import TextInput from "../Input";
 import { useState } from "react";
 import CloseIcon from "@/public/svgs/Close.svg";
+import { usePostAttendance } from "@/apis/hooks/challenge";
+import { useAtom } from "jotai";
+import { challengeIdxAtom } from "@/utils/atom";
 
 interface CertifyModalProps {
   setIsModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,9 +22,12 @@ export default function CertifyModal({
     text: "",
   });
 
+  const [challengeIdx] = useAtom(challengeIdxAtom);
+  const { mutate } = usePostAttendance(challengeIdx);
+
   const onCertify = () => {
+    // mutate(number);
     setIsModalVisible(false);
-    notify("챌린지가 성공적으로 인증되었습니다.");
   };
 
   return (
@@ -32,7 +38,7 @@ export default function CertifyModal({
           <CloseIcon width={20} height={20} />
         </div>
       </FlexBox>
-      <FlexBox className="w-full gap-1  mb-3">
+      <FlexBox className="w-full gap-1 mb-3">
         <TextInput
           value={number}
           setValue={setNumber}

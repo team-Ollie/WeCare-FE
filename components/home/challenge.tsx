@@ -2,6 +2,8 @@ import { NextPage } from "next";
 import FlexBox from "../Flexbox";
 import { useRouter } from "next/router";
 import { Challenge as ChallengeType } from "@/apis/challenge";
+import { useAtom } from "jotai";
+import { challengeIdxAtom } from "@/utils/atom";
 
 interface ChallengeProps {
   setIsModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
@@ -13,6 +15,12 @@ const Challenge: NextPage<ChallengeProps> = ({
   challengeInfo,
 }) => {
   const router = useRouter();
+  const [, setChallengeIdx] = useAtom(challengeIdxAtom);
+
+  const onClickCertifyBtn = () => {
+    setChallengeIdx(challengeInfo.challengeIdx);
+    setIsModalVisible(true);
+  };
 
   return (
     <FlexBox direction="col" className="p-4 w-full rounded-lg border gap-4">
@@ -47,7 +55,7 @@ const Challenge: NextPage<ChallengeProps> = ({
         </FlexBox>
         <div
           className="w-full border border-main-color rounded-lg py-2 text-center text-main-color h2"
-          onClick={() => setIsModalVisible(true)}
+          onClick={onClickCertifyBtn}
         >
           인증하기
         </div>
