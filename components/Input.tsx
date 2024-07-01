@@ -26,11 +26,11 @@ export default function TextInput({
       <div
         className={`w-full border ${
           isError ? "border-red-500" : "border-transparent"
-        } bg-gray-100 rounded-lg p-2`}
+        } bg-grey-100 rounded-lg p-2`}
       >
         <input
           type={type}
-          className="w-full outline-none border-none bg-gray-100 h4"
+          className="w-full outline-none border-none bg-grey-100 h4 placeholder:text-grey-400"
           value={value}
           onChange={(event) => onChangeText(event)}
           placeholder={placeholder}

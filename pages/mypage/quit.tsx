@@ -44,7 +44,7 @@ const QuitAccount: NextPage = () => {
           onClick={onClickQuitBtn}
           style={`${
             password.length === 0
-              ? "bg-gray-300 text-gray-500"
+              ? "bg-grey-300 text-grey-500"
               : "bg-main-color text-white"
           }`}
           disabled={password.length === 0}

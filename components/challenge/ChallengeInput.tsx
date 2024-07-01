@@ -1,10 +1,15 @@
 import FlexBox from "../Flexbox";
 import TextInput, { TextInputProps } from "../Input";
 import TextArea from "../TextArea";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
+
+const locationOptions = ["서울", "경기", "그 외"];
+const typeOptions = ["학술", "운동", "예술", "기타"];
 
 interface ChallengeInputProps extends TextInputProps {
   title: string;
-  inputType: "text" | "calendar" | "textarea";
+  inputType: "text" | "calendar" | "textarea" | "dropdown";
   value2?: string;
   setValue2?: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -42,12 +47,30 @@ export default function ChallengeInput({
               isError={false}
               type="date"
             />
-            <span className="h3 text-gray-700">~</span>
+            <span className="h3 text-grey-700">~</span>
             <TextInput
-              value={value}
-              setValue={setValue}
+              value={value2}
+              setValue={setValue2}
               isError={false}
               type="date"
+            />
+          </FlexBox>
+        );
+        break;
+      case "dropdown":
+        return (
+          <FlexBox className="w-full justify-between gap-2 text-black">
+            <Dropdown
+              options={locationOptions}
+              placeholder="지역"
+              value={value}
+              onChange={(arg) => setValue(arg.value)}
+            />
+            <Dropdown
+              options={typeOptions}
+              placeholder="분야"
+              value={value2}
+              onChange={(arg) => setValue2(arg.value)}
             />
           </FlexBox>
         );
@@ -66,7 +89,7 @@ export default function ChallengeInput({
   };
 
   return (
-    <FlexBox className="w-full gap-1 items-start" direction="col">
+    <FlexBox className="w-full items-start" direction="col">
       <div className="h4">{title}</div>
       {returnInput()}
     </FlexBox>

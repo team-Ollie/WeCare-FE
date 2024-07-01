@@ -5,6 +5,10 @@ interface ResponseBody {
   code: number;
   message: string;
 }
+interface ResponseBody2 {
+  isSuccess: boolean;
+  message: string;
+}
 
 export const setTokenFromLocalStorage = (access_token: string) => {
   localStorage.setItem("access_token", access_token);
@@ -16,6 +20,18 @@ const getTokenFromLocalStorage = () => {
     return null;
   }
   return accessToken;
+};
+
+export const setIsAdminAtLocalStorage = (is_admin: string) => {
+  localStorage.setItem("is_admin", is_admin);
+};
+
+const getIsAdminFromLocalStorage = () => {
+  const isAdmin = localStorage.getItem("is_admin");
+  if (!isAdmin) {
+    return null;
+  }
+  return isAdmin;
 };
 
 const client = axios.create({
@@ -49,4 +65,4 @@ client.interceptors.request.use(
 );
 
 export default client;
-export type { ResponseBody };
+export type { ResponseBody, ResponseBody2 };

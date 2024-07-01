@@ -1,4 +1,3 @@
-import Image from "next/image";
 import FlexBox from "../Flexbox";
 import { useRouter } from "next/router";
 import RightArrowIcon from "@/public/svgs/RightArrow.svg";
@@ -46,7 +45,7 @@ export default function Profile({ nickname, level }: ProfileProps) {
       onClick={() => router.push("/mypage/profile")}
     >
       <FlexBox className="gap-2">
-        <div className="w-10 h-10 rounded-full bg-gray-200" />
+        <div className="w-10 h-10 rounded-full bg-grey-200" />
         <div className="h2">{nickname}</div>
         {returnBadge()}
       </FlexBox>
