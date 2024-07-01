@@ -10,6 +10,8 @@ import { ToastContainer, Zoom, toast } from "react-toastify";
 import Image from "next/image";
 import "react-toastify/dist/ReactToastify.css";
 import CheckIcon from "@/public/svgs/Check.svg";
+import { atom, useAtomValue } from "jotai";
+import { isAdminAtom } from "@/utils/atom";
 
 const Home: NextPage = () => {
   const notify = (msg: string) => {
@@ -18,6 +20,10 @@ const Home: NextPage = () => {
       icon: ({ theme, type }) => <CheckIcon width={24} height={24} />,
     });
   };
+
+  //isAdmin
+  const isAdmin = useAtomValue(isAdminAtom);
+  console.log("atom: ", isAdmin);
 
   return (
     <FlexBox direction="col" className="w-full h-full justify-between">
