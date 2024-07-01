@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import FlexBox from "./Flexbox";
-import Image from "next/image";
 import Head from "next/head";
 import LeftArrowIcon from "@/public/svgs/LeftArrow.svg";
 

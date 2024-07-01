@@ -8,7 +8,6 @@ import { useAtom } from "jotai";
 import CertifyModal from "./certifyModal";
 import { useState } from "react";
 import ReactModal from "react-modal";
-import Image from "next/image";
 import { useGetMyChallengeList } from "@/apis/hooks/challenge";
 import AdminChallenge from "./adminChallenge";
 

@@ -1,12 +1,13 @@
 import {
+  AttendanceRequestBody,
   getChallengeAds,
   getChallengeSearch,
   getMyChallengeList,
+  postAttendance,
   postNewChallenge,
   getChallengDetail,
 } from "../challenge";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-
 
 function useGetMyChallengeList() {
   const { data } = useQuery({
@@ -64,11 +65,21 @@ function usePostNewChallenge(
   return { mutate };
 }
 
+function usePostAttendance() {
+  const queryClient = useQueryClient();
+  const { mutate } = useMutation({
+    mutationKey: ["postAttendance"],
+    mutationFn: (body: AttendanceRequestBody) => postAttendance(body),
+  });
+
+  return { mutate };
+}
+
 export {
   useGetMyChallengeList,
   useGetChallengeAds,
   useGetChallengeSearch,
   usePostNewChallenge,
+  usePostAttendance,
   useGetChallengeDetail,
 };
-

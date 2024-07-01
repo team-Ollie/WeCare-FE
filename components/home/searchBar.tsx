@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import FlexBox from "../Flexbox";
-import Image from "next/image";
+import SearchIcon from "@/public/svgs/Search.svg";
+import CloseIcon from "@/public/svgs/Close_Circle.svg";
 import { ChangeEvent } from "react";
 
 interface SearchBarProps {
@@ -19,8 +20,8 @@ export default function SearchBar({ value, setValue }: SearchBarProps) {
 
   return (
     <div className="w-full px-4 pb-4">
-      <FlexBox className="rounded-lg bg-grey-100 py-2 px-4 gap-2">
-        <Image src={"/svgs/Search.svg"} width={24} height={24} />
+      <FlexBox className="rounded-lg bg-gray-100 py-2 px-4 gap-2">
+        <SearchIcon width={24} height={24} />
         <input
           type="text"
           className="w-full outline-none border-none bg-grey-100 h4"
@@ -29,7 +30,7 @@ export default function SearchBar({ value, setValue }: SearchBarProps) {
           placeholder="프로그램 이름을 검색해보세요!"
         />
         <div onClick={onPressResetBtn}>
-          <Image src={"/svgs/Close_Circle.svg"} width={16} height={16} />
+          <CloseIcon width={16} height={16} />
         </div>
       </FlexBox>
     </div>

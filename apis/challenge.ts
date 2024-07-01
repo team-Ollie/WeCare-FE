@@ -25,6 +25,11 @@ interface getChallengeSearchResponse extends ResponseBody2 {
   result: Challenge[];
 }
 
+export interface AttendanceRequestBody {
+  challengeIdx: number;
+  attendanceCode: string;
+}
+
 async function getMyChallengeList(): Promise<GetMyChallengeListResponse> {
   const { data } = await client.get(`/challenges`);
   return data;
@@ -66,10 +71,18 @@ async function postNewChallenge(challengeIdx: number): Promise<ResponseBody> {
   return data;
 }
 
+async function postAttendance(
+  body: AttendanceRequestBody,
+): Promise<ResponseBody> {
+  const { data } = await client.post(`/challenges/attendance`, body);
+  return data;
+}
+
 export {
   getMyChallengeList,
   getChallengeAds,
   getChallengeSearch,
   postNewChallenge,
-  getChallengDetail
+  postAttendance,
+  getChallengDetail,
 };

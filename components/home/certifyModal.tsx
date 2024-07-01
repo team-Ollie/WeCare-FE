@@ -2,7 +2,7 @@ import { InputError } from "@/pages/mypage/password";
 import FlexBox from "../Flexbox";
 import TextInput from "../Input";
 import { useState } from "react";
-import Image from "next/image";
+import CloseIcon from "@/public/svgs/Close.svg";
 
 interface CertifyModalProps {
   setIsModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
@@ -29,7 +29,7 @@ export default function CertifyModal({
       <FlexBox className="justify-between items-start">
         <div className="h3 mb-4">챌린지 인증하기</div>
         <div onClick={() => setIsModalVisible(false)}>
-          <Image src={"/svgs/Close.svg"} width={20} height={20} />
+          <CloseIcon width={20} height={20} />
         </div>
       </FlexBox>
       <FlexBox className="w-full gap-1  mb-3">
