@@ -2,6 +2,17 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Program, postAttendanceCode, postProgram } from "../admin";
 import { useRouter } from "next/router";
 
+function usePostAttendanceCode(challengeIdx: number) {
+  const { mutate } = useMutation({
+    mutationKey: ["postAttendanceCode", challengeIdx],
+    mutationFn: () => postAttendanceCode(challengeIdx),
+    onSuccess: (data) => window.alert(`인증번호: ${data}`),
+    onError: () => window.alert("에러 발생. 앱 관리자에게 문의해주세요."),
+  });
+
+  return { mutate };
+}
+
 function usePostProgram() {
   const router = useRouter();
   const queryclient = useQueryClient();

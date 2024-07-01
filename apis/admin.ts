@@ -11,6 +11,12 @@ export interface Program {
   schedule: string;
   description: string;
 }
+
+async function postAttendanceCode(challengeIdx: number): Promise<ResponseBody> {
+  const { data } = await client.post(`/challenges/attendance/${challengeIdx}`);
+  return data;
+}
+
 async function postProgram(body: Program): Promise<ResponseBody> {
   const { data } = await client.post(`/programs`, body);
   return data;
