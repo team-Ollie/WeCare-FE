@@ -27,7 +27,7 @@ const ErrorPage: NextPage = () => {
       <div className="w-full px-6">
         <Button
           text="홈으로"
-          style="bg-main-100 text-gray-900"
+          style="bg-main-100 text-grey-900"
           onClick={() => router.push("/")}
         />
       </div>

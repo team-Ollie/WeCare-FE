@@ -28,12 +28,12 @@ const PasswordChangeSuccess: NextPage = () => {
       <div className="grid grid-cols-2 gap-2 w-full px-6">
         <Button
           text="홈"
-          style="bg-main-100 text-gray-900"
+          style="bg-main-100 text-grey-900"
           onClick={() => router.push("/")}
         />
         <Button
           text="마이페이지"
-          style="bg-main-100 text-gray-900"
+          style="bg-main-100 text-grey-900"
           onClick={() => router.push("/mypage")}
         />
       </div>

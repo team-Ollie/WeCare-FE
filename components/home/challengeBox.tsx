@@ -30,7 +30,7 @@ const HomeChallenge: NextPage<HomeChallengeProps> = ({ onNotify }) => {
       </div>
       <HomeCarousel />
       <div
-        className="w-full text-center bg-main-100 rounded-lg py-2 h2 text-gray-700"
+        className="w-full text-center bg-main-100 rounded-lg py-2 h2 text-grey-700"
         onClick={() =>
           isAdmin
             ? router.push("/challenge/add")

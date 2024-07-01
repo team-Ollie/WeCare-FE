@@ -30,7 +30,7 @@ const AdminChallenge: NextPage<ChallengeProps> = ({
       </FlexBox>
       <FlexBox direction="col" className="w-full gap-2">
         <FlexBox className="gap-1 w-full">
-          <div className="h5 text-gray-500">전체달성률</div>
+          <div className="h5 text-grey-500">전체달성률</div>
           <div className="h3">
             {challengeInfo.totalAttendanceRate}%(
             {challengeInfo.participantsNum}명)

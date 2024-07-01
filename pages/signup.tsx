@@ -74,7 +74,7 @@ const SignUp: NextPage = () => {
         <button type="submit">
           <Button
             text="로그인"
-            style="w-[20rem] bg-main-100 py-[0.8rem] h2 text-gray-700"
+            style="w-[20rem] bg-main-100 py-[0.8rem] h2 text-grey-700"
             onClick={() => {}}
           />
         </button>

@@ -19,11 +19,11 @@ export default function SearchBar({ value, setValue }: SearchBarProps) {
 
   return (
     <div className="w-full px-4 pb-4">
-      <FlexBox className="rounded-lg bg-gray-100 py-2 px-4 gap-2">
+      <FlexBox className="rounded-lg bg-grey-100 py-2 px-4 gap-2">
         <Image src={"/svgs/Search.svg"} width={24} height={24} />
         <input
           type="text"
-          className="w-full outline-none border-none bg-gray-100 h4"
+          className="w-full outline-none border-none bg-grey-100 h4"
           value={value}
           onChange={(event) => onChangeText(event)}
           placeholder="프로그램 이름을 검색해보세요!"

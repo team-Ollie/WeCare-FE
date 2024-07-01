@@ -33,9 +33,9 @@ export default function PopularChallenge({
   return (
     <FlexBox
       direction="col"
-      className="w-full bg-gray-100 items-start p-4 min-w-0 flex-[0_0_100%]"
+      className="w-full bg-grey-100 items-start p-4 min-w-0 flex-[0_0_100%]"
     >
-      <div className="h5 text-gray-700">{returnTitle()}</div>
+      <div className="h5 text-grey-700">{returnTitle()}</div>
       <div className="h2">{challengeInfo?.name}</div>
     </FlexBox>
   );

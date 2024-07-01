@@ -91,7 +91,7 @@ const Login: NextPage = () => {
         <button type="submit" className="w-full">
           <Button
             text="로그인"
-            style="w-full bg-main-100 py-[0.8rem] h2 text-gray-700"
+            style="w-full bg-main-100 py-[0.8rem] h2 text-grey-700"
             onClick={() => {}}
           />
         </button>
