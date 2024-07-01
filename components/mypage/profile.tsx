@@ -1,4 +1,3 @@
-import Image from "next/image";
 import FlexBox from "../Flexbox";
 import { useRouter } from "next/router";
 import RightArrowIcon from "@/public/svgs/RightArrow.svg";
