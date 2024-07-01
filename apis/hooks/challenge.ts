@@ -1,4 +1,4 @@
-import { getMyChallengeList } from "../challenge";
+import { getMyChallengeList, getChallengDetail } from "../challenge";
 import { useQuery } from "@tanstack/react-query";
 
 function useGetMyChallengeList() {
@@ -10,4 +10,12 @@ function useGetMyChallengeList() {
   return { data };
 }
 
-export { useGetMyChallengeList };
+function useGetChallengeDetail() {
+  const { data } = useQuery({
+    queryKey: ["getChallengeDetail"],
+    queryFn: getChallengDetail,
+  });
+  return { data };
+}
+
+export { useGetMyChallengeList, useGetChallengeDetail };

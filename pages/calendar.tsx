@@ -11,7 +11,8 @@ interface DropProps {
   regionDrop: boolean;
 }
 
-const options = ["Option 1", "Option 2", "Option 3"];
+const categories = ["운동", "예술", "학술"];
+const locations = ["서울", "경기", "그 외"];
 
 const CalendarPage: NextPage = () => {
   const date = new Date();
@@ -22,36 +23,58 @@ const CalendarPage: NextPage = () => {
     regionDrop: false,
   });
 
+  const toggleDrop = (dropName: string) => {
+    setIsDrop((prev: DropProps) => ({ ...prev, [dropName]: !prev[dropName] }));
+  };
+
   return (
     <div className="flex flex-col w-full h-screen pb-[4rem]">
       <HeadFunction title="캘린더" />
       <div className="flex flex-col flex-grow pt-[1.5rem] items-center overflow-auto scrollbar-hide">
-        <div className="h-fit w-full flex flex-row justify-start items-end px-[2rem] gap-3">
-          <FilterBox
-            filterName="카테고리"
-            onClick={() => {
-              setIsDrop(!isDrop);
-            }}
-          />
-          {isDrop ? (
-            <ul className="absolute">
-              {options.map((option, index) => (
-                <li
-                  key={index}
-                  className="cursor-pointer hover:bg-gray-200 p-2"
-                  onClick={() => {}}
-                >
-                  {option}
-                </li>
-              ))}
-            </ul>
-          ) : null}
-          <FilterBox
-            filterName="지역"
-            onClick={() => {
-              console.log("지역");
-            }}
-          />
+        <div className="h-fit w-full flex flex-row justify-start items-end px-[1rem] gap-3">
+          <div>
+            <FilterBox
+              filterName="카테고리"
+              onClick={() => {
+                toggleDrop("categoryDrop");
+                console.log("category");
+              }}
+            />
+            {isDrop.categoryDrop ? (
+              <ul className="absolute top-[8rem]">
+                {categories.map((option, index) => (
+                  <li
+                    key={index}
+                    className="cursor-pointer hover:bg-gray-200 p-2"
+                    onClick={() => {}}
+                  >
+                    {option}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+          <div>
+            <FilterBox
+              filterName="지역"
+              onClick={() => {
+                setIsDrop({ ...isDrop, regionDrop: !isDrop.regionDrop });
+              }}
+            />
+            {isDrop.regionDrop ? (
+              <ul className="absolute top-[8rem]">
+                {locations.map((option, index) => (
+                  <li
+                    key={index}
+                    className="cursor-pointer hover:bg-gray-200 p-2"
+                    onClick={() => {}}
+                  >
+                    {option}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
         </div>
 
         <div className="flex w-full">
