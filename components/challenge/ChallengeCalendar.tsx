@@ -2,6 +2,8 @@ import Calendar from "react-calendar";
 import { useState } from "react";
 import styled from "styled-components";
 import LogoMark from "@/public/svgs/LogoMark.svg";
+import { useGetChallengeDetail } from "@/apis/hooks/challenge";
+import { GetChallengeDetailBody } from "@/apis/challenge";
 
 export default function ChallengeCalendar() {
   type DatePiece = Date | null;
@@ -13,18 +15,29 @@ export default function ChallengeCalendar() {
     setClickedDate(clickedDate);
   };
 
-  const customTileContent = ({ date, view }) => {
-    // if (view === 'month' && DatesList.some(d => d.getTime() === date.getTime())) {
+  // API 관리
+  const { data } = useGetChallengeDetail();
 
-    const customDate = new Date(2024, 5, 19);
-    if (view === "month" && date.getTime() === customDate.getTime()) {
-      return (
-        <div className="custom-tile-content">
-          <div className="custom-image">
-            <LogoMark width="2.75rem" height="2.75rem" />
+  const customTileContent = ({ date, view }: { date: Date; view: string }) => {
+    if (Array.isArray(data) && view === "month") {
+      const matchedData = data.find((challenge: GetChallengeDetailBody) => {
+        const attendanceDate = new Date(
+          challenge.attendanceDate.year,
+          challenge.attendanceDate.month - 1,
+          challenge.attendanceDate.day,
+        );
+        return attendanceDate.getTime() === date.getTime();
+      });
+
+      if (matchedData) {
+        return (
+          <div className="custom-tile-content">
+            <div className="custom-image">
+              <LogoMark width="2.75rem" height="2.75rem" />
+            </div>
           </div>
-        </div>
-      );
+        );
+      }
     }
     return null;
   };
@@ -158,8 +171,8 @@ const StyledCalendarWrapper = styled.div`
   /* 일 */
   .react-calendar__tile {
     text-align: center;
-    width: 2.5rem;
-    height: 3.75rem;
+    width: 3.25rem;
+    height: 3.25rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -5,6 +5,7 @@ import {
   getMyChallengeList,
   postAttendance,
   postNewChallenge,
+  getChallengDetail,
 } from "../challenge";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
@@ -14,6 +15,14 @@ function useGetMyChallengeList() {
     queryFn: getMyChallengeList,
   });
 
+  return { data };
+}
+
+function useGetChallengeDetail() {
+  const { data } = useQuery({
+    queryKey: ["getChallengeDetail"],
+    queryFn: getChallengDetail,
+  });
   return { data };
 }
 
@@ -72,4 +81,5 @@ export {
   useGetChallengeSearch,
   usePostNewChallenge,
   usePostAttendance,
+  useGetChallengeDetail,
 };

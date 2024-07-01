@@ -7,6 +7,8 @@ interface GetMonthCalendarResponse extends ResponseBody {
 export interface MonthCalendarProps {
   programIdx: number;
   name: string;
+  category: string | null;
+  location: string | null;
   openDate: {
     year: number;
     month: number;
@@ -19,7 +21,7 @@ export interface MonthCalendarProps {
   };
 }
 
-type CalendarDate = {
+export type CalendarDate = {
   year: number;
   month: number;
   day: number;
@@ -38,7 +40,7 @@ interface GetProgramDetailBody {
 
 // 챌린지 월별 조회
 export const getMonthCalendar = async (): Promise<GetMonthCalendarResponse> => {
-  const response = await client.get("/programs");
+  const response = await client.get("/programs/list");
   // console.log("calenderData", response.data.result);
   return response.data.result;
 };
@@ -48,6 +50,5 @@ export const getProgramDetail = async (
 ): Promise<GetProgramDetailBody> => {
   // const response = await client.get(`/programs/${programIdx}`);
   const response = await client.get(`/programs/2`);
-  // console.log("calenderDetail", response.data.result);
   return response.data.result;
 };

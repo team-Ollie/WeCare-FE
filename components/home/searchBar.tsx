@@ -24,7 +24,7 @@ export default function SearchBar({ value, setValue }: SearchBarProps) {
         <SearchIcon width={24} height={24} />
         <input
           type="text"
-          className="w-full outline-none border-none bg-gray-100 h4"
+          className="w-full outline-none border-none bg-grey-100 h4"
           value={value}
           onChange={(event) => onChangeText(event)}
           placeholder="프로그램 이름을 검색해보세요!"

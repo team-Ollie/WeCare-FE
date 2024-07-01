@@ -35,6 +35,23 @@ async function getMyChallengeList(): Promise<GetMyChallengeListResponse> {
   return data;
 }
 
+type AttendanceDate = {
+  year: number;
+  month: number;
+  day: number;
+};
+
+export interface GetChallengeDetailBody {
+  attendanceDate: AttendanceDate;
+}
+
+async function getChallengDetail(): Promise<GetChallengeDetailBody> {
+  const response = await client.get(
+    `/challenges/attendance/2?year=2024&month=6`,
+  );
+  return response.data.result;
+}
+
 async function getChallengeAds(): Promise<GetChallengeAdsResponse> {
   const { data } = await client.get(`/challenges/ads`);
   return data;
@@ -67,4 +84,5 @@ export {
   getChallengeSearch,
   postNewChallenge,
   postAttendance,
+  getChallengDetail,
 };

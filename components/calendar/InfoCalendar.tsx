@@ -80,7 +80,7 @@ export default function InfoCalendar() {
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center flex-grow w-full h-full">
       <StyledCalendarWrapper>
         <Calendar
           onChange={onChangeToday}
@@ -113,15 +113,23 @@ const StyledCalendarWrapper = styled.div`
     /* position: absolute; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     z-index: 1;
     gap: 1px;
+    height: 100%;
   }
 
   .custom-tile-text {
     text-align: start;
     line-height: 130%;
     flex-wrap: wrap;
+  }
+
+  .react-calendar__viewContainer {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
   }
 
   /* 년도, 월 */
@@ -158,6 +166,7 @@ const StyledCalendarWrapper = styled.div`
 
   .react-calendar__month-view__days {
     border: 0.5px rgba(244, 138, 130, 0.16) solid;
+    height: 100%;
   }
 
   .react-calendar__month-view__days__day--neighboringMonth
@@ -184,6 +193,7 @@ const StyledCalendarWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
   }
 
   .react-calendar__month-view__weekdays {
@@ -197,7 +207,7 @@ const StyledCalendarWrapper = styled.div`
   .react-calendar__tile {
     text-align: center;
     width: 2.5rem;
-    height: 6.6rem;
+    height: 5.69rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
