@@ -37,7 +37,7 @@ const MyPage: NextPage = () => {
       <FlexBox direction="col" className="w-full gap-2">
         <div
           className="w-full py-4 px-6"
-          onClick={() => router.push("/mypage/setting")}
+          // onClick={() => router.push("/mypage/setting")}
         >
           일반 설정
         </div>
