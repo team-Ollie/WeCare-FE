@@ -48,6 +48,5 @@ export const getProgramDetail = async (
 ): Promise<GetProgramDetailBody> => {
   // const response = await client.get(`/programs/${programIdx}`);
   const response = await client.get(`/programs/2`);
-  // console.log("calenderDetail", response.data.result);
   return response.data.result;
 };

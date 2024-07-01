@@ -3,8 +3,10 @@ import {
   getChallengeSearch,
   getMyChallengeList,
   postNewChallenge,
+  getChallengDetail,
 } from "../challenge";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+
 
 function useGetMyChallengeList() {
   const { data } = useQuery({
@@ -12,6 +14,14 @@ function useGetMyChallengeList() {
     queryFn: getMyChallengeList,
   });
 
+  return { data };
+}
+
+function useGetChallengeDetail() {
+  const { data } = useQuery({
+    queryKey: ["getChallengeDetail"],
+    queryFn: getChallengDetail,
+  });
   return { data };
 }
 
@@ -59,4 +69,6 @@ export {
   useGetChallengeAds,
   useGetChallengeSearch,
   usePostNewChallenge,
+  useGetChallengeDetail,
 };
+
