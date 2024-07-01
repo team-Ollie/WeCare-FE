@@ -7,6 +7,8 @@ import LogoLetterIcon from "@/public/svgs/LogoLetter.svg";
 import { useMutation } from "@tanstack/react-query";
 import { ResponseBody, setTokenFromLocalStorage } from "@/apis/client";
 import { SignIn } from "@/apis/auth";
+import { atom, useAtom } from "jotai";
+import { isAdminAtom } from "@/utils/atom";
 
 interface userProps {
   loginId: string;
@@ -15,6 +17,7 @@ interface userProps {
 
 const Login: NextPage = () => {
   const router = useRouter();
+  const [isAdmin, setIsAdmin] = useAtom(isAdminAtom);
 
   const [userInfo, setUserInfo] = useState<userProps>({
     loginId: "",
@@ -50,7 +53,10 @@ const Login: NextPage = () => {
       console.log(data);
       const accessToken = data.result.accessToken;
       const refreshToken = data.result.refreshToken;
+      const isAdmin = data.result.isAdmin;
+      setIsAdmin(isAdmin);
       setTokenFromLocalStorage(accessToken);
+
       router.push("/");
       alert("로그인에 성공하였습니다");
     },

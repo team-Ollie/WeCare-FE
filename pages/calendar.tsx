@@ -11,7 +11,7 @@ interface DropProps {
   regionDrop: boolean;
 }
 
-const categories = ["운동", "예술", "학술"];
+const categories = ["운동", "예술", "학술", "기타"];
 const locations = ["서울", "경기", "그 외"];
 
 const CalendarPage: NextPage = () => {
@@ -32,7 +32,7 @@ const CalendarPage: NextPage = () => {
       <HeadFunction title="캘린더" />
       <div className="flex flex-col flex-grow pt-[1.5rem] items-center overflow-auto scrollbar-hide">
         <div className="h-fit w-full flex flex-row justify-start items-end px-[1rem] gap-3">
-          <div>
+          <div className="">
             <FilterBox
               filterName="카테고리"
               onClick={() => {
@@ -41,11 +41,11 @@ const CalendarPage: NextPage = () => {
               }}
             />
             {isDrop.categoryDrop ? (
-              <ul className="absolute top-[8rem]">
+              <ul className="absolute bg-white w-[5rem] text-center top-[7rem]">
                 {categories.map((option, index) => (
                   <li
                     key={index}
-                    className="cursor-pointer hover:bg-gray-200 p-2"
+                    className="cursor-pointer hover:bg-gray-200"
                     onClick={() => {}}
                   >
                     {option}
