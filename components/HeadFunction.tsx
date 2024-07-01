@@ -24,7 +24,7 @@ export default function HeadFunction({
       <FlexBox className="w-full h-[60px] px-4">
         <div
           className="w-5 h-5 shrink-0 items-center align-center"
-          onClick={leftIcon ? () => router.back : null}
+          onClick={leftIcon ? () => router.back() : null}
         >
           {leftIcon && <LeftArrowIcon width={20} height={20} />}
         </div>
