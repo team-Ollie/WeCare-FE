@@ -2,21 +2,20 @@ import HeadFunction from "@/components/HeadFunction";
 import { NextPage } from "next";
 import NavBar from "@/components/NavBar";
 import Challenge from "@/components/home/challenge";
-import { HomeCarousel } from "@/components/home/carousel";
+import HomeCarousel from "@/components/home/carousel";
 import { HomeHeader } from "@/components/home/header";
 import HomeChallenge from "@/components/home/challengeBox";
 import FlexBox from "@/components/Flexbox";
 import { ToastContainer, Zoom, toast } from "react-toastify";
 import Image from "next/image";
 import "react-toastify/dist/ReactToastify.css";
+import CheckIcon from "@/public/svgs/Check.svg";
 
 const Home: NextPage = () => {
   const notify = (msg: string) => {
     toast.success(msg, {
       position: "bottom-center",
-      icon: ({ theme, type }) => (
-        <Image src="/svgs/Check.svg" width={24} height={24} />
-      ),
+      icon: ({ theme, type }) => <CheckIcon width={24} height={24} />,
     });
   };
 

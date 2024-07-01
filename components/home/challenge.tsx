@@ -3,12 +3,17 @@ import FlexBox from "../Flexbox";
 import { useRouter } from "next/router";
 import { useAtom } from "jotai";
 import { isAdminAtom } from "@/utils/atom";
+import { Challenge as ChallengeType } from "@/apis/challenge";
 
 interface ChallengeProps {
   setIsModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  challengeInfo: ChallengeType;
 }
 
-const Challenge: NextPage<ChallengeProps> = ({ setIsModalVisible }) => {
+const Challenge: NextPage<ChallengeProps> = ({
+  setIsModalVisible,
+  challengeInfo,
+}) => {
   const router = useRouter();
   const [isAdmin] = useAtom(isAdminAtom);
 
@@ -20,10 +25,14 @@ const Challenge: NextPage<ChallengeProps> = ({ setIsModalVisible }) => {
         onClick={isAdmin ? null : () => router.push("/challenge")}
       >
         <FlexBox className="w-full justify-between items-start">
-          <div className="h2">풍물패 두드림</div>
-          <div className="h4 text-gray-500">12명 참여 중</div>
+          <div className="h2">{challengeInfo.name}</div>
+          <div className="h4 text-gray-500">
+            {challengeInfo.participantsNum}명 참여 중
+          </div>
         </FlexBox>
-        <div className="h4 self-start">서울시립도서관 4층 | 월 16시</div>
+        <div className="h4 self-start">
+          {challengeInfo.location} | {challengeInfo.schedule}
+        </div>
       </FlexBox>
       <FlexBox direction="col" className="w-full gap-1">
         <FlexBox
@@ -33,12 +42,12 @@ const Challenge: NextPage<ChallengeProps> = ({ setIsModalVisible }) => {
           {!isAdmin && (
             <FlexBox className="gap-1">
               <div className="h5 text-gray-500">개인달성률</div>
-              <div className="h3">100%</div>
+              <div className="h3">{challengeInfo.attendanceRate}%</div>
             </FlexBox>
           )}
           <FlexBox className="gap-1">
             <div className="h5 text-gray-500">전체달성률</div>
-            <div className="h3">100%</div>
+            <div className="h3">{challengeInfo.totalAttendanceRate}%</div>
           </FlexBox>
         </FlexBox>
         <div
