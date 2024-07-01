@@ -13,12 +13,13 @@ dayjs.locale("ko");
 
 const AddChallenge: NextPage = () => {
   const [name, setName] = useState<string>("");
-  const [location, setLocation] = useState<string>("");
-  const [phoneNum, setPhoneNum] = useState<string>("");
-  const [detail, setDetail] = useState<string>("");
   const [startDate, setStartDate] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
+  const [location, setLocation] = useState<string>("");
+  const [category, setCategory] = useState<string>("");
   const [host, setHost] = useState<string>("");
+  const [phoneNum, setPhoneNum] = useState<string>("");
+  const [detail, setDetail] = useState<string>("");
 
   const { mutate } = usePostProgram();
 
@@ -30,13 +31,14 @@ const AddChallenge: NextPage = () => {
         month: Number(dayjs(endDate).format("M")),
         day: Number(dayjs(endDate).format("D")),
       },
-      startDate: {
+      openDate: {
         year: Number(dayjs(startDate).format("YYYY")),
         month: Number(dayjs(startDate).format("M")),
         day: Number(dayjs(startDate).format("D")),
       },
       location: location,
-      host: "임시host",
+      category: category,
+      host: host,
       schedule: dayjs(endDate).format("ddd"),
       description:
         detail.trim().length === 0
@@ -67,22 +69,13 @@ const AddChallenge: NextPage = () => {
             isError={false}
           />
           <ChallengeInput
-            title="위치"
-            inputType="text"
-            value={location}
-            setValue={setLocation}
-            isError={false}
-            placeholder="기관명 또는 도로명주소"
-          />
-          <ChallengeInput
-            title="태그"
+            title="지역 및 분야"
             inputType="dropdown"
             value={location}
             setValue={setLocation}
-            value2={endDate}
-            setValue2={setEndDate}
+            value2={category}
+            setValue2={setCategory}
             isError={false}
-            placeholder="기관명 또는 도로명주소"
           />
           <ChallengeInput
             title="주최 기관"
@@ -118,6 +111,8 @@ const AddChallenge: NextPage = () => {
             startDate.length === 0 ||
             endDate.length === 0 ||
             location.length === 0 ||
+            category.length === 0 ||
+            host.length === 0 ||
             phoneNum.length === 0
           }
         />

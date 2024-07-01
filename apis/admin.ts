@@ -1,10 +1,12 @@
 import { CalendarDate } from "./calendar";
 import client, { ResponseBody } from "./client";
+
 export interface Program {
   name: string;
   dueDate: CalendarDate;
-  startDate: CalendarDate;
+  openDate: CalendarDate;
   location: string;
+  category: string;
   host: string;
   schedule: string;
   description: string;

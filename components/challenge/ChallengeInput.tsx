@@ -59,9 +59,19 @@ export default function ChallengeInput({
         break;
       case "dropdown":
         return (
-          <FlexBox className="w-full justify-between gap-2 text-Black">
-            <Dropdown options={locationOptions} placeholder="지역" />
-            <Dropdown options={typeOptions} placeholder="종류" />
+          <FlexBox className="w-full justify-between gap-2 text-black">
+            <Dropdown
+              options={locationOptions}
+              placeholder="지역"
+              value={value}
+              onChange={(arg) => setValue(arg.value)}
+            />
+            <Dropdown
+              options={typeOptions}
+              placeholder="분야"
+              value={value2}
+              onChange={(arg) => setValue2(arg.value)}
+            />
           </FlexBox>
         );
         break;
