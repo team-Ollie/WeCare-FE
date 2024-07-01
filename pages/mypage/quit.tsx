@@ -42,11 +42,7 @@ const QuitAccount: NextPage = () => {
         <Button
           text="탈퇴하기"
           onClick={onClickQuitBtn}
-          style={`${
-            password.length === 0
-              ? "bg-grey-300 text-grey-500"
-              : "bg-main-color text-white"
-          }`}
+          style="disabled:bg-grey-300 disabled:text-grey-500 bg-main-color text-white"
           disabled={password.length === 0}
         />
       </FlexBox>
