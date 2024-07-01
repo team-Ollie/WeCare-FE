@@ -96,7 +96,7 @@ const Password: NextPage = () => {
 
   return (
     <div>
-      <HeadFunction title="비밀번호 수정" />
+      <HeadFunction title="비밀번호 변경" />
       <FlexBox direction="col" className="gap-8 px-4 w-full pt-4">
         <TextInput
           value={password}
@@ -127,7 +127,7 @@ const Password: NextPage = () => {
               : "bg-main-color text-white"
           }`}
           onClick={changePassword}
-          text="새 비밀번호 저장"
+          text="변경하기"
         />
       </FlexBox>
     </div>

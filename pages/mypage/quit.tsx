@@ -40,7 +40,7 @@ const QuitAccount: NextPage = () => {
           errorText={pwError.text}
         />
         <Button
-          text="회원 탈퇴하기"
+          text="탈퇴하기"
           onClick={onClickQuitBtn}
           style={`${
             password.length === 0
