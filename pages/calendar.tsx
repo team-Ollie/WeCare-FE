@@ -32,7 +32,7 @@ const CalendarPage: NextPage = () => {
           toggleModal={() => setIsModal(false)}
         />
       ) : null}
-      <div className="flex flex-col w-full h-screen pb-[4rem]">
+      <div className="flex flex-col w-full h-screen">
         <HeadFunction title="캘린더" />
         <div className="flex flex-col flex-grow pt-[1.5rem] items-center overflow-auto scrollbar-hide">
           <div className="h-fit w-full flex flex-row justify-start items-end px-[1rem] gap-3">

@@ -18,7 +18,10 @@ const Home: NextPage = () => {
   };
 
   return (
-    <FlexBox direction="col" className="w-full h-full justify-between">
+    <FlexBox
+      direction="col"
+      className="w-full h-full justify-between overflow-auto scrollbar-hide"
+    >
       <HomeChallenge onNotify={notify} />
       <NavBar />
       <ToastContainer
