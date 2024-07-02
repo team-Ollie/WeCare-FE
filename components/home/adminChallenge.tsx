@@ -25,7 +25,9 @@ const AdminChallenge: NextPage<ChallengeProps> = ({
         <FlexBox className="w-full items-center gap-2">
           <div className="h2">{challengeInfo.name}</div>
           <FlexBox className="gap-1">
-            <Tag name={challengeInfo.location} />
+            {challengeInfo.location !== null ? (
+              <Tag name={challengeInfo.location} />
+            ) : null}
             <Tag name="예술(변경필)" />
           </FlexBox>
         </FlexBox>
