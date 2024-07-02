@@ -10,11 +10,11 @@ const useGetMonthCalendar = () => {
 };
 
 const useGetProgramDetail = (programIdx: number) => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["getProgramDetail"],
     queryFn: () => getProgramDetail(programIdx),
   });
-  return { data };
+  return { data, isLoading };
 };
 
 export { useGetMonthCalendar, useGetProgramDetail };
