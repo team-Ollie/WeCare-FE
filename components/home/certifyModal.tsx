@@ -26,7 +26,7 @@ export default function CertifyModal({
   const { mutate } = usePostAttendance(challengeIdx);
 
   const onCertify = () => {
-    // mutate(number);
+    mutate(number);
     setIsModalVisible(false);
   };
 
