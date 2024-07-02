@@ -5,11 +5,7 @@ import { useRouter } from "next/router";
 import Button from "@/components/Button";
 import LogoLetterIcon from "@/public/svgs/LogoLetter.svg";
 import { useMutation } from "@tanstack/react-query";
-import {
-  ResponseBody,
-  setIsAdminAtLocalStorage,
-  setTokenFromLocalStorage,
-} from "@/apis/client";
+import { ResponseBody, setTokenFromLocalStorage } from "@/apis/client";
 import { SignIn } from "@/apis/auth";
 import { atom, useAtom } from "jotai";
 import { centerNameAtom, isAdminAtom } from "@/utils/atom";
@@ -21,7 +17,7 @@ interface userProps {
 
 const Login: NextPage = () => {
   const router = useRouter();
-  const [isAdmin, setIsAdmin] = useAtom(isAdminAtom);
+  const [, setIsAdmin] = useAtom(isAdminAtom);
   const [, setCenterName] = useAtom(centerNameAtom);
 
   const [userInfo, setUserInfo] = useState<userProps>({
@@ -61,7 +57,6 @@ const Login: NextPage = () => {
       const isAdmin = data.result.isAdmin;
       if (isAdmin) setCenterName(data.result.centerName);
       setIsAdmin(isAdmin);
-      setIsAdminAtLocalStorage(isAdmin);
       setTokenFromLocalStorage(accessToken);
 
       router.push("/");
