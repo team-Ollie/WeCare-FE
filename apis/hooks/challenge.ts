@@ -39,7 +39,6 @@ function useGetChallengeSearch(keyword: string) {
   const { data } = useQuery({
     queryKey: ["getChallengeSearch", keyword],
     queryFn: () => getChallengeSearch(keyword),
-    enabled: keyword.trim().length !== 0,
   });
 
   return { data };
@@ -65,11 +64,14 @@ function usePostNewChallenge(
   return { mutate };
 }
 
-function usePostAttendance() {
+function usePostAttendance(challengeIdx: number) {
   const queryClient = useQueryClient();
   const { mutate } = useMutation({
-    mutationKey: ["postAttendance"],
-    mutationFn: (body: AttendanceRequestBody) => postAttendance(body),
+    mutationKey: ["postAttendance", challengeIdx],
+    mutationFn: (attendanceCode: string) =>
+      postAttendance({ challengeIdx, attendanceCode }),
+    onSuccess: () => window.alert("챌린지가 성공적으로 인증되었습니다."),
+    onError: () => window.alert("다시 시도해주세요."),
   });
 
   return { mutate };

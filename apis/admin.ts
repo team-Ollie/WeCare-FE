@@ -1,18 +1,27 @@
 import { CalendarDate } from "./calendar";
-import client, { ResponseBody } from "./client";
+import client, { ResponseBody, ResponseBody2 } from "./client";
 
 export interface Program {
   name: string;
   dueDate: CalendarDate;
   openDate: CalendarDate;
   location: string;
+  locatedPlace: string;
   category: string;
   host: string;
   schedule: string;
   description: string;
 }
 
-async function postAttendanceCode(challengeIdx: number): Promise<ResponseBody> {
+interface PostAttendanceCodeBody extends ResponseBody2 {
+  result: {
+    code: number;
+  };
+}
+
+async function postAttendanceCode(
+  challengeIdx: number,
+): Promise<PostAttendanceCodeBody> {
   const { data } = await client.post(`/challenges/attendance/${challengeIdx}`);
   return data;
 }

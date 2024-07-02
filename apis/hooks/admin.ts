@@ -6,7 +6,7 @@ function usePostAttendanceCode(challengeIdx: number) {
   const { mutate } = useMutation({
     mutationKey: ["postAttendanceCode", challengeIdx],
     mutationFn: () => postAttendanceCode(challengeIdx),
-    onSuccess: (data) => window.alert(`인증번호: ${data}`),
+    onSuccess: (data) => window.alert(`인증번호: ${data.result.code}`),
     onError: () => window.alert("에러 발생. 앱 관리자에게 문의해주세요."),
   });
 

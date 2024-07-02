@@ -24,7 +24,8 @@ export default function SearchResult({
       <FlexBox direction="col" className="gap-1 items-start">
         <div className="h3">{challengeInfo.name}</div>
         <div className="h4 text-grey-700">
-          {challengeInfo.location} | {challengeInfo.schedule}
+          {challengeInfo.locatedPlace ? `${challengeInfo.locatedPlace} | ` : ""}{" "}
+          매주 {challengeInfo.schedule}요일
         </div>
       </FlexBox>
       <div className="h2 text-main-color p-2" onClick={onClick}>

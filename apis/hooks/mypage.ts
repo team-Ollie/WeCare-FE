@@ -28,7 +28,7 @@ function usePatchLogout() {
       localStorage.removeItem("access_token");
       router.push("/main");
     },
-    onError: () => router.push("/404"),
+    onError: () => router.push("/main"),
   });
 
   return { mutate };
