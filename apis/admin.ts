@@ -1,5 +1,5 @@
 import { CalendarDate } from "./calendar";
-import client, { ResponseBody } from "./client";
+import client, { ResponseBody, ResponseBody2 } from "./client";
 
 export interface Program {
   name: string;
@@ -12,7 +12,15 @@ export interface Program {
   description: string;
 }
 
-async function postAttendanceCode(challengeIdx: number): Promise<ResponseBody> {
+interface PostAttendanceCodeBody extends ResponseBody2 {
+  result: {
+    code: number;
+  };
+}
+
+async function postAttendanceCode(
+  challengeIdx: number,
+): Promise<PostAttendanceCodeBody> {
   const { data } = await client.post(`/challenges/attendance/${challengeIdx}`);
   return data;
 }
