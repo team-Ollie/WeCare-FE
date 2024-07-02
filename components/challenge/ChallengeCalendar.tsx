@@ -19,6 +19,10 @@ export default function ChallengeCalendar({
     setClickedDate(clickedDate);
   };
 
+  const disableAllDates = ({ date }) => {
+    return true;
+  };
+
   const customTileContent = ({ date, view }: { date: Date; view: string }) => {
     if (Array.isArray(attendanceInfo) && view === "month") {
       const matchedData = attendanceInfo.find((challenge) => {
@@ -54,6 +58,7 @@ export default function ChallengeCalendar({
           prev2Label={null}
           minDate={new Date(2024, 4, 1)}
           tileContent={customTileContent}
+          tileDisabled={disableAllDates}
         />
       </StyledCalendarWrapper>
     </div>

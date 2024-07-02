@@ -6,21 +6,17 @@ const useGetMonthCalendar = () => {
     queryKey: ["getMonthCalendar"],
     queryFn: getMonthCalendar,
   });
-  // console.log("isLoading", isLoading);
-  console.log("Query Data", data);
   return { data };
 };
 
 export { useGetMonthCalendar };
 
-// const useGetProgramDetail = () => {
-//   const { data } = useQuery({
-//     queryKey: ["getProgramDetail"],
-//     queryFn: getProgramDetail,
-//   });
-//   // console.log("isLoading", isLoading);
-//   console.log("Query Data", data);
-//   return { data };
-// };
+const useGetProgramDetail = (programIdx: number) => {
+  const { data } = useQuery({
+    queryKey: ["getProgramDetail"],
+    queryFn: () => getProgramDetail(programIdx),
+  });
+  return { data };
+};
 
-// export { useGetProgramDetail };
+export { useGetProgramDetail };

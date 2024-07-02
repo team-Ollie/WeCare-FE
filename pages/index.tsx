@@ -21,10 +21,6 @@ const Home: NextPage = () => {
     });
   };
 
-  //isAdmin
-  const isAdmin = useAtomValue(isAdminAtom);
-  console.log("atom: ", isAdmin);
-
   return (
     <FlexBox direction="col" className="w-full h-full justify-between">
       <HomeChallenge onNotify={notify} />

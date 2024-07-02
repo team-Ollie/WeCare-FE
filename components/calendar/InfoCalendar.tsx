@@ -85,6 +85,10 @@ export default function InfoCalendar({ filterTag }: { filterTag: string }) {
     return null;
   };
 
+  const disableAllDates = ({ date }) => {
+    return true;
+  };
+
   return (
     <div className="flex justify-center items-center flex-grow w-full h-full">
       <StyledCalendarWrapper>
@@ -97,6 +101,7 @@ export default function InfoCalendar({ filterTag }: { filterTag: string }) {
           minDate={new Date(2024, 4, 1)}
           formatDay={(locale, date) => moment(date).format("DD")}
           tileContent={customTileContent}
+          tileDisabled={disableAllDates}
         />
       </StyledCalendarWrapper>
     </div>
