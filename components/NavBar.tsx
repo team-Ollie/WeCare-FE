@@ -18,6 +18,7 @@ const NavBar = () => {
 
   return (
     <>
+      <div className="w-full min-h-[4rem]" />
       <div
         className="flex flex-basis h-[4rem] w-full fixed inset-x-0 bottom-0 "
         style={{
