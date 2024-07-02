@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "@/styles/dropdown.css";
 import "@/styles/toast.css";
 import "public/fonts/font.css";
 // import "@/styles/Calendar.css";

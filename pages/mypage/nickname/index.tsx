@@ -85,7 +85,7 @@ const ChangeNickName: NextPage = () => {
         <Button
           text="변경하기"
           onClick={onClickChangeBtn}
-          style="bg-main-color text-white mt-6 disabled:bg-gray-300 disabled:text-gray-500"
+          style="bg-main-color text-white mt-6 disabled:bg-grey-300 disabled:text-grey-500"
           disabled={
             tempName.length === 0 || nameError.status || newName.length === 0
           }

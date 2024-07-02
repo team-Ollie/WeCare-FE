@@ -5,7 +5,6 @@ import NavBar from "@/components/NavBar";
 import SearchBar from "@/components/home/searchBar";
 import SearchResult from "@/components/home/searchResult";
 import { NextPage } from "next";
-import Image from "next/image";
 import { useState } from "react";
 import { toast, ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

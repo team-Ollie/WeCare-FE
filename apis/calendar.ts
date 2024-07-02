@@ -21,7 +21,7 @@ export interface MonthCalendarProps {
   };
 }
 
-type CalendarDate = {
+export type CalendarDate = {
   year: number;
   month: number;
   day: number;

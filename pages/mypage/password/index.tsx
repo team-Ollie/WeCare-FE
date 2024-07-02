@@ -45,12 +45,10 @@ const Password: NextPage = () => {
   };
   const checkNewPwError = () => {
     if (newPw.length === 0) {
-      console.log(1);
       setNewPwError({ status: false, text: "" });
       return;
     }
     if (newPw === password) {
-      console.log(2);
       setNewPwError({ status: true, text: "기존 비밀번호와 동일합니다" });
       return;
     }
@@ -98,7 +96,7 @@ const Password: NextPage = () => {
 
   return (
     <div>
-      <HeadFunction title="비밀번호 수정" />
+      <HeadFunction title="비밀번호 변경" />
       <FlexBox direction="col" className="gap-8 px-4 w-full pt-4">
         <TextInput
           value={password}
@@ -125,11 +123,11 @@ const Password: NextPage = () => {
           disabled={isBtnDisabled}
           style={`${
             isBtnDisabled
-              ? "bg-gray-300 text-gray-500"
+              ? "bg-grey-300 text-grey-500"
               : "bg-main-color text-white"
           }`}
           onClick={changePassword}
-          text="새 비밀번호 저장"
+          text="변경하기"
         />
       </FlexBox>
     </div>
