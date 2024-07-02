@@ -14,14 +14,8 @@ const MyPage: NextPage = () => {
   const { data } = useGetMyInfo();
   const { mutate } = usePatchLogout();
 
-  const notify = () => {
-    toast.info("이미 관리자 인증을 완료하셨습니다.", {
-      position: "bottom-center",
-    });
-  };
-
   const certifyAdmin = () => {
-    if (data.result.isAdmin) notify();
+    if (data.result.isAdmin) window.alert("이미 관리자 인증을 완료하셨습니다.");
     else router.push("/mypage/admin");
   };
 
