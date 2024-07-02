@@ -26,8 +26,15 @@ export default function CertifyModal({
   const { mutate } = usePostAttendance(challengeIdx);
 
   const onCertify = () => {
-    mutate(number);
-    setIsModalVisible(false);
+    if (number.length === 0)
+      setNumError({
+        status: true,
+        text: "인증번호가 입력되지 않았습니다.",
+      });
+    else {
+      mutate(number);
+      setIsModalVisible(false);
+    }
   };
 
   return (
