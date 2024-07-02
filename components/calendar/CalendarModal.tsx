@@ -21,7 +21,7 @@ const CalendarModal = ({
         className="w-screen h-full flex flex-col items-center justify-center fixed bg-[rgba(1,0,0,0.4)] z-10"
         key={programIdx}
       >
-        <div className="flex flex-col relative items-center justify-center w-[80%] h-[60%] bg-white z-10 rounded-xl py-5 px-8 gap-3">
+        <div className="flex flex-col relative items-center justify-center w-[80%] h-[60%] bg-white z-40 rounded-xl py-5 px-8 gap-3">
           <Close className="absolute right-3 top-3" onClick={toggleModal} />
           <div className="h0 text-main-color h-fit">{data.name}</div>
           <div className="flex flex-col mt-3 flex-grow h-full w-full gap-3 overflow-auto scrollbar-hide">
