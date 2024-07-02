@@ -32,7 +32,6 @@ export default function InfoCalendar({
   const customTileContent = ({ date, view }: { date: Date; view: string }) => {
     if (Array.isArray(data) && view === "month") {
       let filteredData = data.filter((dayData: MonthCalendarProps) => {
-        console.log(filterTag);
         return dayData.category === filterTag || dayData.location === filterTag;
       });
 

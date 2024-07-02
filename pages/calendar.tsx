@@ -13,7 +13,6 @@ const CalendarPage: NextPage = () => {
   const [selected, setSelected] = useState("");
 
   const handleSelect = (e) => {
-    console.log(selected);
     setSelected(e.target.value);
   };
 
