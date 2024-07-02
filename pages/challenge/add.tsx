@@ -9,19 +9,23 @@ import dayjs from "dayjs";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
 import "dayjs/locale/ko";
+import { useAtom } from "jotai";
+import { centerNameAtom } from "@/utils/atom";
 dayjs.locale("ko");
 
 const AddChallenge: NextPage = () => {
   const [name, setName] = useState<string>("");
   const [startDate, setStartDate] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
-  const [location, setLocation] = useState<string>("");
+  const [location, setLocation] = useState<string>(""); // 지역태그
   const [category, setCategory] = useState<string>("");
-  const [host, setHost] = useState<string>("");
+  const [place, setPlace] = useState<string>("");
   const [phoneNum, setPhoneNum] = useState<string>("");
   const [detail, setDetail] = useState<string>("");
 
   const { mutate } = usePostProgram();
+
+  const [centerName] = useAtom(centerNameAtom);
 
   const registerProgram = () => {
     mutate({
@@ -36,9 +40,10 @@ const AddChallenge: NextPage = () => {
         month: Number(dayjs(startDate).format("M")),
         day: Number(dayjs(startDate).format("D")),
       },
-      location: location,
-      category: category,
-      host: host,
+      location,
+      locatedPlace: place,
+      category,
+      host: centerName,
       schedule: dayjs(endDate).format("ddd"),
       description:
         detail.trim().length === 0
@@ -78,11 +83,12 @@ const AddChallenge: NextPage = () => {
             isError={false}
           />
           <ChallengeInput
-            title="주최 기관"
+            title="장소"
             inputType="text"
-            value={host}
-            setValue={setHost}
+            value={place}
+            setValue={setPlace}
             isError={false}
+            placeholder="프로그램 시행 장소"
           />
           <ChallengeInput
             title="담당자 전화번호"

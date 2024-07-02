@@ -12,7 +12,7 @@ import {
 } from "@/apis/client";
 import { SignIn } from "@/apis/auth";
 import { atom, useAtom } from "jotai";
-import { isAdminAtom } from "@/utils/atom";
+import { centerNameAtom, isAdminAtom } from "@/utils/atom";
 
 interface userProps {
   loginId: string;
@@ -22,6 +22,7 @@ interface userProps {
 const Login: NextPage = () => {
   const router = useRouter();
   const [isAdmin, setIsAdmin] = useAtom(isAdminAtom);
+  const [, setCenterName] = useAtom(centerNameAtom);
 
   const [userInfo, setUserInfo] = useState<userProps>({
     loginId: "",
@@ -58,6 +59,7 @@ const Login: NextPage = () => {
       const accessToken = data.result.accessToken;
       const refreshToken = data.result.refreshToken;
       const isAdmin = data.result.isAdmin;
+      if (isAdmin) setCenterName(data.result.centerName);
       setIsAdmin(isAdmin);
       setIsAdminAtLocalStorage(isAdmin);
       setTokenFromLocalStorage(accessToken);

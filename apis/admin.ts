@@ -6,6 +6,7 @@ export interface Program {
   dueDate: CalendarDate;
   openDate: CalendarDate;
   location: string;
+  locatedPlace: string;
   category: string;
   host: string;
   schedule: string;
