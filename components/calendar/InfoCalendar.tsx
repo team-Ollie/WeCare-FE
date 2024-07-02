@@ -6,7 +6,13 @@ import { useGetMonthCalendar } from "@/apis/hooks/calendar";
 import { MonthCalendarProps } from "@/apis/calendar";
 import Dot from "@/public/svgs/Dot.svg";
 
-export default function InfoCalendar({ filterTag }: { filterTag: string }) {
+export default function InfoCalendar({
+  filterTag,
+  toggleModalHandler,
+}: {
+  filterTag: string;
+  toggleModalHandler: (programIdx: number) => void;
+}) {
   type DatePiece = Date | null;
   type SelectedDate = DatePiece | [DatePiece, DatePiece];
 
@@ -20,13 +26,12 @@ export default function InfoCalendar({ filterTag }: { filterTag: string }) {
   const { data } = useGetMonthCalendar();
 
   const handleDayDataClick = (programIdx: number) => {
-    console.log("API 호출: ", programIdx);
+    toggleModalHandler(programIdx);
   };
 
   const customTileContent = ({ date, view }: { date: Date; view: string }) => {
     if (Array.isArray(data) && view === "month") {
       let filteredData = data.filter((dayData: MonthCalendarProps) => {
-        console.log(filterTag);
         return dayData.category === filterTag || dayData.location === filterTag;
       });
 
@@ -65,7 +70,7 @@ export default function InfoCalendar({ filterTag }: { filterTag: string }) {
                   day.openDate.month - 1,
                   day.openDate.day,
                 ).getTime();
-              // console.log(day);
+
               return (
                 <div key={index} className="flex flex-row items-center gap-1">
                   <Dot color={isOpen ? "#F06459" : "#8E8E93"} />
@@ -101,7 +106,6 @@ export default function InfoCalendar({ filterTag }: { filterTag: string }) {
           minDate={new Date(2024, 4, 1)}
           formatDay={(locale, date) => moment(date).format("DD")}
           tileContent={customTileContent}
-          tileDisabled={disableAllDates}
         />
       </StyledCalendarWrapper>
     </div>
@@ -232,8 +236,8 @@ const StyledCalendarWrapper = styled.div`
   .react-calendar__tile:enabled:hover,
   .react-calendar__tile:enabled:focus,
   .react-calendar__tile--active {
-    background: #f06459;
-    color: white;
+    background-color: #fff2f1;
+    color: #f06459;
   }
 
   /* 현재 날짜 */
