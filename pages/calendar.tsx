@@ -11,8 +11,8 @@ interface DropProps {
   regionDrop: boolean;
 }
 
-const categories = ["운동", "예술", "학술", "기타"];
-const locations = ["서울", "경기", "그 외"];
+const categories = ["카테고리", "운동", "예술", "학술", "기타"];
+const locations = ["지역", "서울", "경기", "그 외"];
 
 const CalendarPage: NextPage = () => {
   const date = new Date();
@@ -22,6 +22,13 @@ const CalendarPage: NextPage = () => {
     categoryDrop: false,
     regionDrop: false,
   });
+  const [isIndex, setIsIndex] = useState<number>(-1);
+  const [selected, setSelected] = useState("");
+
+  const handleSelect = (e) => {
+    console.log(selected);
+    setSelected(e.target.value);
+  };
 
   const toggleDrop = (dropName: string) => {
     setIsDrop((prev: DropProps) => ({ ...prev, [dropName]: !prev[dropName] }));
@@ -32,53 +39,43 @@ const CalendarPage: NextPage = () => {
       <HeadFunction title="캘린더" />
       <div className="flex flex-col flex-grow pt-[1.5rem] items-center overflow-auto scrollbar-hide">
         <div className="h-fit w-full flex flex-row justify-start items-end px-[1rem] gap-3">
-          <div className="">
-            <FilterBox
-              filterName="카테고리"
-              onClick={() => {
-                toggleDrop("categoryDrop");
-                console.log("category");
-              }}
-            />
-            {isDrop.categoryDrop ? (
-              <ul className="absolute bg-white w-[5rem] text-center top-[7rem]">
-                {categories.map((option, index) => (
-                  <li
-                    key={index}
-                    className="cursor-pointer hover:bg-gray-200"
-                    onClick={() => {}}
-                  >
-                    {option}
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-          </div>
-          <div>
-            <FilterBox
-              filterName="지역"
-              onClick={() => {
-                setIsDrop({ ...isDrop, regionDrop: !isDrop.regionDrop });
-              }}
-            />
-            {isDrop.regionDrop ? (
-              <ul className="absolute top-[8rem]">
-                {locations.map((option, index) => (
-                  <li
-                    key={index}
-                    className="cursor-pointer hover:bg-gray-200 p-2"
-                    onClick={() => {}}
-                  >
-                    {option}
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-          </div>
+          {isDrop && (
+            <select
+              value={selected}
+              onChange={handleSelect}
+              className="dropdown w-fit h-[1.9rem] flex justify-center items-center text-center bg-main-color rounded-3xl text-white py-[0.31rem] pl-[0.94rem] pr-[0.44rem] gap-0.5"
+            >
+              {categories.map((opt, index) => (
+                <option
+                  key={index}
+                  className="h3 cursor-pointer hover:bg-gray-100"
+                  value={opt}
+                >
+                  {opt}
+                </option>
+              ))}
+            </select>
+          )}
+
+          <select
+            value={selected}
+            onChange={handleSelect}
+            className="dropdown w-fit h-[1.9rem] flex justify-center items-center text-center bg-main-color rounded-3xl text-white py-[0.31rem] pl-[0.94rem] pr-[0.44rem] gap-0.5"
+          >
+            {locations.map((opt, index) => (
+              <option
+                key={index}
+                className="h3 cursor-pointer hover:bg-gray-100"
+                value={opt}
+              >
+                {opt}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="flex w-full">
-          <InfoCalendar />
+          <InfoCalendar filterTag={selected} />
         </div>
       </div>
 

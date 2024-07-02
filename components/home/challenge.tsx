@@ -37,7 +37,12 @@ const Challenge: NextPage<ChallengeProps> = ({
       <FlexBox direction="col" className="w-full gap-1">
         <FlexBox
           className="w-full items-start justify-between"
-          onClick={isAdmin ? null : () => router.push("/challenge")}
+          onClick={
+            isAdmin
+              ? null
+              : () =>
+                  router.push(`/challenge?idx=${challengeInfo.challengeIdx}`)
+          }
         >
           {!isAdmin && (
             <FlexBox className="gap-1">
