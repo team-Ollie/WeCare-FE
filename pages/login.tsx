@@ -54,7 +54,6 @@ const Login: NextPage = () => {
     mutationKey: ["SignIn"],
     mutationFn: SignIn,
     onSuccess: async (data) => {
-      console.log(data);
       const accessToken = data.result.accessToken;
       const refreshToken = data.result.refreshToken;
       const isAdmin = data.result.isAdmin;
