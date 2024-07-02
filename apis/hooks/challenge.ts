@@ -39,7 +39,6 @@ function useGetChallengeSearch(keyword: string) {
   const { data } = useQuery({
     queryKey: ["getChallengeSearch", keyword],
     queryFn: () => getChallengeSearch(keyword),
-    enabled: keyword.trim().length !== 0,
   });
 
   return { data };
