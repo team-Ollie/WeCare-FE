@@ -18,7 +18,7 @@ function useGetMyChallengeList() {
   return { data };
 }
 
-function useGetChallengeDetail(challengeIdx: number) {
+function useGetChallengeDetail(challengeIdx: string) {
   const { data } = useQuery({
     queryKey: ["getChallengeDetail"],
     queryFn: () => getChallengDetail(challengeIdx),

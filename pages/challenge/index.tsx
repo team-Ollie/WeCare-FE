@@ -12,7 +12,6 @@ import { GetChallengeDetailBody } from "@/apis/challenge";
 const Challenge: NextPage = () => {
   const router = useRouter();
   const { idx } = router.query;
-  const [challengeIdx, setChallengIdx] = useState<number>(idx);
 
   // API 관리
   const { data }: { data: GetChallengeDetailBody } = useGetChallengeDetail(idx);
