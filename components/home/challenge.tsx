@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { Challenge as ChallengeType } from "@/apis/challenge";
 import { useAtom } from "jotai";
 import { challengeIdxAtom } from "@/utils/atom";
+import Tag from "./tag";
 
 interface ChallengeProps {
   setIsModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
@@ -30,13 +31,22 @@ const Challenge: NextPage<ChallengeProps> = ({
         onClick={() => router.push("/challenge")}
       >
         <FlexBox className="w-full justify-between items-start">
-          <div className="h2">{challengeInfo.name}</div>
+          <FlexBox className="gap-2">
+            <div className="h2">{challengeInfo.name}</div>
+            <FlexBox className="gap-1">
+              {challengeInfo.location !== null ? (
+                <Tag name={challengeInfo.location} />
+              ) : null}
+              <Tag name="예술(변경필)" />
+            </FlexBox>
+          </FlexBox>
           <div className="h4 text-grey-500">
             {challengeInfo.participantsCount}명 참여 중
           </div>
         </FlexBox>
         <div className="h4 self-start">
-          {challengeInfo.location} | {challengeInfo.schedule}
+          {challengeInfo.locatedPlace ?? challengeInfo.location} | 매주{" "}
+          {challengeInfo.schedule}요일
         </div>
       </FlexBox>
       <FlexBox direction="col" className="w-full gap-1">
