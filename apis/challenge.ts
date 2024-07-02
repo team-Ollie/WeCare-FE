@@ -50,7 +50,7 @@ export interface GetChallengeDetailBody {
 }
 
 async function getChallengDetail(
-  challengeIdx: string,
+  challengeIdx: string | string[],
 ): Promise<GetChallengeDetailBody> {
   const response = await client.get(`/challenges/attendance/${challengeIdx}`);
   return response.data.result;
