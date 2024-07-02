@@ -19,7 +19,7 @@ const Challenge: NextPage<ChallengeProps> = ({
       <FlexBox
         direction="col"
         className="w-full gap-1"
-        onClick={() => router.push("/challenge")}
+        onClick={() => router.push(`/challenge?idx=${challengeInfo.challengeIdx}`)}
       >
         <FlexBox className="w-full justify-between items-start">
           <div className="h2">{challengeInfo.name}</div>
@@ -34,7 +34,7 @@ const Challenge: NextPage<ChallengeProps> = ({
       <FlexBox direction="col" className="w-full gap-1">
         <FlexBox
           className="w-full items-start justify-between"
-          onClick={() => router.push("/challenge")}
+          onClick={() => router.push(`/challenge?idx=${challengeInfo.challengeIdx}`)}
         >
           <FlexBox className="gap-1">
             <div className="h5 text-grey-500">개인달성률</div>

@@ -18,10 +18,10 @@ function useGetMyChallengeList() {
   return { data };
 }
 
-function useGetChallengeDetail() {
+function useGetChallengeDetail(challengeIdx: string | string[]) {
   const { data } = useQuery({
     queryKey: ["getChallengeDetail"],
-    queryFn: getChallengDetail,
+    queryFn: () => getChallengDetail(challengeIdx),
   });
   return { data };
 }

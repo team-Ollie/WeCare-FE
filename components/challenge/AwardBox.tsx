@@ -1,7 +1,7 @@
 interface AwardProps {
   style?: string;
   text: string;
-  percent: string;
+  percent: number;
 }
 
 export default function AwardBox({ style, text, percent }: AwardProps) {
@@ -14,7 +14,7 @@ export default function AwardBox({ style, text, percent }: AwardProps) {
         <br />
       </span>
       <span className="font-bold text-black text-[28px] tracking-[-0.09px]">
-        {percent}
+        {percent}%
       </span>
     </p>
   );

@@ -41,14 +41,12 @@ interface GetProgramDetailBody {
 // 챌린지 월별 조회
 export const getMonthCalendar = async (): Promise<GetMonthCalendarResponse> => {
   const response = await client.get("/programs/list");
-  // console.log("calenderData", response.data.result);
   return response.data.result;
 };
 
 export const getProgramDetail = async (
   programIdx: number,
 ): Promise<GetProgramDetailBody> => {
-  // const response = await client.get(`/programs/${programIdx}`);
-  const response = await client.get(`/programs/2`);
+  const response = await client.get(`/programs/${programIdx}`);
   return response.data.result;
 };
