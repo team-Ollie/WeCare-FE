@@ -9,8 +9,6 @@ const useGetMonthCalendar = () => {
   return { data };
 };
 
-export { useGetMonthCalendar };
-
 const useGetProgramDetail = (programIdx: number) => {
   const { data } = useQuery({
     queryKey: ["getProgramDetail"],
@@ -19,4 +17,4 @@ const useGetProgramDetail = (programIdx: number) => {
   return { data };
 };
 
-export { useGetProgramDetail };
+export { useGetMonthCalendar, useGetProgramDetail };

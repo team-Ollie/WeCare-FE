@@ -27,12 +27,13 @@ export type CalendarDate = {
   day: number;
 };
 
-interface GetProgramDetailBody {
+export interface GetProgramDetailBody {
   programIdx: number;
   name: string;
   openDate: CalendarDate;
   dueDate: CalendarDate;
   location: string;
+  locatedPlace: string;
   host: string;
   schedule: string;
   description: string;
