@@ -3,9 +3,13 @@ import { useState } from "react";
 import styled from "styled-components";
 import LogoMark from "@/public/svgs/LogoMark.svg";
 import { useGetChallengeDetail } from "@/apis/hooks/challenge";
-import { GetChallengeDetailBody } from "@/apis/challenge";
+import { AttendanceDate } from "@/apis/challenge";
 
-export default function ChallengeCalendar() {
+export default function ChallengeCalendar({
+  attendanceInfo,
+}: {
+  attendanceInfo: AttendanceDate[];
+}) {
   type DatePiece = Date | null;
   type SelectedDate = DatePiece | [DatePiece, DatePiece];
 
@@ -15,16 +19,17 @@ export default function ChallengeCalendar() {
     setClickedDate(clickedDate);
   };
 
-  // API 관리
-  const { data } = useGetChallengeDetail();
+  const disableAllDates = ({ date }) => {
+    return true;
+  };
 
   const customTileContent = ({ date, view }: { date: Date; view: string }) => {
-    if (Array.isArray(data) && view === "month") {
-      const matchedData = data.find((challenge: GetChallengeDetailBody) => {
+    if (Array.isArray(attendanceInfo) && view === "month") {
+      const matchedData = attendanceInfo.find((challenge) => {
         const attendanceDate = new Date(
-          challenge.attendanceDate.year,
-          challenge.attendanceDate.month - 1,
-          challenge.attendanceDate.day,
+          challenge.year,
+          challenge.month - 1,
+          challenge.day,
         );
         return attendanceDate.getTime() === date.getTime();
       });
@@ -53,6 +58,7 @@ export default function ChallengeCalendar() {
           prev2Label={null}
           minDate={new Date(2024, 4, 1)}
           tileContent={customTileContent}
+          tileDisabled={disableAllDates}
         />
       </StyledCalendarWrapper>
     </div>

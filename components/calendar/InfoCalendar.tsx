@@ -6,15 +6,11 @@ import { useGetMonthCalendar } from "@/apis/hooks/calendar";
 import { MonthCalendarProps } from "@/apis/calendar";
 import Dot from "@/public/svgs/Dot.svg";
 
-export default function InfoCalendar() {
+export default function InfoCalendar({ filterTag }: { filterTag: string }) {
   type DatePiece = Date | null;
   type SelectedDate = DatePiece | [DatePiece, DatePiece];
 
   const [clickedDate, setClickedDate] = useState<SelectedDate>(new Date());
-
-  // const [monthCalendarData, setMonthCalendarData] = useState<
-  //   MonthCalendarProps[]
-  // >([]);
 
   const onChangeToday = () => {
     setClickedDate(clickedDate);
@@ -29,7 +25,17 @@ export default function InfoCalendar() {
 
   const customTileContent = ({ date, view }: { date: Date; view: string }) => {
     if (Array.isArray(data) && view === "month") {
-      const dayData = data.filter((dayData: MonthCalendarProps) => {
+      let filteredData = data.filter((dayData: MonthCalendarProps) => {
+        console.log(filterTag);
+        return dayData.category === filterTag || dayData.location === filterTag;
+      });
+
+      // 필터링된 데이터가 없으면 전체 데이터 반환하도록
+      if (filteredData.length === 0) {
+        filteredData = data;
+      }
+
+      const dayData = filteredData.filter((dayData: MonthCalendarProps) => {
         const openDate = new Date(
           dayData.openDate.year,
           dayData.openDate.month - 1,
@@ -59,7 +65,7 @@ export default function InfoCalendar() {
                   day.openDate.month - 1,
                   day.openDate.day,
                 ).getTime();
-              console.log(day);
+              // console.log(day);
               return (
                 <div key={index} className="flex flex-row items-center gap-1">
                   <Dot color={isOpen ? "#F06459" : "#8E8E93"} />
@@ -79,6 +85,10 @@ export default function InfoCalendar() {
     return null;
   };
 
+  const disableAllDates = ({ date }) => {
+    return true;
+  };
+
   return (
     <div className="flex justify-center items-center flex-grow w-full h-full">
       <StyledCalendarWrapper>
@@ -91,6 +101,7 @@ export default function InfoCalendar() {
           minDate={new Date(2024, 4, 1)}
           formatDay={(locale, date) => moment(date).format("DD")}
           tileContent={customTileContent}
+          tileDisabled={disableAllDates}
         />
       </StyledCalendarWrapper>
     </div>
