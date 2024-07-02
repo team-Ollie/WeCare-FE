@@ -9,10 +9,8 @@ const CalendarModal = ({
   programIdx: number;
   toggleModal: () => {};
 }) => {
-  console.log(programIdx);
   const { data }: { data: GetProgramDetailBody } =
     useGetProgramDetail(programIdx);
-  console.log(data);
 
   return (
     <div
