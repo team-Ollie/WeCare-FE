@@ -7,10 +7,11 @@ interface GetMyChallengeListResponse extends ResponseBody {
 export interface Challenge {
   challengeIdx: number;
   name: string;
-  participantsNum: number;
+  participantsCount: number;
   location: string;
+  locatedPlace: string;
   schedule: string;
-  attendanceRate: number;
+  myAttendanceRate: number;
   totalAttendanceRate: number;
 }
 interface GetChallengeAdsResponse extends ResponseBody2 {
