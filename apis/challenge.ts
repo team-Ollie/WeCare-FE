@@ -8,7 +8,6 @@ export interface Challenge {
   challengeIdx: number;
   name: string;
   participantsCount: number;
-  location: string;
   locatedPlace: string;
   schedule: string;
   myAttendanceRate: number;
