@@ -22,18 +22,6 @@ const getTokenFromLocalStorage = () => {
   return accessToken;
 };
 
-export const setIsAdminAtLocalStorage = (is_admin: string) => {
-  localStorage.setItem("is_admin", is_admin);
-};
-
-const getIsAdminFromLocalStorage = () => {
-  const isAdmin = localStorage.getItem("is_admin");
-  if (!isAdmin) {
-    return null;
-  }
-  return isAdmin;
-};
-
 const client = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
   withCredentials: true,

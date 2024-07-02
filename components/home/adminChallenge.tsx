@@ -21,11 +21,12 @@ const AdminChallenge: NextPage<ChallengeProps> = ({
   return (
     <FlexBox direction="col" className="p-4 w-full rounded-lg border gap-4">
       <FlexBox direction="col" className="w-full gap-1">
-        <FlexBox className="w-full justify-between items-start">
+        <FlexBox className="w-full items-start">
           <div className="h2">{challengeInfo.name}</div>
         </FlexBox>
         <div className="h4 self-start">
-          {challengeInfo.location} | {challengeInfo.schedule}
+          {challengeInfo.locatedPlace ? `${challengeInfo.locatedPlace} | ` : ""}
+          매주 {challengeInfo.schedule}요일
         </div>
       </FlexBox>
       <FlexBox direction="col" className="w-full gap-2">
@@ -33,7 +34,7 @@ const AdminChallenge: NextPage<ChallengeProps> = ({
           <div className="h5 text-grey-500">전체달성률</div>
           <div className="h3">
             {challengeInfo.totalAttendanceRate}%(
-            {challengeInfo.participantsNum}명)
+            {challengeInfo.participantsCount}명 참여 중)
           </div>
         </FlexBox>
         <FlexBox className="w-full gap-2">

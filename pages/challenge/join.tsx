@@ -13,7 +13,7 @@ import CheckIcon from "@/public/svgs/Check.svg";
 const JoinChallenge: NextPage = () => {
   const [keyword, setKeyword] = useState<string>("");
 
-  const { data } = useGetChallengeSearch(keyword);
+  const { data } = useGetChallengeSearch(keyword.trim());
 
   const notify = (title: string) => {
     toast.success(`${title}에 성공적으로 참여하셨습니다.`, {
