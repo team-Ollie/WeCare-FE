@@ -118,7 +118,7 @@ const AddChallenge: NextPage = () => {
             endDate.length === 0 ||
             location.length === 0 ||
             category.length === 0 ||
-            host.length === 0 ||
+            place.length === 0 ||
             phoneNum.length === 0
           }
         />
