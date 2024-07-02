@@ -15,9 +15,6 @@ const categories = ["카테고리", "운동", "예술", "학술", "기타"];
 const locations = ["지역", "서울", "경기", "그 외"];
 
 const CalendarPage: NextPage = () => {
-  const date = new Date();
-  console.log(date);
-
   const [isDrop, setIsDrop] = useState<DropProps>({
     categoryDrop: false,
     regionDrop: false,

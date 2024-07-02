@@ -11,12 +11,6 @@ export default function InfoCalendar({ filterTag }: { filterTag: string }) {
   type SelectedDate = DatePiece | [DatePiece, DatePiece];
 
   const [clickedDate, setClickedDate] = useState<SelectedDate>(new Date());
-  const categories = ["카테고리", "운동", "예술", "학술", "기타"];
-  const locations = ["지역", "서울", "경기", "그 외"];
-
-  // const [monthCalendarData, setMonthCalendarData] = useState<
-  //   MonthCalendarProps[]
-  // >([]);
 
   const onChangeToday = () => {
     setClickedDate(clickedDate);

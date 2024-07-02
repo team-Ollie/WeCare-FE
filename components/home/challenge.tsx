@@ -22,7 +22,11 @@ const Challenge: NextPage<ChallengeProps> = ({
       <FlexBox
         direction="col"
         className="w-full gap-1"
-        onClick={isAdmin ? null : () => router.push("/challenge")}
+        onClick={
+          isAdmin
+            ? null
+            : () => router.push(`/challenge?idx=${challengeInfo.challengeIdx}`)
+        }
       >
         <FlexBox className="w-full justify-between items-start">
           <div className="h2">{challengeInfo.name}</div>
