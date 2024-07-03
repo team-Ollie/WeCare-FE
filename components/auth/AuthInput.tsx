@@ -1,6 +1,7 @@
 import { ChangeEvent, HTMLInputTypeAttribute, forwardRef } from "react";
 
 export interface TextInputProps {
+  className?: string;
   value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
   isError: boolean;
@@ -15,6 +16,7 @@ export interface TextInputProps {
 const AuthInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
     {
+      className = "",
       value,
       isError,
       placeholder = "",
@@ -29,7 +31,7 @@ const AuthInput = forwardRef<HTMLInputElement, TextInputProps>(
     return (
       <div className="w-full relative">
         <div
-          className={`w-[19.5rem] rounded-xl border border-solid  ${
+          className={`${className} rounded-xl border border-solid  ${
             isError ? "border-red-500" : "border-semantic-grey-2"
           } rounded-lg p-2`}
         >

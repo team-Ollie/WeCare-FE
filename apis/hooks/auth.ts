@@ -8,8 +8,9 @@ function useGetCenterList() {
   const { data } = useQuery({
     queryKey: ["getCenterList"],
     queryFn: getCenterList,
-    onError: () => {
+    onError: (error: Error) => {
       window.alert("새로고침 해주세요.");
+      console.error(error);
     },
   });
 

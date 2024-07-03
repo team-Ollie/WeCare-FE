@@ -9,6 +9,9 @@ import { useState, useCallback, useRef } from "react";
 import { useRouter } from "next/router";
 import "react-toastify/dist/ReactToastify.css";
 import CheckIcon from "@/public/svgs/Check.svg";
+import FlexBox from "@/components/Flexbox";
+import { usePostNicknameCheck } from "@/apis/hooks/mypage";
+import { InputError } from "./mypage/password";
 
 const SignUp: NextPage = () => {
   //input용
@@ -46,6 +49,44 @@ const SignUp: NextPage = () => {
   const { data } = useGetCenterList();
   const { mutate: signUpMutate } = useSignUp(userInfo);
 
+  //중복 확인
+  const [nameError, setNameError] = useState<InputError>({
+    status: false,
+    text: "",
+  });
+
+  const onClickCheckBtn = () => {
+    if (checkNicknameValidity()) nameCheckMutate();
+  };
+
+  const [tempName, setTempName] = useState<string>("");
+  const checkNicknameValidity = () => {
+    setTempName(userInfo.nickname);
+    if (userInfo.nickname.length > 8) {
+      setNameError({
+        status: true,
+        text: "닉네임 최대 길이는 8자입니다.",
+      });
+      return false;
+    }
+
+    const regex = /^[가-힣a-zA-Z0-9\s]*$/;
+    if (!regex.test(userInfo.nickname)) {
+      setNameError({
+        status: true,
+        text: "닉네임은 영어, 한글, 숫자로만 구성할 수 있습니다.",
+      });
+      return false;
+    }
+
+    return true;
+  };
+
+  const { mutate: nameCheckMutate } = usePostNicknameCheck(
+    userInfo.nickname,
+    setNameError,
+  );
+
   return (
     <div className="flex flex-col w-full h-screen items-center">
       <HeadFunction title="회원가입" />
@@ -56,14 +97,25 @@ const SignUp: NextPage = () => {
         <div className="flex flex-col gap-3">
           <TextLine children={"아이디"} className="pl-1" />
 
-          <AuthInput
-            placeholder="아이디를 입력하세요"
-            name="loginId"
-            ref={idInputRef}
-            value={userInfo.loginId}
-            onChange={onChange}
-            maxLength={16}
-          />
+          <FlexBox className="w-full gap-2">
+            <AuthInput
+              placeholder="아이디를 입력하세요"
+              name="loginId"
+              ref={idInputRef}
+              value={userInfo.loginId}
+              onChange={onChange}
+              maxLength={16}
+              className="flex-grow"
+            />
+            <button
+              className="shrink-0 px-3 py-2.5 border border-main-color text-main-color rounded-lg h5"
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
+              중복
+            </button>
+          </FlexBox>
 
           <TextLine children={"비밀번호"} className="pl-1" />
 
@@ -73,18 +125,30 @@ const SignUp: NextPage = () => {
             ref={pwInputRef}
             value={userInfo.password}
             onChange={onChange}
+            className={"w-[19.5rem]"}
           />
 
           <TextLine children={"닉네임"} className="pl-1" />
-
-          <AuthInput
-            placeholder="한글, 영어, 숫자 포함 최대 8자"
-            name="nickname"
-            ref={nicknameInputRef}
-            value={userInfo.nickname}
-            onChange={onChange}
-            maxLength={8}
-          />
+          <FlexBox className="w-full gap-2">
+            <AuthInput
+              placeholder="한글, 영어, 숫자 포함 최대 8자"
+              name="nickname"
+              ref={nicknameInputRef}
+              value={userInfo.nickname}
+              onChange={onChange}
+              maxLength={8}
+              calssName="flex-grow"
+            />
+            <button
+              className="shrink-0 px-3 py-2.5 border border-main-color text-main-color rounded-lg h5"
+              onClick={(e) => {
+                e.preventDefault();
+                onClickCheckBtn();
+              }}
+            >
+              중복
+            </button>
+          </FlexBox>
 
           <TextLine children={"식별번호"} className="pl-1" />
 
@@ -95,6 +159,7 @@ const SignUp: NextPage = () => {
             value={userInfo.identifier}
             maxLength={10}
             onChange={onChange}
+            className={"w-[19.5rem]"}
           />
 
           <TextLine children={"소속센터"} className="pl-1" />
