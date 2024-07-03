@@ -26,7 +26,7 @@ function useSignUp(userData: userProps) {
     onSuccess: () => {
       router.push("/login");
     },
-    onError: () => {
+    onError: (error: Error) => {
       window.alert("다시 회원가입해주세요.");
       router.push("/main");
     },
