@@ -1,48 +1,52 @@
 import Button from "@/components/Button";
 import HeadFunction from "@/components/HeadFunction";
+import TextInput from "@/components/Input";
+import AuthInput from "@/components/auth/AuthInput";
+import { TextLine } from "@/components/calendar/CalendarModal";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useState, useEffect, useCallback, useRef } from "react";
 
+interface userProps {
+  loginId: string;
+  password: string;
+  nickname: string;
+  identifier: string;
+  centerIdx: number;
+}
+
 const SignUp: NextPage = () => {
   const router = useRouter();
 
-  const [idValue, setIDValue] = useState<string>("");
-  const [pwValue, setPWValue] = useState<string>("");
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [userInfo, setUserInfo] = useState<userProps>({
+    loginId: "",
+    password: "",
+    nickname: "",
+    identifier: "",
+    centerIdx: 0,
+  });
 
   //input 함수
-  //onChange
-  const onChangeID = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIDValue(e.target.value);
-  };
-
-  const onChangePW = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPWValue(e.target.value);
-  };
 
   //inputRef설정 함수
-  const handleInputClick = (e: React.MouseEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    inputRef.current?.focus();
+  const idInputRef = useRef<HTMLInputElement>(null);
+  const pwInputRef = useRef<HTMLInputElement>(null);
+  const nicknameInputRef = useRef<HTMLInputElement>(null);
+  const idfInputRef = useRef<HTMLInputElement>(null);
+  const cidInputRef = useRef<HTMLInputElement>(null);
+
+  //onChange
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(userInfo);
+    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
+
   //onSubmit
   const onSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-
-      //입력한 값이 없을 때 alert 추가
-      if (idValue.trim() == "") {
-        alert("아이디를 입력해주세요.");
-      } else if (pwValue.trim() == "") {
-        // createChatting(inputValue);
-        alert("비밀번호를 입력해주세요.");
-      } else {
-        //api
-      }
     },
-    [idValue, pwValue],
+    [userInfo],
   );
 
   return (
@@ -50,30 +54,57 @@ const SignUp: NextPage = () => {
       <HeadFunction title="회원가입" />
       <form
         onSubmit={onSubmit}
-        className="h-screen justify-center flex flex-col gap-9"
+        className="h-screen justify-center flex flex-col gap-9 overflow-auto scrollbar-hide"
       >
         <div className="flex flex-col gap-3">
-          <input
+          <TextLine children={"아이디"} className="pl-1" />
+
+          <AuthInput
             placeholder="아이디를 입력하세요"
-            ref={inputRef}
-            value={idValue}
-            onChange={onChangeID}
-            onClick={handleInputClick}
-            className="h-[3rem] w-[19.5rem] rounded-xl border border-solid border-semantic-grey-2 pl-[1rem]"
+            name="loginId"
+            ref={idInputRef}
+            value={userInfo.loginId}
+            onChange={onChange}
+            maxLength={16}
           />
 
-          <input
+          <TextLine children={"비밀번호"} className="pl-1" />
+
+          <AuthInput
             placeholder="비밀번호를 입력하세요"
-            ref={inputRef}
-            value={pwValue}
-            onChange={onChangePW}
-            onClick={handleInputClick}
-            className="h-[3rem] w-[19.5rem] rounded-xl border border-solid border-semantic-grey-2 pl-[1rem]"
+            name="password"
+            ref={pwInputRef}
+            value={userInfo.password}
+            onChange={onChange}
           />
+
+          <TextLine children={"닉네임"} className="pl-1" />
+
+          <AuthInput
+            placeholder="한글, 영어, 숫자 포함 최대 8자"
+            name="nickname"
+            ref={nicknameInputRef}
+            value={userInfo.nickname}
+            onChange={onChange}
+            maxLength={8}
+          />
+
+          <TextLine children={"식별번호"} className="pl-1" />
+
+          <AuthInput
+            placeholder="이름과 전화번호 뒷자리 4개를 입력해주세요."
+            name="identifier"
+            ref={idfInputRef}
+            value={userInfo.identifier}
+            maxLength={10}
+            onChange={onChange}
+          />
+
+          <TextLine children={"소속센터"} className="pl-1" />
         </div>
         <button type="submit">
           <Button
-            text="로그인"
+            text="회원가입"
             style="w-[20rem] bg-main-100 py-[0.8rem] h2 text-grey-700"
             onClick={() => {}}
           />

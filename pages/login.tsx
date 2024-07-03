@@ -9,6 +9,7 @@ import { ResponseBody, setTokenFromLocalStorage } from "@/apis/client";
 import { SignIn } from "@/apis/auth";
 import { atom, useAtom } from "jotai";
 import { centerNameAtom, isAdminAtom } from "@/utils/atom";
+import AuthInput from "@/components/auth/AuthInput";
 
 interface userProps {
   loginId: string;
@@ -62,7 +63,7 @@ const Login: NextPage = () => {
       alert("로그인에 성공하였습니다");
     },
     onError: (error) => {
-      alert("로그인에 실패하였습니다");
+      alert("아이디나 비밀번호가 틀렸습니다.");
     },
   });
 
@@ -75,24 +76,21 @@ const Login: NextPage = () => {
       >
         <LogoLetterIcon />
         <div className="flex flex-col gap-3">
-          <input
+          <AuthInput
             placeholder="아이디를 입력하세요"
             name="loginId"
             ref={idInputRef}
             value={userInfo.loginId}
             onChange={onChange}
-            required
-            className="h-[3rem] w-[19.5rem] rounded-xl border border-solid border-semantic-grey-2 pl-[1rem]"
           />
 
-          <input
+          <AuthInput
             placeholder="비밀번호를 입력하세요"
+            type="password"
             name="password"
             ref={pwInputRef}
             value={userInfo.password}
             onChange={onChange}
-            required
-            className="h-[3rem] w-[19.5rem] rounded-xl border border-solid border-semantic-grey-2 pl-[1rem]"
           />
         </div>
         <button type="submit" className="w-full">
