@@ -65,13 +65,13 @@ export type centerProps = {
 };
 
 export interface getCenterListBody {
-  ceterList: centerProps[];
+  centerList: centerProps[];
 }
 
 export const getCenterList = async () => {
   try {
     const response = await client.get("/users/signupView");
-    return response.data.result.ceterList;
+    return response.data.result.centerList;
   } catch (error) {
     if (error.response) {
       console.error(error.response);
