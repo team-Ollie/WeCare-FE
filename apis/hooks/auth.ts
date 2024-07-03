@@ -3,8 +3,6 @@ import { SignUp, getCenterList, userProps } from "../auth";
 import { useRouter } from "next/router";
 
 function useGetCenterList() {
-  const router = useRouter();
-
   const { data } = useQuery({
     queryKey: ["getCenterList"],
     queryFn: getCenterList,

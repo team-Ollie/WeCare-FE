@@ -66,9 +66,6 @@ export type centerProps = {
 
 export interface getCenterListBody {
   ceterList: centerProps[];
-  isSuccess: boolean;
-  code: number;
-  message: string;
 }
 
 export const getCenterList = async (): Promise<getCenterListBody> => {
