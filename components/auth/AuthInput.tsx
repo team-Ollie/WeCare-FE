@@ -3,8 +3,7 @@ import { ChangeEvent, HTMLInputTypeAttribute, forwardRef } from "react";
 export interface TextInputProps {
   className?: string;
   value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
-  isError: boolean;
+  isError?: boolean;
   errorText?: string;
   placeholder?: string;
   type?: HTMLInputTypeAttribute;
