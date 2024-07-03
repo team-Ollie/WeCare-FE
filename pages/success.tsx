@@ -20,17 +20,21 @@ const SignupSuccess: NextPage = () => {
   });
 
   return (
-    <FlexBox direction="col" className="w-full h-full justify-center">
-      <div className="w-1/5 aspect-square" ref={lottieRef} />
-      <div className="h4 text-center mb-12">회원가입을 완료하였습니다!</div>
-      <div className="grid grid-cols-2 gap-2 w-full px-6">
+    <div className="w-full h-full flex flex justify-center items-center">
+      <FlexBox
+        direction="col"
+        className="w-[90%] h-full items-center justify-center"
+      >
+        <div className="w-1/5 aspect-square" ref={lottieRef} />
+        <div className="h4 text-center mb-12">회원가입을 완료하였습니다!</div>
+
         <Button
           text="로그인하러 가기"
           style="bg-main-100 text-grey-900"
           onClick={() => router.push("/login")}
         />
-      </div>
-    </FlexBox>
+      </FlexBox>
+    </div>
   );
 };
 
