@@ -21,7 +21,7 @@ const SignUp: NextPage = () => {
     password: "",
     nickname: "",
     identifier: "",
-    centerIdx: 0,
+    centerIdx: 1,
   });
 
   //inputRef설정 함수
@@ -29,7 +29,6 @@ const SignUp: NextPage = () => {
   const pwInputRef = useRef<HTMLInputElement>(null);
   const nicknameInputRef = useRef<HTMLInputElement>(null);
   const idfInputRef = useRef<HTMLInputElement>(null);
-  const cidInputRef = useRef<HTMLInputElement>(null);
 
   //onChange
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
