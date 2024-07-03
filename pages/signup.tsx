@@ -137,7 +137,7 @@ const SignUp: NextPage = () => {
               value={userInfo.nickname}
               onChange={onChange}
               maxLength={8}
-              calssName="flex-grow"
+              className="flex-grow"
             />
             <button
               className="shrink-0 px-3 py-2.5 border border-main-color text-main-color rounded-lg h5"
