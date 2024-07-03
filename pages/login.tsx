@@ -1,15 +1,16 @@
 import HeadFunction from "@/components/HeadFunction";
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useCallback, useRef } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import Button from "@/components/Button";
 import LogoLetterIcon from "@/public/svgs/LogoLetter.svg";
 import { useMutation } from "@tanstack/react-query";
-import { ResponseBody, setTokenFromLocalStorage } from "@/apis/client";
-import { SignIn } from "@/apis/auth";
+import { setTokenFromLocalStorage } from "@/apis/client";
+
 import { atom, useAtom } from "jotai";
 import { centerNameAtom, isAdminAtom } from "@/utils/atom";
 import AuthInput from "@/components/auth/AuthInput";
+import { SignIn } from "@/apis/auth";
 
 interface userProps {
   loginId: string;
@@ -93,10 +94,10 @@ const Login: NextPage = () => {
             onChange={onChange}
           />
         </div>
-        <button type="submit" className="w-full">
+        <button type="submit" className="w-[20rem]">
           <Button
             text="로그인"
-            style="w-full bg-main-100 py-[0.8rem] h2 text-grey-700"
+            style="w-full bg-main-100 py-[0.6rem] text-grey-700"
             onClick={() => {}}
           />
         </button>

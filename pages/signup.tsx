@@ -1,22 +1,18 @@
+import { centerProps, userProps } from "@/apis/auth";
+import { useGetCenterList } from "@/apis/hooks/auth";
 import Button from "@/components/Button";
 import HeadFunction from "@/components/HeadFunction";
-import TextInput from "@/components/Input";
 import AuthInput from "@/components/auth/AuthInput";
 import { TextLine } from "@/components/calendar/CalendarModal";
 import { NextPage } from "next";
-import { useRouter } from "next/router";
 import { useState, useEffect, useCallback, useRef } from "react";
 
-interface userProps {
-  loginId: string;
-  password: string;
-  nickname: string;
-  identifier: string;
-  centerIdx: number;
-}
-
 const SignUp: NextPage = () => {
-  const router = useRouter();
+  //api 호출
+  const { data } = useGetCenterList();
+  // console.log("데이터:", data);
+
+  //input용
 
   const [userInfo, setUserInfo] = useState<userProps>({
     loginId: "",
@@ -25,8 +21,6 @@ const SignUp: NextPage = () => {
     identifier: "",
     centerIdx: 0,
   });
-
-  //input 함수
 
   //inputRef설정 함수
   const idInputRef = useRef<HTMLInputElement>(null);
@@ -54,7 +48,7 @@ const SignUp: NextPage = () => {
       <HeadFunction title="회원가입" />
       <form
         onSubmit={onSubmit}
-        className="h-screen justify-center flex flex-col gap-9 overflow-auto scrollbar-hide"
+        className="h-screen w-full items-center flex flex-col gap-9 overflow-auto scrollbar-hide mt-5"
       >
         <div className="flex flex-col gap-3">
           <TextLine children={"아이디"} className="pl-1" />
@@ -101,11 +95,29 @@ const SignUp: NextPage = () => {
           />
 
           <TextLine children={"소속센터"} className="pl-1" />
+          {data && (
+            <select
+              className="border h-9 rounded-xl px-2"
+              value={userInfo.centerIdx}
+              onChange={(e) =>
+                setUserInfo({
+                  ...userInfo,
+                  centerIdx: e.target.value,
+                })
+              }
+            >
+              {data.map((center: centerProps) => (
+                <option key={center.centerIdx} value={center.centerIdx}>
+                  {center.name}
+                </option>
+              ))}
+            </select>
+          )}
         </div>
-        <button type="submit">
+        <button type="submit" className="w-[20rem] absolute bottom-[3.75rem]">
           <Button
             text="회원가입"
-            style="w-[20rem] bg-main-100 py-[0.8rem] h2 text-grey-700"
+            style="bg-main-100 py-[0.6rem] text-grey-700"
             onClick={() => {}}
           />
         </button>
