@@ -1,4 +1,4 @@
-import client, { ResponseBody } from "./client";
+import client from "./client";
 
 export const SignIn = async (userData: {
   loginId: string;

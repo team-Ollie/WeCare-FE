@@ -1,17 +1,16 @@
 import { centerProps, userProps } from "@/apis/auth";
-import { useGetCenterList } from "@/apis/hooks/auth";
+import { useGetCenterList, useSignUp } from "@/apis/hooks/auth";
 import Button from "@/components/Button";
 import HeadFunction from "@/components/HeadFunction";
 import AuthInput from "@/components/auth/AuthInput";
 import { TextLine } from "@/components/calendar/CalendarModal";
 import { NextPage } from "next";
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useCallback, useRef } from "react";
+import { useRouter } from "next/router";
+import "react-toastify/dist/ReactToastify.css";
+import CheckIcon from "@/public/svgs/Check.svg";
 
 const SignUp: NextPage = () => {
-  //api 호출
-  const { data } = useGetCenterList();
-  // console.log("데이터:", data);
-
   //input용
 
   const [userInfo, setUserInfo] = useState<userProps>({
@@ -31,7 +30,6 @@ const SignUp: NextPage = () => {
 
   //onChange
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(userInfo);
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
 
@@ -39,9 +37,14 @@ const SignUp: NextPage = () => {
   const onSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
+      signUpMutate();
     },
     [userInfo],
   );
+
+  //api 호출
+  const { data } = useGetCenterList();
+  const { mutate: signUpMutate } = useSignUp(userInfo);
 
   return (
     <div className="flex flex-col w-full h-screen items-center">

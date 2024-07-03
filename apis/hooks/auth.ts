@@ -1,5 +1,5 @@
 import { useQuery, useMutation } from "@tanstack/react-query";
-import { getCenterList } from "../auth";
+import { SignUp, getCenterList, userProps } from "../auth";
 import { useRouter } from "next/router";
 
 function useGetCenterList() {
@@ -16,22 +16,22 @@ function useGetCenterList() {
   return { data };
 }
 
-export { useGetCenterList };
+function useSignUp(userData: userProps) {
+  const router = useRouter();
 
-// export const useSignUp = async () => {
-//   const router = useRouter();
+  const { mutate } = useMutation({
+    mutationKey: ["signUp"],
+    mutationFn: () => SignUp(userData),
+    onSuccess: () => {
+      router.push("/login");
+    },
+    onError: () => {
+      window.alert("다시 회원가입해주세요.");
+      router.push("/main");
+    },
+  });
 
-//   const { data } = useQuery({
-//     queryKey: [""],
-//     queryFn: ,
-//     onSuccess: () => {
-//       window.alert("회원가입 성공");
-//     },
-//     onError: () => {
-//       window.alert("다시 회원가입해주세요.");
-//       router.push("/404");
-//     },
-//   });
+  return { mutate };
+}
 
-//   return { data };
-// };
+export { useGetCenterList, useSignUp };
