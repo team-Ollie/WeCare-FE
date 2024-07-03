@@ -106,14 +106,14 @@ const SignUp: NextPage = () => {
               maxLength={16}
               className="flex-grow"
             />
-            <button
+            {/* <button
               className="shrink-0 px-3 py-2.5 border border-main-color text-main-color rounded-lg h5"
               onClick={(e) => {
                 e.preventDefault();
               }}
             >
               중복
-            </button>
+            </button> */}
           </FlexBox>
 
           <TextLine children={"비밀번호"} className="pl-1" />
@@ -138,7 +138,7 @@ const SignUp: NextPage = () => {
               maxLength={8}
               className="flex-grow"
             />
-            <button
+            {/* <button
               className="shrink-0 px-3 py-2.5 border border-main-color text-main-color rounded-lg h5"
               onClick={(e) => {
                 e.preventDefault();
@@ -146,7 +146,7 @@ const SignUp: NextPage = () => {
               }}
             >
               중복
-            </button>
+            </button> */}
           </FlexBox>
 
           <TextLine children={"식별번호"} className="pl-1" />
