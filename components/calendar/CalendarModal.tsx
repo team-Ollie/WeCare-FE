@@ -72,7 +72,7 @@ interface TextProps {
   addExpBack?: string;
 }
 
-function TextLine({
+export function TextLine({
   title,
   className,
   children,
