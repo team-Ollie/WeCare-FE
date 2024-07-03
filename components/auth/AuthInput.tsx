@@ -37,7 +37,7 @@ const AuthInput = forwardRef<HTMLInputElement, TextInputProps>(
           <input
             type={type}
             name={name}
-            className="w-full outline-none border-none h4 placeholder:text-grey-400 pl-1"
+            className="w-full outline-none border-none h4 leading-normal placeholder:text-grey-400 pl-1"
             value={value}
             onChange={onChange}
             placeholder={placeholder}
