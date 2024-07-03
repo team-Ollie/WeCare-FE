@@ -17,7 +17,7 @@ function useSignUp(userData: userProps) {
     mutationKey: ["signUp"],
     mutationFn: () => SignUp(userData),
     onSuccess: () => {
-      route.push("/success");
+      router.push("/success");
     },
     onError: (error: Error) => {
       window.alert("다시 회원가입해주세요.");
