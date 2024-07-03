@@ -68,7 +68,7 @@ export interface getCenterListBody {
   ceterList: centerProps[];
 }
 
-export const getCenterList = async (): Promise<getCenterListBody> => {
+export const getCenterList = async () => {
   try {
     const response = await client.get("/users/signupView");
     return response.data.result.ceterList;
