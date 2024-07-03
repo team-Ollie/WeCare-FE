@@ -83,6 +83,7 @@ const Login: NextPage = () => {
             ref={idInputRef}
             value={userInfo.loginId}
             onChange={onChange}
+            className="w-[19.5rem]"
           />
 
           <AuthInput
@@ -92,6 +93,7 @@ const Login: NextPage = () => {
             ref={pwInputRef}
             value={userInfo.password}
             onChange={onChange}
+            className="w-[19.5rem]"
           />
         </div>
         <button type="submit" className="w-[20rem]">
