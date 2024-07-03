@@ -170,7 +170,7 @@ const SignUp: NextPage = () => {
               onChange={(e) =>
                 setUserInfo({
                   ...userInfo,
-                  centerIdx: e.target.value,
+                  centerIdx: parseInt(e.target.value, 10),
                 })
               }
             >
