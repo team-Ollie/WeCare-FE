@@ -10,7 +10,7 @@ export interface TextInputProps {
   name: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   maxLength?: number;
-  isSuccess: boolean;
+  isSuccess?: boolean;
 }
 
 const AuthInput = forwardRef<HTMLInputElement, TextInputProps>(
