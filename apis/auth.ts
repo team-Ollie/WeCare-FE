@@ -79,3 +79,18 @@ export const getCenterList = async () => {
     throw error;
   }
 };
+
+interface IdCheckResponseBody {
+  timestamp: string;
+  status: number;
+  error: string;
+  code: string;
+  message: string;
+}
+
+async function postIdCheck(loginId: string): Promise<IdCheckResponseBody> {
+  const { data } = await client.post(`/users/loginId`, { loginId });
+  return data;
+}
+
+export { postIdCheck };

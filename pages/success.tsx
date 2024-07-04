@@ -20,7 +20,7 @@ const SignupSuccess: NextPage = () => {
   });
 
   return (
-    <div className="w-full h-full flex flex justify-center items-center">
+    <div className="w-screen h-screen flex flex justify-center items-center">
       <FlexBox
         direction="col"
         className="w-[90%] h-full items-center justify-center"
@@ -31,7 +31,7 @@ const SignupSuccess: NextPage = () => {
         <Button
           text="로그인하러 가기"
           style="bg-main-100 text-grey-900"
-          onClick={() => router.push("/login")}
+          onClick={() => router.push("/main")}
         />
       </FlexBox>
     </div>
