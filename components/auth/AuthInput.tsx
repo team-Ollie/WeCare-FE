@@ -10,6 +10,7 @@ export interface TextInputProps {
   name: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   maxLength?: number;
+  isSuccess: boolean;
 }
 
 const AuthInput = forwardRef<HTMLInputElement, TextInputProps>(
@@ -24,16 +25,19 @@ const AuthInput = forwardRef<HTMLInputElement, TextInputProps>(
       name,
       onChange,
       maxLength = 10,
+      isSuccess = false,
     },
     ref,
   ) => {
+    const borderStyle = () => {
+      if (isSuccess) return "border-green-600";
+      else if (isError) return "border-red-500";
+      return "border-solid";
+    };
+
     return (
       <div className="w-full relative">
-        <div
-          className={`${className} rounded-xl border border-solid  ${
-            isError ? "border-red-500" : "border-semantic-grey-2"
-          } rounded-lg p-2`}
-        >
+        <div className={`${className} border ${borderStyle()} rounded-xl p-2`}>
           <input
             type={type}
             name={name}
@@ -46,7 +50,7 @@ const AuthInput = forwardRef<HTMLInputElement, TextInputProps>(
           />
         </div>
         {isError && (
-          <div className="text-red-500 h5 px-2 absolute">{errorText}</div>
+          <div className="text-red-500 h6 px-2 absolute">{errorText}</div>
         )}
       </div>
     );
