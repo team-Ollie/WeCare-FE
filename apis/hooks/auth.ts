@@ -1,6 +1,7 @@
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { SignUp, getCenterList, postIdCheck, userProps } from "../auth";
 import { useRouter } from "next/router";
+import { InputError } from "@/pages/mypage/password";
 
 function useGetCenterList() {
   const { data } = useQuery({
