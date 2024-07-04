@@ -255,6 +255,14 @@ const SignUp: NextPage = () => {
             text="회원가입"
             style="bg-main-100 py-[0.6rem] text-grey-700"
             onClick={() => {}}
+            disabled={
+              tempId.length === 0 ||
+              idError.status ||
+              userInfo.loginId.length === 0 ||
+              tempName.length === 0 ||
+              nameError.status ||
+              userInfo.nickname.length === 0
+            }
           />
         </button>
       </form>
