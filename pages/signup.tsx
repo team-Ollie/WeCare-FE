@@ -263,7 +263,7 @@ const SignUp: NextPage = () => {
               tempName.length === 0 ||
               nameError.status ||
               userInfo.nickname.length === 0 ||
-              userInfo.identifier.length >= 6
+              userInfo.identifier.length < 6
             }
           />
         </button>
