@@ -253,8 +253,18 @@ const SignUp: NextPage = () => {
         <button type="submit" className="w-[20rem] absolute bottom-[3.75rem]">
           <Button
             text="회원가입"
-            style="bg-main-100 py-[0.6rem] text-grey-700"
+            style="bg-main-100 py-[0.6rem] text-grey-700  disabled:bg-grey-300 disabled:text-grey-500"
             onClick={() => {}}
+            disabled={
+              tempId.length === 0 ||
+              idError.status ||
+              userInfo.loginId.length === 0 ||
+              userInfo.password.length === 0 ||
+              tempName.length === 0 ||
+              nameError.status ||
+              userInfo.nickname.length === 0 ||
+              userInfo.identifier.length < 6
+            }
           />
         </button>
       </form>
