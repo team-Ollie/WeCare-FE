@@ -1,6 +1,8 @@
 # WeCare
 
-# <a href="https://team-ollie.github.io/WeCare-FE/main"><img src="https://github.com/team-Ollie/WeCare-FE/assets/52371699/a50357ab-a196-4b63-af5d-aa8f94119c6a" align="left" width="200"></a> 
+<br />
+
+<a href="https://team-ollie.github.io/WeCare-FE/main"><img src="https://github.com/team-Ollie/WeCare-FE/assets/52371699/a50357ab-a196-4b63-af5d-aa8f94119c6a" align="left" width="200"></a> 
 
 **노숙인 프로그램 참여 독려를 위한, 챌린지 서비스 WeCare**
 
