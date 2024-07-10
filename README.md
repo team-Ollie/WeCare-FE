@@ -1,4 +1,6 @@
-<a href="https://team-ollie.github.io/WeCare-FE/main"><img src="https://github.com/team-Ollie/WeCare-FE/assets/52371699/a50357ab-a196-4b63-af5d-aa8f94119c6a" align="center" width="80%"></a>
+<div width="100%" align="center">
+<a href="https://team-ollie.github.io/WeCare-FE/main"><img src="https://github.com/team-Ollie/WeCare-FE/assets/52371699/a50357ab-a196-4b63-af5d-aa8f94119c6a" align="center" width="60%"></a>
+</div>
 <br />
 
 # WeCare
