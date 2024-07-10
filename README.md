@@ -1,4 +1,5 @@
 # <a href="https://team-ollie.github.io/WeCare-FE/main"><img src="https://github.com/team-Ollie/WeCare-FE/assets/52371699/a50357ab-a196-4b63-af5d-aa8f94119c6a" align="left" width="200"></a> **WeCare**
+<br />
 **노숙인 프로그램 참여 독려를 위한, 챌린지 서비스 WeCare**
 
 <br />
@@ -58,12 +59,12 @@
 # Member
 ## Front-end
 
-| <img src="https://avatars.githubusercontent.com/u/82135534?v=4" width="130" height="130"> | <img src ="https://avatars.githubusercontent.com/u/52371699?v=4" width="130" height="130"> | 
+| <img src="https://github.com/leejin-rho.png" width="130" height="130"> | <img src ="https://github.com/iOdiO89.png" width="130" height="130"> | 
 | :---------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
 |         [노이진](https://github.com/leejin-rho)                             |      [정선아](https://github.com/iOdiO89)                  |
 
 ## Back-end
 
-| <img src="https://avatars.githubusercontent.com/u/48885608?v=4" width="130" height="130"> | <img src ="https://avatars.githubusercontent.com/u/89639470?v=4" width="130" height="130"> | 
+| <img src="https://github.com/JoongHyun-Kim.png" width="130" height="130"> | <img src ="https://github.com/Haeun-Y.png" width="130" height="130"> | 
 | :---------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
-|                         [김중현](https://github.com/JoongHyun-Kim)                           |                          [이하은](https://github.com/Haeun-Y)                            |
+|                         [김중현](https://github.com/JoongHyun-Kim)                           |                          [윤하은](https://github.com/Haeun-Y)                            |
