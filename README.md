@@ -5,7 +5,7 @@
 
 # Tech Stack
 ## Front-end
-<img src="https://img.shields.io/badge/nextdotjs-61DAFB?style=for-the-badge&logo=nextdotjs&logoColor=black"><img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"><img src="https://img.shields.io/badge/reactquery-FF4154?style=for-the-badge&logo=reactquery&logoColor=white"><img src="https://img.shields.io/badge/jotai-000000?style=for-the-badge&logo=jotai&logoColor=white"><img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">
+<img src="https://img.shields.io/badge/nextjs-61DAFB?style=for-the-badge&logo=nextdotjs&logoColor=black"><img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"><img src="https://img.shields.io/badge/reactquery-FF4154?style=for-the-badge&logo=reactquery&logoColor=white"><img src="https://img.shields.io/badge/jotai-000000?style=for-the-badge&logo=jotai&logoColor=white"><img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">
 
 
 ## Cowork tools
@@ -17,7 +17,43 @@
 
 # Directory
 
+```
+/src
+├─ apis
+│  ├─ client.ts
+│  │
+│  └─ hooks
+│
+├─ components
+│  ├─ auth
+│  ├─ calendar
+│  ├─ challenge
+│  ├─ home
+│  └─ mypage
+│  
+├─ pages
+│  ├─ challenge
+│  │  └─ index.ts
+│  │
+│  ├─ mypage
+│  │  └─ index.ts
+│  │
+│  ├─ _app.tsx
+│  ├─ 404.tsx
+│  └─ index.tsx
+│
+├─ public
+│  ├─ fonts
+│  ├─ lotties
+│  ├─ pngs
+│  └─ svgs
+│  
+├─ styles
+│ 
+└─ utils 
 
+```
+<br />
 
 # Member
 ## Front-end
