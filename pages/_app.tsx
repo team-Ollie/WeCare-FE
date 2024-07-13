@@ -28,12 +28,12 @@ export default function App({ Component, pageProps }: AppProps) {
           property="og:description"
           content="노숙인 프로그램 참여 독려를 위한, 기관 프로그램 챌린지 서비스 WeCare"
         />
-        <meta property="og:image" content="@/public/pngs/ogTag.png" />
+        <meta property="og:image" content="/pngs/ogTag.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="627" />
         <meta property="og:locale" content="ko_KR" />
         <meta property="og:site_name" content="위케어" />
-        <link rel="icon" href="@/public/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <QueryClientProvider client={queryClient}>
