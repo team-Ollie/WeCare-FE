@@ -32,7 +32,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="627" />
         <meta property="og:locale" content="ko_KR" />
-        <meta property="og:site_name" content="사이트 이름" />
+        <meta property="og:site_name" content="위케어" />
+        <link rel="icon" href="@/public/favicon.ico" />
       </Head>
 
       <QueryClientProvider client={queryClient}>
