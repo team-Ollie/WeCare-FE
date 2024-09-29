@@ -72,6 +72,8 @@ yarn start
 
 
 # UI
+<details>
+<summary> WeCare UI </summary>
 <div>
 <img height="400" alt="main" src="https://github.com/user-attachments/assets/2be599ad-8f1e-4410-ba80-f1775921adb0">
 <img height="400" alt="login" src="https://github.com/user-attachments/assets/ea9daf9d-637d-4b93-8803-266e1eeef9c2">
@@ -89,7 +91,6 @@ yarn start
 <img height="400" alt="calendar" src="https://github.com/user-attachments/assets/bcf9c186-7626-492f-9d31-3c0574c59fab">
 <img height="400" alt="calendar" src="https://github.com/user-attachments/assets/769e1ec8-a35f-4c62-9404-bc8af3fc2a2d">
 </div>
-
 <div>
 <img height="400" alt="mypage" src="https://github.com/user-attachments/assets/6fcea908-42e0-489f-8bc4-aeb17bedece9">
 <img height="400" alt="mypage" src="https://github.com/user-attachments/assets/b142fc23-8c3a-4d9f-a497-cac49aeeb2d2">
@@ -98,7 +99,7 @@ yarn start
 <img height="400" alt="mypage" src="https://github.com/user-attachments/assets/f2394dd4-ff17-44ee-aff4-2592c191c92d">
 <img height="400" alt="mypage" src="https://github.com/user-attachments/assets/8c0bd284-949e-4e79-9eee-28ac7db54b49">
 </div>
-
+</details>
 
 
 # Member
